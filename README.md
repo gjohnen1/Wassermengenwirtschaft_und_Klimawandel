@@ -14,11 +14,11 @@ Informationen zum [Erstellen von Büchern und Hosten auf Github Pages](https://j
 
 Nach dem Aktualisieren von Inhalten, wird das Buch neu kompiliert:
 
-`jupyter-book build content/`
+`jupyter-book build Inhalt/`
 
 Anschließend muss die GitHub Pages Seite aktualisiert werden. Hierzu kann das gh-pages Branch Update Tool verwendet werden:
 
-`ghp-import -n -p -f content/_build/html`
+`ghp-import -n -p -f Inhalt/_build/html`
 
 [Besuchen Sie die Seite](https://gjohnen1.github.io/Wassermengenwirtschaft_und_Klimawandel/) auf Github-Pages
 
