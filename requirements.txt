@@ -1,0 +1,8 @@
+bokeh
+numpy
+pandas
+scipy
+matplotlib
+pysheds
+rasterio
+jupyter_bokeh
