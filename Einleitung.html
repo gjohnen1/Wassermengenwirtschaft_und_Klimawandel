@@ -64,7 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'Einleitung';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Notizbuch 1: Zeitbeiwertverfahren, Einheitsganglinie, Block- und detaillierte Modelle" href="Notebooks/Notebook_1/Notebook_1.html" />
+    <link rel="next" title="Wichtige Funktionen in Python" href="Notebooks/Einleitung/Einf%C3%BChrung_Datenimport.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -155,9 +155,19 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">HYDROLOGISCHE MODELLIERUNG</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">EINFÜHRUNG IN PYTHON</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Notebooks/Notebook_1/Notebook_1.html">Notizbuch 1: Zeitbeiwertverfahren, Einheitsganglinie, Block- und detaillierte Modelle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Notebooks/Einleitung/Einf%C3%BChrung_Datenimport.html">Wichtige Funktionen in Python</a></li>
+
+
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">HYDROLOGISCHE MODELLIERUNG</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Notebooks/Notebook_1/Notebook_1.html">Notebook 1: Zeitbeiwertverfahren, Einheitsganglinie, Block- und detaillierte Modelle</a></li>
 </ul>
 
     </div>
@@ -354,7 +364,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#erste-schritte-mit-interaktiven-python-notebooks">Erste Schritte mit interaktiven Python-Notebooks</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#einrichtung-und-vorbereitung">Einrichtung und Vorbereitung</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lernressourcen">Lernressourcen</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eine-umfassende-liste-interessanter-nutzlicher-und-leistungsfahiger-jupyter-notebook-beispiele-findet-ihr-hier">Eine umfassende Liste interessanter, nützlicher und leistungsfähiger Jupyter-Notebook-Beispiele findet ihr hier.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eine-umfassende-liste-interessanter-nutzlicher-und-leistungsfahiger-jupyter-notebook-beispiele-findet-man-hier">Eine umfassende Liste interessanter, nützlicher und leistungsfähiger Jupyter-Notebook-Beispiele findet man hier.</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weitere-informationen">Weitere Informationen</a><ul class="nav section-nav flex-column">
@@ -375,59 +385,61 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="vorwort">
 <h1>Vorwort<a class="headerlink" href="#vorwort" title="Permalink to this heading">#</a></h1>
-<p>Dieses Juypter-Book besteht aus einer Reihe interaktiver Jupyter-Notebooks zum Thema Wassermengenwirtschaft und Klimawandel. Es wurde ursprünglich von <a class="reference external" href="https://civil.ubc.ca/faculty/dan-kovacek/">Dan Kovacek</a> und <a class="reference external" href="https://Civil.ubc.ca/faculty/steven-weijs/">Steven Weijs</a> an der University of British Columbia erstellt und von <a class="reference external" href="https://www.uni-due.de/wasserbau/mitarbeiter_johnen.php">Gregor Johnen</a> ins Deutsche übersetzt und angepasst. Ziel dieser Notebooks ist es, Studierenden die systematische Datenanalyse mithilfe der Open-Source-Software <em>Python</em> und <em>Jupyter-Notebook</em> näherzubringen.</p>
-<p><strong>Von euch als Studierende wird nicht erwartet, dass ihr über Vorkenntnisse in der Programmierung verfügt.</strong> Der Schwerpunkt der Notebooks liegt auf hydrologischen Konzepten und nicht auf der Programmierung selbst, weshalb der erforderliche Code bereitgestellt wird. Jedes Notebook konzentriert sich auf eine bestimmte Komponente der hydrologischen Analyse, und ihr sollt Fragen zu den zugrunde liegenden Konzepten beantworten. Dies erfordert möglicherweise das Ändern von Variablen und das erneute Ausführen von Codeblöcken, um die Ergebnisse im Anschluss zu aktualisieren.</p>
+<p>Dieses Juypter-Book besteht aus einer Reihe interaktiver Jupyter-Notebooks zum Thema Wassermengenwirtschaft und Klimawandel. Es wurde ursprünglich von <a class="reference external" href="https://civil.ubc.ca/faculty/dan-kovacek/">Dan Kovacek</a> und <a class="reference external" href="https://Civil.ubc.ca/faculty/steven-weijs/">Steven Weijs</a> an der University of British Columbia erstellt und von <a class="reference external" href="https://www.uni-due.de/wasserbau/mitarbeiter_johnen.php">Gregor Johnen</a> ins Deutsche übersetzt und angepasst. Ziel der einzelnen Notebooks ist es, Studierenden die systematische Datenanalyse mithilfe der Open-Source-Software <em>Python</em> und <em>Jupyter-Notebooks</em> näherzubringen.</p>
+<p><strong>Es wird nicht erwartet, dass Teilnehmende über Vorkenntnisse der Programmierung verfügen.</strong> Der Schwerpunkt der Notebooks liegt auf hydrologischen Konzepten und nicht auf der Programmierung selbst, weshalb der erforderliche Code bereitgestellt wird. Jedes Notebook konzentriert sich auf eine bestimmte Komponente der hydrologischen Analyse. Anschließen sollten Fragen zu den zugrunde liegenden Konzepten beantwortet werden. Dies erfordert möglicherweise das Ändern von Variablen und das erneute Ausführen von Codeblöcken, um die Ergebnisse im Anschluss zu aktualisieren.</p>
 <blockquote>
-<div><p><strong>Anmerkung</strong>: Der Inhalt dieser Notebooks stellt keine vorgeschriebene bzw. normierte Kombination von Methoden für hydrologische Analysen dar. Vielmehr sollen einige grundlegende Konzepte vorgestellt werden und so zum Nachdenken über Modellunsicherheit und Sensitivität anregen.</p>
+<div><p><strong>Anmerkung</strong>: Der Inhalt dieser Notebooks stellt keine vorgeschriebene bzw. normierte Kombination von Methoden für hydrologische Analysen dar. Vielmehr sollen einige grundlegende Konzepte vorgestellt werden und so zum Nachdenken über Modellunsicherheiten und Sensitivitäten anregen.</p>
 </div></blockquote>
 <section id="erste-schritte-mit-interaktiven-python-notebooks">
 <h2>Erste Schritte mit interaktiven Python-Notebooks<a class="headerlink" href="#erste-schritte-mit-interaktiven-python-notebooks" title="Permalink to this heading">#</a></h2>
-<p>Die Jupyter-Notebooks in diesem Kurs können auf die folgenden Arten aufgerufen werden:</p>
+<p>Die Jupyter-Notebooks in diesem Kurs können auf die folgenden Arten aufgerufen und ausgeführt werden:</p>
 <ul class="simple">
-<li><p><strong>Auf eurem Computer</strong>: Hier wird der Paket- und Umgebungsmanager <a class="reference external" href="https://www.anaconda.com/">Anaconda</a> empfohlen. Die Programmierung in Python ist so vielseitig und leistungsstark, weil sie leistungsstarke Funktionen verwendet, die in anwendungsspezifischen Bibliotheken (bspw. pandas) geschrieben sind.  Anaconda ist die Software, die sicherstellt, dass bei der Nutzungen mehrerer solcher Pakete alles reibungslos läuft. Im Fokus steht dabei ein simples Management von Paketen und Entwicklungsumgebungen. Denn dank dieses Tools müsst ihr nicht jedes Paket separat installieren, sondern bei der Installation werden Python, die wichtigsten Pakete und einige der beliebtesten Entwicklungsumgebungen für euch automatisch mitinstalliert. Nach der Installation von Anaconda könnt ihr anschließend <a class="reference external" href="https://jupyter.org/">Jupyter Lab</a> installieren.</p></li>
-<li><p><strong>In der Cloud</strong>: Die Notebooks können alternativ auch “in der Cloud” mit <a class="reference external" href="https://mybinder.org/">Binder</a> ausgeführt werden. Ihr könnt hierdurch über euren Webbrowser auf die Notebooks zugreifen. Binder ist hier eine super Möglichkeit, euren Code mit anderen zu teilen und eure Arbeit remote bei voller Funktionalität zu präsentieren. WICHTIG zu beachten ist, dass Dateien, auf die auf diese Weise zugegriffen wird, <strong>nicht in der Cloud-Instanz gespeichert</strong> werden können und dass alle vorgenommenen Änderungen lokal auf eurem Computer gespeichert oder neu geschrieben werden müssen, sobald ihr die Instanz verlasst und später neustartet.</p></li>
+<li><p><strong>Auf dem lokalen Rechner</strong>: Hier wird der Paket- und Umgebungsmanager <a class="reference external" href="https://www.anaconda.com/">Anaconda</a> empfohlen. Die Programmierung in Python ist so vielseitig und leistungsstark, weil sie leistungsstarke Funktionen verwendet, die in anwendungsspezifischen Bibliotheken (bspw. pandas) geschrieben sind.  Anaconda ist die Software, die sicherstellt, dass bei der Nutzungen mehrerer solcher Pakete alles reibungslos läuft und keine Versionskonflikte entstehen. Im Fokus steht dabei ein simples Management von Paketen und Entwicklungsumgebungen. Denn dank dieses Tools muss nicht jedes Paket separat installiert werden, sondern bei der Installation werden Python und die wichtigsten Pakete automatisch mitinstalliert. Nach der Installation von Anaconda kann im Anschluss <a class="reference external" href="https://jupyter.org/">Jupyter Lab</a> installiert werden.</p></li>
+<li><p><strong>In der Cloud</strong>: Die Notebooks können alternativ auch “in der Cloud” mit <a class="reference external" href="https://mybinder.org/">Binder</a> ausgeführt werden. Über Binder kann mit dem Webbrowser auf die Notebooks zugegriffen werden, ohne Python oder Anaconda lokal zu installieren. Binder ist hier eine super Möglichkeit, Code mit anderen zu teilen und Projekte remote bei voller Funktionalität zu präsentieren. WICHTIG zu beachten ist, dass Dateien, auf die auf diese Weise zugegriffen wird, <strong>nicht in der Cloud-Instanz gespeichert</strong> werden können und dass alle vorgenommenen Änderungen lokal gespeichert oder neu geschrieben werden müssen, sobald die Instanz verlassen wird und später neu gestartet wird.</p></li>
 </ul>
 <blockquote>
-<div><p><strong>Anmerkung</strong>: Anaconda hat kürzlich eine sog. Paywall eingeführt. Dieses Abonemment ist aber grundsätzlich nicht notwendig, um die Software zu nutzen. Da die komplette Anaconda-Distribution mit allen Paketen sehr viel Speicherplatz auf eurem Rechner verbraucht, gibt es außerdem die Variante <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/user-guide/install/windows.html">Miniconda</a>, die nur Python, Conda sowie ein paar grundlegende Pakete enthält. Diese erfordert demnach auch eine manuelle Installation der in den Jupyter-Notebooks verwendeten Pakete.  Dieser Installationsprozess ist jedoch nicht schwierig und kann wahlweise direkt im Notebook durchgeführt werden. D.h. die Installation von bspw. numpy und pandas wäre einfach eine Sache des Ausführens von <code class="docutils literal notranslate"><span class="pre">!conda</span> <span class="pre">install</span> <span class="pre">numpy</span> <span class="pre">pandas</span></code> in einem Codeblock— Es reicht die Pakete einmal zu installieren, es sei denn, ihr installiert miniconda neu.</p>
+<div><p><strong>Anmerkung</strong>: Anaconda hat kürzlich eine sog. Paywall eingeführt. Dieses Abonemment ist aber grundsätzlich nicht notwendig, um die Software zu nutzen. Da die komplette Anaconda-Distribution mit allen Paketen lokal sehr viel Speicherplatz verbraucht, gibt es außerdem die Variante <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/user-guide/install/windows.html">Miniconda</a>, die nur Python, Conda sowie ein paar grundlegende Pakete enthält. Diese erfordert demnach auch eine manuelle Installation der in den Jupyter-Notebooks verwendeten Pakete.  Dieser Installationsprozess ist jedoch nicht schwierig und kann wahlweise direkt im Notebook durchgeführt werden. D.h. die Installation von bspw. numpy und pandas wäre einfach eine Sache des Ausführens von <code class="docutils literal notranslate"><span class="pre">!conda</span> <span class="pre">install</span> <span class="pre">numpy</span> <span class="pre">pandas</span></code> in einem Codeblock— Es reicht die Pakete einmal zu installieren, es sei denn, man installiert miniconda neu.</p>
 </div></blockquote>
 <section id="einrichtung-und-vorbereitung">
 <h3>Einrichtung und Vorbereitung<a class="headerlink" href="#einrichtung-und-vorbereitung" title="Permalink to this heading">#</a></h3>
-<p>Eine detaillierte Installationsanleitung findet ihr <a class="reference external" href="https://nbviewer.org/github/ehmatthes/intro_programming/blob/master/notebooks/programming_environment.ipynb">hier</a>. Bitte stellt sicher, dass ihr Python installiert habt (Version Python 3.8 oder höher) und dass ihr Jupyter öffnen und ein Notebook  starten können. Notiz: Die Installation von Geany ist hierfür nicht zwingend erforderlich.</p>
-<p>In unserem <a class="reference external" href="https://moodle.uni-due.de/course/view.php?id=12978">Moodle-Kurs</a> wird ein Diskussionsforum zur Installation eingerichtet.  Wenn ihr nach Durchsicht der hier bereitgestellten Materialien immer noch Schwierigkeiten bei der Installation haben solltet, stellt dort eure Fragen dort so detailliert wie möglich. Wir werden euch dann weiterhelfen.</p>
+<p>Eine detaillierte Installationsanleitung findet man <a class="reference external" href="https://nbviewer.org/github/ehmatthes/intro_programming/blob/master/notebooks/programming_environment.ipynb">hier</a>. Es ist sicherzustellen, dass Python installiert ist (Version Python 3.8 oder höher) und dass Jupyter Notebook geöffnet und gestartet werden kann. Notiz: Die Installation von Geany ist hierfür nicht zwingend erforderlich.</p>
+<p>Im <a class="reference external" href="https://moodle.uni-due.de/course/view.php?id=12978">Moodle-Kurs</a> wird ein Diskussionsforum zur Installation eingerichtet.  Wenn nach Durchsicht der hier bereitgestellten Materialien immer noch Schwierigkeiten bei der Installation bestehen, können Fragen dort so detailliert wie möglich gestellt werden. Diese werden zeitnah beantwortet.</p>
 </section>
 <section id="lernressourcen">
 <h3>Lernressourcen<a class="headerlink" href="#lernressourcen" title="Permalink to this heading">#</a></h3>
-<p>Es gibt eine große Vielfalt an Programmiersprachen und Paketen innerhalb einer jeweiligen Programmiersprache. Am Anfang kann die Anzahl der neuen Konzepte beim lernen einer Programmiersprace schnell überwältigend sein und es passiert (und fast jedem von uns), dass man sich nicht gut genug fühlt:</p>
-<p><img alt="Die gute Nachricht ist, wenn ihr erstmal die erste Hürde überwunden hast, schwindet auch die Angst" src="_images/wave_smash.gif" /><br />
+<p>Es gibt eine große Vielfalt an Programmiersprachen und Paketen innerhalb einer jeweiligen Programmiersprache. Am Anfang kann die Anzahl der neuen Konzepte beim lernen einer Programmiersprace schnell überwältigend sein und es passiert (fast jedem von uns), dass man sich dem nicht gewachsen fühlt:</p>
+<p><img alt="Die gute Nachricht ist, wenn diese erste Hürde überwunden ist, schwindet auch die Angst" src="_images/wave_smash.gif" /><br />
 (Quelle: <a class="reference external" href="https://gfycat.com/">Gfycat.com</a>)</p>
-<p>Das Internet ist voll von hervorragenden Lernressourcen! Eine Investition in das Erlernen einiger grundlegender Konzepte ist Ihre Zeit wert. Im Folgenden findet Ihr einige Ressourcen, die euch den Einstieg erleichtern:</p>
+<p>Das Internet ist zudem voll von hervorragenden Lernressourcen! Eine Investition in das Erlernen einiger grundlegender Konzepte ist die Zeit definitiv wert. Im Folgenden sind einige Ressourcen aufgelistet, die einem den Einstieg erleichtern:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://nbviewer.org/github/jupyter/notebook/blob/main/docs/source/examples/Notebook/Running%20Code.ipynb">Wie man Code im Notebook ausführt</a>. Grundlagen der Python-Syntax und der Programmierung im Jupyter-Notebook.</p></li>
+<li><p><a class="reference external" href="https://nbviewer.org/github/jupyter/notebook/blob/main/docs/source/examples/Notebook/Running%20Code.ipynb">Wie führt man Code in einem Notebook aus</a>. Grundlagen der Python-Syntax und der Programmierung im Jupyter-Notebook.</p></li>
 <li><p><a class="reference external" href="http://nbviewer.ipython.org/github/jrjohansson/scientific-python-lectures/blob/master/Lecture-4-Matplotlib.ipynb">Matplotlib</a> ist eine beliebte Bibliothek zur Erstellung einer Vielzahl von Diagrammen.</p></li>
 <li><p><a class="reference external" href="https://nbviewer.org/github/ehmatthes/intro_programming/blob/master/notebooks/index.ipynb">Einführung in Python</a>.  Ein Einführungskurs, der anhand eines interaktiven Python-Notizbuchs in Jupyter unterrichtet wird.</p></li>
 </ul>
 </section>
-<section id="eine-umfassende-liste-interessanter-nutzlicher-und-leistungsfahiger-jupyter-notebook-beispiele-findet-ihr-hier">
-<h3>Eine umfassende Liste interessanter, nützlicher und leistungsfähiger Jupyter-Notebook-Beispiele findet ihr <a class="reference external" href="https://github.com/jupyter/jupyter/wiki">hier</a>.<a class="headerlink" href="#eine-umfassende-liste-interessanter-nutzlicher-und-leistungsfahiger-jupyter-notebook-beispiele-findet-ihr-hier" title="Permalink to this heading">#</a></h3>
+<section id="eine-umfassende-liste-interessanter-nutzlicher-und-leistungsfahiger-jupyter-notebook-beispiele-findet-man-hier">
+<h3>Eine umfassende Liste interessanter, nützlicher und leistungsfähiger Jupyter-Notebook-Beispiele findet man <a class="reference external" href="https://github.com/jupyter/jupyter/wiki">hier</a>.<a class="headerlink" href="#eine-umfassende-liste-interessanter-nutzlicher-und-leistungsfahiger-jupyter-notebook-beispiele-findet-man-hier" title="Permalink to this heading">#</a></h3>
 </section>
 </section>
 <section id="weitere-informationen">
 <h2>Weitere Informationen<a class="headerlink" href="#weitere-informationen" title="Permalink to this heading">#</a></h2>
 <section id="paket-installation">
 <h3>Paket-Installation<a class="headerlink" href="#paket-installation" title="Permalink to this heading">#</a></h3>
-<p>Wenn ihr beim Ausführen einer Code-Zelle in Jupyter die folgende Fehlermeldung erhaltet:</p>
+<p>Wenn beim Ausführen einer Code-Zelle in Jupyter die folgende Fehlermeldung zurückgegeben wird:</p>
 <p><img alt="Example Package Error" src="_images/package_error.png" /></p>
 <p>Dies bedeutet im Allgemeinen, dass ein Paket nicht installiert wurde.  In diesem Fall handelt es sich um das Paket <code class="docutils literal notranslate"><span class="pre">Pandas</span></code>, das durch Erstellen einer neuen Zelle installiert werden kann:</p>
 <p><img alt="Neue Zelle erstellen" src="_images/new_cell.png" /></p>
-<p>Gebt folgendes ein (Ihr könnt <code class="docutils literal notranslate"><span class="pre">pandas</span></code> natürlich durch den jeweiligen Namen des Pakets ersetzen, das ihr installieren möchtet)</p>
+<p>Es kann folgendes eingegeben werden (Hier kann <code class="docutils literal notranslate"><span class="pre">pandas</span></code> durch den jeweiligen Namen des Pakets ersetzt werden, das installiert werden soll)</p>
 <p><img alt="Befehl zur Installation eines Python-Pakets" src="_images/package_install.png" /></p>
-<p>Führt die Zelle aus (Umschalttaste + Eingabetaste) (empfohlen), oder drückt die Schaltfläche “Ausführen”.</p>
+<p>Die Zelle kann nun ausgeführt werden (Umschalttaste + Eingabetaste) (empfohlen), oder durch drücken der Schaltfläche “Ausführen”.</p>
 </section>
 </section>
 <section id="lizenz">
 <h2>Lizenz<a class="headerlink" href="#lizenz" title="Permalink to this heading">#</a></h2>
 <p>Die Notizbücher, aus denen dieses Jupyter-Buch besteht, stehen unter der Lizenz [Creative Commons Attribution 4.0 International] (<a class="reference external" href="https://creativecommons.org/licenses/by/4.0/legalcode">https://creativecommons.org/licenses/by/4.0/legalcode</a>).</p>
 </section>
+<div class="toctree-wrapper compound">
+</div>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -464,11 +476,11 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="right-next"
-       href="Notebooks/Notebook_1/Notebook_1.html"
+       href="Notebooks/Einleitung/Einf%C3%BChrung_Datenimport.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Notizbuch 1: Zeitbeiwertverfahren, Einheitsganglinie, Block- und detaillierte Modelle</p>
+        <p class="prev-next-title">Wichtige Funktionen in Python</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -493,7 +505,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#erste-schritte-mit-interaktiven-python-notebooks">Erste Schritte mit interaktiven Python-Notebooks</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#einrichtung-und-vorbereitung">Einrichtung und Vorbereitung</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lernressourcen">Lernressourcen</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eine-umfassende-liste-interessanter-nutzlicher-und-leistungsfahiger-jupyter-notebook-beispiele-findet-ihr-hier">Eine umfassende Liste interessanter, nützlicher und leistungsfähiger Jupyter-Notebook-Beispiele findet ihr hier.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eine-umfassende-liste-interessanter-nutzlicher-und-leistungsfahiger-jupyter-notebook-beispiele-findet-man-hier">Eine umfassende Liste interessanter, nützlicher und leistungsfähiger Jupyter-Notebook-Beispiele findet man hier.</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weitere-informationen">Weitere Informationen</a><ul class="nav section-nav flex-column">
