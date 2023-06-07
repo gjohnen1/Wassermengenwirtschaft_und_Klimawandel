@@ -1,12 +1,12 @@
 ## Wassermengenwirtschaft und Klimawandel
-Dieses Buch besteht aus einer Reihe von interaktiven Notebooks zum Thema Wasserwirtschaft und Klimawandel. Die Notebooks wurden ursprünglich von Dan Kovacek und Steven Weijs an der University of British Columbia erstellt. Sie sollen Studenten in die Datenanalyse mit der Open-Source-Software Python einzuführen.
+Dieses Buch besteht aus einer Reihe von interaktiven Notebooks zum Thema Wassermengenwirtschaft und Klimawandel. Die Notebooks wurden ursprünglich von Dan Kovacek und Steven Weijs an der University of British Columbia erstellt und von Gregor Johnen ins Deutsche übersetzt und angepasst. Sie sollen Studenten in die Datenanalyse mit der Open-Source-Software Python einzuführen.
 
 ## Jupyter Book und Binder
 
-Starten Sie ein jeweiliges Notizbuch im "interaktiven Modus" mit Binder:
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/dankovacek/run_of_river_intro.git/main)
+Jedes der enthaltenen Notebooks kann im "interaktiven Modus" mit Binder gestartet werden:
+[![Binder](https://mybinder.org/badge_logo.svg)
 
-Die Dateien der Notebooks selbst werden unter [Inhalt/notebooks/](https://github.com/dankovacek/Engineering_Hydrology_Notebooks/tree/main/content/notebooks) gespeichert.
+Die Dateien der Notebooks selbst werden unter [Inhalt/notebooks/](https://github.com/gjohnen1/Wassermengenwirtschaft_und_Klimawandel/tree/main/Inhalt/Notebooks) gespeichert.
 
 ## Hinweise zum Kompilieren und Aktualisieren des Buches 
 
