@@ -3,7 +3,7 @@ root: Einleitung
 parts:
 - caption: EINFÜHRUNG IN PYTHON
   chapters:
-  - file: Notebooks/Einleitung/Einführung_Datenimport
+  - file: Notebooks/Einleitung/Einfuehrung_Datenimport
 - caption: HYDROLOGISCHE MODELLIERUNG
   chapters:
   - file: Notebooks/Notebook_1/Notebook_1
