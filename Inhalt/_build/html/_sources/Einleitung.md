@@ -2,7 +2,7 @@
 
 Dieses Juypter-Book besteht aus einer Reihe interaktiver Jupyter-Notebooks zum Thema Wassermengenwirtschaft und Klimawandel. Es wurde ursprünglich von [Dan Kovacek](https://civil.ubc.ca/faculty/dan-kovacek/) und [Steven Weijs](https://Civil.ubc.ca/faculty/steven-weijs/) an der University of British Columbia erstellt und von [Gregor Johnen](https://www.uni-due.de/wasserbau/mitarbeiter_johnen.php) ins Deutsche übersetzt und angepasst. Ziel der einzelnen Notebooks ist es, Studierenden die systematische Datenanalyse mithilfe der Open-Source-Software *Python* und *Jupyter-Notebooks* näherzubringen.
 
-**Es wird nicht erwartet, dass Teilnehmende über Vorkenntnisse der Programmierung verfügen.** Der Schwerpunkt der Notebooks liegt auf hydrologischen Konzepten und nicht auf der Programmierung selbst, weshalb der erforderliche Code bereitgestellt wird. Jedes Notebook konzentriert sich auf eine bestimmte Komponente der hydrologischen Analyse. Anschließen sollten Fragen zu den zugrunde liegenden Konzepten beantwortet werden. Dies erfordert möglicherweise das Ändern von Variablen und das erneute Ausführen von Codeblöcken, um die Ergebnisse im Anschluss zu aktualisieren.
+**Es wird nicht erwartet, dass Teilnehmende über Vorkenntnisse der Programmierung verfügen.** Der Schwerpunkt der Notebooks liegt auf hydrologischen Konzepten und nicht auf der Programmierung selbst, weshalb der erforderliche Code bereitgestellt wird. Jedes Notebook konzentriert sich auf eine bestimmte Komponente der hydrologischen Datenanalyse- und Auswertung. Anschließend sollten Fragen zu den zugrunde liegenden Konzepten beantwortet werden. Dies erfordert möglicherweise das Ändern von Variablen und das erneute Ausführen von Codeblöcken, um die Ergebnisse im Anschluss zu aktualisieren.
 
 >**Anmerkung**: Der Inhalt dieser Notebooks stellt keine vorgeschriebene bzw. normierte Kombination von Methoden für hydrologische Analysen dar. Vielmehr sollen einige grundlegende Konzepte vorgestellt werden und so zum Nachdenken über Modellunsicherheiten und Sensitivitäten anregen.
 
@@ -17,9 +17,9 @@ Die Jupyter-Notebooks in diesem Kurs können auf die folgenden Arten aufgerufen 
 
 ### Einrichtung und Vorbereitung
 
-Eine detaillierte Installationsanleitung findet man [hier](https://nbviewer.org/github/ehmatthes/intro_programming/blob/master/notebooks/programming_environment.ipynb). Es ist sicherzustellen, dass Python installiert ist (Version Python 3.8 oder höher) und dass Jupyter Notebook geöffnet und gestartet werden kann. Notiz: Die Installation von Geany ist hierfür nicht zwingend erforderlich.
+Eine detaillierte Anleitung zur Installation von Python über Anaconda findet man [hier](https://www.anaconda.com/products/distribution). Nach der Installation von Anaconda ist darauf zu achten, dass Python (Version 3.8 oder höher) korrekt installiert wurde. Überprüfen Sie dies, indem Sie in der Anaconda Prompt `python --version` eingeben. Stellen Sie ebenfalls sicher, dass Jupyter Notebook über den Anaconda Navigator oder die Anaconda Prompt (mit dem Befehl `jupyter notebook`) geöffnet und gestartet werden kann.
 
-Im [Moodle-Kurs](https://moodle.uni-due.de/course/view.php?id=12978) wird ein Diskussionsforum zur Installation eingerichtet.  Wenn nach Durchsicht der hier bereitgestellten Materialien immer noch Schwierigkeiten bei der Installation bestehen, können Fragen dort so detailliert wie möglich gestellt werden. Diese werden zeitnah beantwortet.
+Für weitere Unterstützung wird im [Moodle-Kurs](https://moodle.uni-due.de/course/view.php?id=12978) ein Diskussionsforum zur Installation eingerichtet. Sollten nach Durchsicht der bereitgestellten Materialien Schwierigkeiten bei der Installation bestehen, können Fragen dort so detailliert wie möglich gestellt werden. Diese werden zeitnah beantwortet.
 
 ### Lernressourcen
 
@@ -57,3 +57,5 @@ Die Zelle kann nun ausgeführt werden (Umschalttaste + Eingabetaste) (empfohlen)
 ## Lizenz
 
 Die Notizbücher, aus denen dieses Jupyter-Buch besteht, stehen unter der Lizenz [Creative Commons Attribution 4.0 International] (https://creativecommons.org/licenses/by/4.0/legalcode).
+
+
