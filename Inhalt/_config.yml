@@ -5,6 +5,7 @@ title: Wasserwirtschaft und Klimawandel
 author: Dan Kovacek
 adapted and translated to German by: Gregor Johnen
 logo: img/logo.png
+logo: img/logo_claim_en_rgb_72dpi.png
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
