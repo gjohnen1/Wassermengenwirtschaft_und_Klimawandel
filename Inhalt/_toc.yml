@@ -6,4 +6,4 @@ parts:
   - file: Notebooks/Einleitung/Einfuehrung_Datenimport
 - caption: HYDROLOGISCHE MODELLIERUNG
   chapters:
-  - file: Notebooks/Hausarbei/Hausarbeit
+  - file: Notebooks/Hausarbeit/Hausarbeit
