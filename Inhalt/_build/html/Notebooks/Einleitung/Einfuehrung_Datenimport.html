@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Ausführen von Code in Jupyter Notebooks &#8212; Wasserwirtschaft und Klimawandel</title>
   
@@ -15,52 +14,49 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Notebooks/Einleitung/Einfuehrung_Datenimport';</script>
@@ -77,19 +73,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -111,12 +111,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -131,9 +139,13 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../../Einleitung.html">
+  
   
   
   
@@ -143,12 +155,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../../_static/logo_claim_en_rgb_72dpi.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../../_static/logo_claim_en_rgb_72dpi.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../../_static/logo_claim_en_rgb_72dpi.png" class="logo__image only-light" alt="Wasserwirtschaft und Klimawandel - Home"/>
+    <script>document.write(`<img src="../../_static/logo_claim_en_rgb_72dpi.png" class="logo__image only-dark" alt="Wasserwirtschaft und Klimawandel - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -187,7 +210,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -196,14 +219,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -228,14 +251,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://mybinder.org/v2/gh/gjohnen1/Wassermengenwirtschaft_und_Klimawandel/main?urlpath=tree/Inhalt/Notebooks/Einleitung/Einfuehrung_Datenimport.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onBinder"
+   title="Launch on Binder"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="../../_static/images/logo_binder.svg">
+    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
   </span>
 <span class="btn__text-container">Binder</span>
 </a>
@@ -356,26 +379,28 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -441,10 +466,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="ausfuhren-von-code-in-jupyter-notebooks">
-<h1>Ausführen von Code in Jupyter Notebooks<a class="headerlink" href="#ausfuhren-von-code-in-jupyter-notebooks" title="Permalink to this heading">#</a></h1>
+<h1>Ausführen von Code in Jupyter Notebooks<a class="headerlink" href="#ausfuhren-von-code-in-jupyter-notebooks" title="Link to this heading">#</a></h1>
 <p>In Jupyter Notebooks kann Code interaktiv ausgeführt werden. Dies ermöglicht es, den Code schrittweise auszuführen und die Ergebnisse zu überprüfen.</p>
 <p>Um Code in einer Zelle auszuführen, gibt es verschiedene Möglichkeiten:</p>
 <ul class="simple">
@@ -456,11 +481,11 @@ document.write(`
 <p>Das Ausführen von Code in Jupyter Notebooks ermöglicht eine iterative Entwicklung und erleichtert das Experimentieren und die Datenanalyse. Probiert es hier aus, indem Ihr den Code in den Codezellen dieses Notebooks ausführt!</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="wichtige-funktionen-in-python">
-<h1>Wichtige Funktionen in Python<a class="headerlink" href="#wichtige-funktionen-in-python" title="Permalink to this heading">#</a></h1>
+<h1>Wichtige Funktionen in Python<a class="headerlink" href="#wichtige-funktionen-in-python" title="Link to this heading">#</a></h1>
 <p>Python bietet eine Vielzahl von Funktionen, die das Programmieren erleichtern. Hier sind einige der wichtigsten Funktionen:</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="variablen">
-<h1>Variablen<a class="headerlink" href="#variablen" title="Permalink to this heading">#</a></h1>
+<h1>Variablen<a class="headerlink" href="#variablen" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mf">1.1</span>
@@ -488,7 +513,7 @@ document.write(`
 </div>
 </div>
 <section id="umformungen">
-<h2>Umformungen<a class="headerlink" href="#umformungen" title="Permalink to this heading">#</a></h2>
+<h2>Umformungen<a class="headerlink" href="#umformungen" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">1.1</span><span class="p">)</span>
@@ -541,7 +566,7 @@ document.write(`
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="funktionen">
-<h1>Funktionen<a class="headerlink" href="#funktionen" title="Permalink to this heading">#</a></h1>
+<h1>Funktionen<a class="headerlink" href="#funktionen" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">square</span><span class="p">():</span>
@@ -664,7 +689,7 @@ document.write(`
 </div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="if-anweisungen">
-<h1>If-Anweisungen<a class="headerlink" href="#if-anweisungen" title="Permalink to this heading">#</a></h1>
+<h1>If-Anweisungen<a class="headerlink" href="#if-anweisungen" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zahl</span> <span class="o">=</span> <span class="o">-</span><span class="mi">15</span>
@@ -683,9 +708,9 @@ document.write(`
 </div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="beispiel-datenimport-datenqualitatsprufung-und-workflow">
-<h1>Beispiel: Datenimport, Datenqualitätsprüfung und Workflow<a class="headerlink" href="#beispiel-datenimport-datenqualitatsprufung-und-workflow" title="Permalink to this heading">#</a></h1>
+<h1>Beispiel: Datenimport, Datenqualitätsprüfung und Workflow<a class="headerlink" href="#beispiel-datenimport-datenqualitatsprufung-und-workflow" title="Link to this heading">#</a></h1>
 <section id="einfuhrung">
-<h2>Einführung<a class="headerlink" href="#einfuhrung" title="Permalink to this heading">#</a></h2>
+<h2>Einführung<a class="headerlink" href="#einfuhrung" title="Link to this heading">#</a></h2>
 <p>Die Überprüfung der Datenqualität ist ein unvermeidlicher und entscheidender Schritt in jeder Analyse. Häufig werden Daten verwendet, die extern erhoben wurden, oder aus vielen verschiedenen Quellen stammen. In diesem Kurs arbeiten wir mit Wasserstands- und Durchflussdaten, die vom Water Survey of Canada (WSC) und anderen Quellen gesammelt wurden. <strong>In der Berufspraxis die Verantwortung der Datenqualitätsprüfung allein bei dem/der Ingenieur:in. Die Daten sind oft wichtige Grundlage für Entwurfsplanung oder die Entscheidungsfindung.</strong> Datensätze aus offenen Quellen werden oft von einem Haftungsausschluss begleitet, siehe [WSC-Haftungsausschluss] (<a class="reference external" href="https://wateroffice.ec.gc.ca/disclaimer_info_e.html">https://wateroffice.ec.gc.ca/disclaimer_info_e.html</a>) zum Beispiel.</p>
 <p>Da die größe der Datensätze fast überall kontinuierlich wächst, wird es immer wichtiger, automatisierte Ansätze zur Datenüberprüfung zu verwenden. Dieses Notebook bietet eine (wenn auch sehr kurze) Einführung in das programmgesteuerte Importieren und Überprüfen von Datensätzen. Es wird eine eine beispielhafte „CSV“-Datei von einem Messgerät importiert, das häufig in der hydrologischen Praxis verwendet wird. Die Größe des Datensatzes, den man manuell auf Anomalien überprüfen kann, ist allerdings begrenzt.</p>
 <p>Beim lernen der Programmiersprache Python, gibt es ein paar triviale Aufgaben, die eventuell unnötig komplex erscheinen. Das Importieren von Daten ist eine solches Beispiel. Während man sonst auf eine einzelne Excel Datei klickt, um sie zu öffnen, und <em>meistens</em> das Programm bereits weiß, ob eine Zelle beispielsweise eine Zahl oder einen Text enthält, <em>muss</em> man in Python den Datentyp, mit dem gearbeietet wird deklarieren. Das folgende Beispiel zeigt ein häufiges Datenimportproblem und wie man damit umgeht.</p>
@@ -693,7 +718,7 @@ document.write(`
 <div><p><strong>Hinweis</strong>: Das unten häufig verwendete „#“-Symbol wird zum Hinzufügen von Kommentaren verwendet. Diese dienen dazu Informationen an andere Personen zu übermitteln, die den Code überprüfen oder verwenden sollen. Der Python-Interpreter ignoriert alle Zeilen, die mit „#“ beginnen.</p>
 </div></blockquote>
 <section id="was-zum-teufel-hat-das-mit-hydrologie-zu-tun">
-<h3>Was zum Teufel hat das mit Hydrologie zu tun?<a class="headerlink" href="#was-zum-teufel-hat-das-mit-hydrologie-zu-tun" title="Permalink to this heading">#</a></h3>
+<h3>Was zum Teufel hat das mit Hydrologie zu tun?<a class="headerlink" href="#was-zum-teufel-hat-das-mit-hydrologie-zu-tun" title="Link to this heading">#</a></h3>
 <p>Die in das Erlernen der Grundlagen der Tools investierte Zeit erspart später eventuell viele Stunden Frustration. Diese Stunden können so in die Erforschung und Prüfung hydrologischer Konzepte anhand von Beobachtungsdaten investiert werden. <strong>Grundsätzlich gilt: Eine Automatisierung der Dateiverwaltung ermöglicht das Erstellen leistungsstarker Tools.</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -719,7 +744,7 @@ document.write(`
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="numpy-bibliothek-fur-grundlegende-matrix-operationen">
-<h1>Numpy-Bibliothek für grundlegende Matrix Operationen<a class="headerlink" href="#numpy-bibliothek-fur-grundlegende-matrix-operationen" title="Permalink to this heading">#</a></h1>
+<h1>Numpy-Bibliothek für grundlegende Matrix Operationen<a class="headerlink" href="#numpy-bibliothek-fur-grundlegende-matrix-operationen" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">__version__</span>
@@ -813,7 +838,7 @@ document.write(`
 </div>
 </div>
 <section id="shape">
-<h2>shape<a class="headerlink" href="#shape" title="Permalink to this heading">#</a></h2>
+<h2>shape<a class="headerlink" href="#shape" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">))</span>
@@ -928,7 +953,7 @@ document.write(`
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="pandas-bibliothek-zur-datenverwaltung">
-<h1>Pandas-Bibliothek zur Datenverwaltung<a class="headerlink" href="#pandas-bibliothek-zur-datenverwaltung" title="Permalink to this heading">#</a></h1>
+<h1>Pandas-Bibliothek zur Datenverwaltung<a class="headerlink" href="#pandas-bibliothek-zur-datenverwaltung" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">__version__</span>
@@ -1907,12 +1932,12 @@ Freq: h, Name: sensor3, dtype: int32
 </div></div></div>
 </div>
 <section id="dateipfad">
-<h2>Dateipfad<a class="headerlink" href="#dateipfad" title="Permalink to this heading">#</a></h2>
+<h2>Dateipfad<a class="headerlink" href="#dateipfad" title="Link to this heading">#</a></h2>
 <p><strong>Ein grundlegendes, aber enorm wichtiges Konzept besteht darin, zu verstehen, wie man eine Datei einliest, die irgendwo im Dateisystem des Computers gespeichert ist</strong> WICHTIG: Häufig ist dies auch auf einem anderen Computer, beispielsweise einem in einem Netzwerk oder einem offenen Datenrepository.</p>
 <p>In modernen Betriebssystemen wie Windows und macOS wird meist einfach auf eine Datei geklickt und das entsprechende Programm startet und öffnet die Datei inklusive der Benutzeroberfläche. In Programmiersprachen geht es in die entgegengesetzte Richtung – Es muss explizit angegeben werden, wo sich eine Datei auf der Festplatte befindet. Es ist wichtig zu verstehen, dass Jupyter-Notebooks Dateipfade <strong>relativ zum Speicherort der Notebook-Datei interpretieren.</strong></p>
 <p>Die Notebook-Datei, die in dieser Demonstration verwendet wird, trägt die Bezeichnung “Einfuehrung_Datenimport.ipynb” und ist unter “<something>/Wassermengenwirtschaft_und_Klimawandel/Inhalt/Notebooks/Einleitung/Einfuehrung_Datenimport.ipynb”, wobei “<something>” der Dateipfad ist, in dem die Archivdatei (Zip) gespeichert und entpackt wurde.</p>
 <section id="laden-sie-die-projektdatendatei-herunter">
-<h3>Laden Sie die Projektdatendatei herunter<a class="headerlink" href="#laden-sie-die-projektdatendatei-herunter" title="Permalink to this heading">#</a></h3>
+<h3>Laden Sie die Projektdatendatei herunter<a class="headerlink" href="#laden-sie-die-projektdatendatei-herunter" title="Link to this heading">#</a></h3>
 <p>Es wird zunächst das Code-Repository von GitHub heruntergeladen. Dies kann über den folgenden Link geschehen:
 <a class="github reference external" href="https://github.com/gjohnen1/Wassermengenwirtschaft_und_Klimawandel">gjohnen1/Wassermengenwirtschaft_und_Klimawandel</a></p>
 <p>Über die grüne Schaltfläche „Code“ kann die ZIP-Datei des Code-Repositorys heruntergeladen werden, wie unten gezeigt:</p>
@@ -1920,7 +1945,7 @@ Freq: h, Name: sensor3, dtype: int32
 <p>Auf den meisten Systemen wird die Datei standardmäßig im Ordner „Downloads/“ abgelegt. <strong>Die Datei kann nach dem entpacken an einen beliebigen Ort verschoben werden (Sciebo ist auch möglich)</strong>. Dieser Ordner wird als <strong>Projektstammverzeichnis</strong> bezeichnet.</p>
 </section>
 <section id="dateistruktur">
-<h3>Dateistruktur<a class="headerlink" href="#dateistruktur" title="Permalink to this heading">#</a></h3>
+<h3>Dateistruktur<a class="headerlink" href="#dateistruktur" title="Link to this heading">#</a></h3>
 <p>Auf der Ebene des Stammverzeichnisses sieht die Struktur ungefähr wie folgt aus:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>\OneDrive - Universitaet Duisburg-Essen\GitHub\repos\Wassermengenwirtschaft_und_Klimawandel
 │ README.md
@@ -1974,7 +1999,7 @@ Freq: h, Name: sensor3, dtype: int32
 </section>
 </section>
 <section id="eine-csv-datei-einlesen">
-<h2>Eine CSV-Datei einlesen<a class="headerlink" href="#eine-csv-datei-einlesen" title="Permalink to this heading">#</a></h2>
+<h2>Eine CSV-Datei einlesen<a class="headerlink" href="#eine-csv-datei-einlesen" title="Link to this heading">#</a></h2>
 <p>Wenn eine Datendatei (nennen wir sie <em>data.csv</em>) aus diesem Notebook heraus geöffnet werden soll, kann diese einfach im selben Ordner wie diese Notebook-Datei gespeichert werden. Die CSV-Datei dann mit Pandas gelesen werden, indem wir einfach den Dateinamen verwenden:</p>
 <p><code class="docutils literal notranslate"><span class="pre">df</span> <span class="pre">=</span> <span class="pre">pd.read_csv('data.csv')</span></code></p>
 <blockquote>
@@ -2099,7 +2124,7 @@ Freq: h, Name: sensor3, dtype: int32
 </div>
 <p>Hier ist zu sehen, dass sich im aktuellen Arbeitsverzeichnis keine <code class="docutils literal notranslate"><span class="pre">.csv</span></code>-Dateien befinden. Das liegt daran, dass die Projektdaten unter <code class="docutils literal notranslate"><span class="pre">\Wassermengenwirtschaft_und_Klimawandel\Inhalt\Projekt_Daten\</span></code> gespeichert werden.</p>
 <section id="alternative-moglichkeiten-zum-angeben-eines-dateipfads">
-<h3>Alternative Möglichkeiten zum Angeben eines Dateipfads<a class="headerlink" href="#alternative-moglichkeiten-zum-angeben-eines-dateipfads" title="Permalink to this heading">#</a></h3>
+<h3>Alternative Möglichkeiten zum Angeben eines Dateipfads<a class="headerlink" href="#alternative-moglichkeiten-zum-angeben-eines-dateipfads" title="Link to this heading">#</a></h3>
 <p>Es wird die Datei mit den enthaltenen Wasserständen (<code class="docutils literal notranslate"><span class="pre">Hidden_Creek_stage_data.csv</span></code>) aus dem Verzeichnis <code class="docutils literal notranslate"><span class="pre">Projekt_Daten</span></code></p>
 <ol class="arabic simple">
 <li><p>Hier wird der vollständige Dateipfad verwendet, um die Datei zu lesen. Meins ist:
@@ -2123,7 +2148,7 @@ Freq: h, Name: sensor3, dtype: int32
 </div>
 </div>
 <ol class="arabic simple" start="2">
-<li><p>Alternativ kann vom Speicherort dieser Notebook-Datei (dem „aktuellen Arbeitsverzeichnis“) zur Datendatei navigieren. Man spricht dann von einem <strong>relativen Pfad</strong>. Die Pandas-Funktion <code class="docutils literal notranslate"><span class="pre">read_csv('&lt;filepath&gt;')</span></code> liest (<code class="docutils literal notranslate"><span class="pre">../</span></code>) im Dateipfad so, dass sie vom aktuellen Verzeichnis aus „eine Ebene nach oben“ geht. Basierend auf der Dateistruktur wie <span class="xref myst">oben beschrieben</span>  ist zu sehen, dass der Ordner <code class="docutils literal notranslate"><span class="pre">project_data/</span></code> <strong>zwei Ebenen höher</strong> vom aktuellen Arbeitsverzeichnis liegt.</p></li>
+<li><p>Alternativ kann vom Speicherort dieser Notebook-Datei (dem „aktuellen Arbeitsverzeichnis“) zur Datendatei navigieren. Man spricht dann von einem <strong>relativen Pfad</strong>. Die Pandas-Funktion <code class="docutils literal notranslate"><span class="pre">read_csv('&lt;filepath&gt;')</span></code> liest (<code class="docutils literal notranslate"><span class="pre">../</span></code>) im Dateipfad so, dass sie vom aktuellen Verzeichnis aus „eine Ebene nach oben“ geht. Basierend auf der Dateistruktur wie <a class="reference internal" href="#File-Structure"><span class="xref myst">oben beschrieben</span></a>  ist zu sehen, dass der Ordner <code class="docutils literal notranslate"><span class="pre">project_data/</span></code> <strong>zwei Ebenen höher</strong> vom aktuellen Arbeitsverzeichnis liegt.</p></li>
 </ol>
 <p>Dies lässt sich anhand der Funktion „listdir“ gut erklären.</p>
 <div class="cell docutils container">
@@ -2446,7 +2471,7 @@ Letzteres ist viel klarer und enthält auch eine Art Kodierung der <strong>Einhe
 </div></blockquote>
 </section>
 <section id="das-dauert-ja-schon-ewig-eine-datei-zu-offnen-pausenzeit">
-<h3>Das dauert ja schon ewig, eine Datei zu öffnen!! Pausenzeit! :)<a class="headerlink" href="#das-dauert-ja-schon-ewig-eine-datei-zu-offnen-pausenzeit" title="Permalink to this heading">#</a></h3>
+<h3>Das dauert ja schon ewig, eine Datei zu öffnen!! Pausenzeit! :)<a class="headerlink" href="#das-dauert-ja-schon-ewig-eine-datei-zu-offnen-pausenzeit" title="Link to this heading">#</a></h3>
 <p><img alt="Github-Downloadseite" src="../../_images/boring.gif" />
 (Quelle: <a class="reference external" href="https://giphy.com">Giphy.com</a>)</p>
 <p>Es ist mit das häufigste, dass man im späteren Job zu tun hat wenn man mit Programmierung arbeitet. Also lohnt es sich das gut zu verstehen.</p>
@@ -2789,7 +2814,7 @@ Letzteres ist viel klarer und enthält auch eine Art Kodierung der <strong>Einhe
 In dem aktuellen Fall (und das kommt sehr häufig vor, wenn mit Dateien gearbeitet wird, die von verschiedenen Orten stammen (andere Software, Hardwaresysteme usw.)) sind irgendwo in der Datei Werte enthalten, die nicht numerisch sind. ACHTUNG: Es ist nicht zu empfehlen eine große CSV-Datei durchzugehen und die Datenpunkte manuell zu ändern. Man stelle sich nur vor, wenn man dies mit Hunderten von Dateien oder Millionen von Zeilen machen müsste? Möglicherweise sind ähnliche Probleme aus Excel bekannt.</p>
 </section>
 <section id="zugriff-auf-daten-im-dataframe">
-<h3>Zugriff auf Daten im Dataframe<a class="headerlink" href="#zugriff-auf-daten-im-dataframe" title="Permalink to this heading">#</a></h3>
+<h3>Zugriff auf Daten im Dataframe<a class="headerlink" href="#zugriff-auf-daten-im-dataframe" title="Link to this heading">#</a></h3>
 <p>Die Daten wurden bis dato in einer Variablen namens „df“ gespeichert. Die Pandas-Bibliothek ist in vielerlei Hinsicht unglaublich leistungsfähig zum Filtern, Slicen und Indizieren von Daten. Unser Dataframe ist eine Tabelle mit benannten Spalten. Wir können die Namen der Spaltenüberschriften auflisten, indem wir das Attribut „.columns“ des Datenrahmens aufrufen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2909,7 +2934,7 @@ Mehr als ihr jemals über die Geschichte der 0 vs. 1-Indizierung in der Informat
 <p>Der Datentyp der Werte der Spalte <code class="docutils literal notranslate"><span class="pre">Value</span></code> ist also ein String (“str”) bzw. Zeichenfolge. Ein großer Teil der Datenanalyse besteht darin, diese Art von Problemen zu identifizieren und zu beheben! Je schneller, desto besser!</p>
 </section>
 <section id="konvertieren-von-datentypen">
-<h3>Konvertieren von Datentypen<a class="headerlink" href="#konvertieren-von-datentypen" title="Permalink to this heading">#</a></h3>
+<h3>Konvertieren von Datentypen<a class="headerlink" href="#konvertieren-von-datentypen" title="Link to this heading">#</a></h3>
 <p>Da mit numerischen Daten gearbeitet werden soll um Berechnungen durchführt, muss der Datentyp ein numerischer Typ sein (andere Typen sind Boolescher Wert, Zeichenfolge, Sequenz, Zuordnungen, Klassen usw.). In den meisten Fällen verwenden wir als numerischen Datentyp <code class="docutils literal notranslate"><span class="pre">float</span></code>-Werte, kurz für <em>Gleitkommazahlen</em>. Der andere numerische Typ ist <code class="docutils literal notranslate"><span class="pre">int</span></code> oder <em>integer</em> (d. h. 1, 2, 3).</p>
 <p>Der Datentyp kann auf verschiedene Weise geändert werden. Beispielsweise mit der Funktion <code class="docutils literal notranslate"><span class="pre">.astype()</span></code> von Pandas. Außerdem kann der Variablennamen noch aussagekräftiger sein. (Variablen- und Einheiteninformationen sollten irgendwo angegeben werden). Es wird angenommen, dass es sich um den Wasserstand in Metern handelt.</p>
 <div class="cell docutils container">
@@ -2944,7 +2969,7 @@ Mehr als ihr jemals über die Geschichte der 0 vs. 1-Indizierung in der Informat
 </div>
 </section>
 <section id="visualisierung-der-daten-und-einige-erste-schritte-zur-validierung">
-<h3>Visualisierung der Daten und einige erste Schritte zur Validierung<a class="headerlink" href="#visualisierung-der-daten-und-einige-erste-schritte-zur-validierung" title="Permalink to this heading">#</a></h3>
+<h3>Visualisierung der Daten und einige erste Schritte zur Validierung<a class="headerlink" href="#visualisierung-der-daten-und-einige-erste-schritte-zur-validierung" title="Link to this heading">#</a></h3>
 <p>Stellt man die Daten als Zeitreihe grafisch dar, kann man <strong>einige Lücken</strong> in den Daten erkennen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3393,11 +3418,10 @@ For example, when doing &#39;df[col].method(value, inplace=True)&#39;, try using
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer d-print-none">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="../../Einleitung.html"
@@ -3417,10 +3441,7 @@ For example, when doing &#39;df[col].method(value, inplace=True)&#39;, try using
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -3428,6 +3449,7 @@ For example, when doing &#39;df[col].method(value, inplace=True)&#39;, try using
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -3492,9 +3514,10 @@ By Dan Kovacek
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -3518,8 +3541,8 @@ By Dan Kovacek
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

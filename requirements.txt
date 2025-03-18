@@ -9,3 +9,4 @@ rasterio
 jupyter_bokeh
 ipykernel
 jupyter
+jupyter-book
