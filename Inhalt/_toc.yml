@@ -4,9 +4,9 @@ parts:
 - caption: EINFÜHRUNG IN PYTHON
   chapters:
   - file: Notebooks/Einleitung/Einfuehrung_Datenimport
-- caption: ÜBUNG 1
+- caption: UEBUNG 1
   chapters:
-  - file: Notebooks/Übung_1/Übung_1
+  - file: Notebooks/Uebung_1/Uebung_1
 - caption: HYDROLOGISCHE MODELLIERUNG
   chapters:
   - file: Notebooks/Hausarbeit/Hausarbeit
