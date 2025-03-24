@@ -1,6 +1,6 @@
 # recommended python version: 3.10
 bokeh
-numpy
+numpy==1.26.0
 pandas
 scipy
 matplotlib
