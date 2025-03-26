@@ -1,7 +1,7 @@
 format: jb-book
 root: Einleitung
 parts:
-- caption: EINFÜHRUNG IN PYTHON
+- caption: EINFUEHRUNG IN PYTHON
   chapters:
   - file: Notebooks/Einleitung/Einfuehrung_Datenimport
 - caption: Uebung 1
