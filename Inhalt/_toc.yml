@@ -4,10 +4,10 @@ parts:
 - caption: EINFÜHRUNG IN PYTHON
   chapters:
   - file: Notebooks/Einleitung/Einfuehrung_Datenimport
-- caption: UEBUNG 1
+- caption: Wasserbau 4 – Übung 01
   chapters:
   - file: Notebooks/Uebung_1/Uebung_1
-  - caption: UEBUNG 2
+- caption: Wasserbau 4 – Übung 02
   chapters:
   - file: Notebooks/Uebung_2/Uebung_2
 - caption: HYDROLOGISCHE MODELLIERUNG
