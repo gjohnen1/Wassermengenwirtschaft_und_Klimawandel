@@ -7,6 +7,9 @@ parts:
 - caption: UEBUNG 1
   chapters:
   - file: Notebooks/Uebung_1/Uebung_1
+  - caption: UEBUNG 2
+  chapters:
+  - file: Notebooks/Uebung_2/Uebung_2
 - caption: HYDROLOGISCHE MODELLIERUNG
   chapters:
   - file: Notebooks/Hausarbeit/Hausarbeit
