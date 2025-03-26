@@ -62,7 +62,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Notebooks/Einleitung/Einfuehrung_Datenimport';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="More coming soon…." href="../Uebung_1/Uebung_1.html" />
+    <link rel="next" title="Wasserbau 4 – Übung 01" href="../Uebung_1/Uebung_1.html" />
     <link rel="prev" title="Vorwort" href="../../Einleitung.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -194,7 +194,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">UEBUNG 1</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../Uebung_1/Uebung_1.html">More coming soon….</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Uebung_1/Uebung_1.html">Wasserbau 4 – Übung 01</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">HYDROLOGISCHE MODELLIERUNG</span></p>
 <ul class="nav bd-sidenav">
@@ -1563,7 +1563,7 @@ Freq: h, Name: sensor3, dtype: int32
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\WaWi\AppData\Local\Temp\ipykernel_6968\1519644007.py:1: FutureWarning: &#39;MIN&#39; is deprecated and will be removed in a future version, please use &#39;min&#39; instead.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\WaWi\AppData\Local\Temp\ipykernel_14928\1519644007.py:1: FutureWarning: &#39;MIN&#39; is deprecated and will be removed in a future version, please use &#39;min&#39; instead.
   df_.resample(&#39;MIN&#39;).interpolate(method=&#39;linear&#39;)
 </pre></div>
 </div>
@@ -2741,7 +2741,7 @@ Letzteres ist viel klarer und enthält auch eine Art Kodierung der <strong>Einhe
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">65</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">66</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Value&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 
 <span class="nn">File c:\Users\grego\anaconda3\envs\hausarbeit_wb4\lib\site-packages\pandas\core\series.py:6549,</span> in <span class="ni">Series.mean</span><span class="nt">(self, axis, skipna, numeric_only, **kwargs)</span>
@@ -2828,31 +2828,10 @@ In dem aktuellen Fall (und das kommt sehr häufig vor, wenn mit Dateien gearbeit
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;ID&#39;, &#39;PARAM&#39;, &#39;Date&#39;, &#39;year&#39;, &#39;month&#39;, &#39;day&#39;, &#39;Value&#39;], dtype=&#39;object&#39;)
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      8
-1      8
-2      8
-3      8
-4      8
-      ..
-672    6
-673    6
-674    6
-675    6
-676    7
-Name: month, Length: 677, dtype: int64
 </pre></div>
 </div>
 </div>
@@ -3362,7 +3341,7 @@ Mehr als ihr jemals über die Geschichte der 0 vs. 1-Indizierung in der Informat
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\grego\AppData\Local\Temp\ipykernel_40836\4091871988.py:1: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\grego\AppData\Local\Temp\ipykernel_20976\4091871988.py:1: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
 The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
 
 For example, when doing &#39;df[col].method(value, inplace=True)&#39;, try using &#39;df.method({col: value}, inplace=True)&#39; or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
@@ -3443,7 +3422,7 @@ For example, when doing &#39;df[col].method(value, inplace=True)&#39;, try using
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">More coming soon….</p>
+        <p class="prev-next-title">Wasserbau 4 – Übung 01</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
