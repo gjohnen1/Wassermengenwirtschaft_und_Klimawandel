@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Wasserbau 4 – Übung 02 &#8212; Wasserwirtschaft und Klimawandel</title>
+    <title>Wasserbau 4, Uebung 02 &#8212; Wasserwirtschaft und Klimawandel</title>
   
   
   
@@ -57,11 +57,13 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Notebooks/Uebung_2/Uebung_2';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Notebook 1: Zeitbeiwertverfahren, Einheitsganglinie, Block- und detaillierte Modelle" href="../Hausarbeit/Hausarbeit.html" />
-    <link rel="prev" title="Ausführen von Code in Jupyter Notebooks" href="../Einleitung/Einfuehrung_Datenimport.html" />
+    <link rel="next" title="Notebook 1 Zeitbeiwertverfahren, Einheitsganglinie, Block- und detaillierte Modelle" href="../Hausarbeit/Hausarbeit.html" />
+    <link rel="prev" title="Wasserbau 4, Uebung 01" href="../Uebung_1/Uebung_1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -179,7 +181,7 @@
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">EINFÜHRUNG IN PYTHON</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">EINLEITUNG</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Einleitung/Einfuehrung_Datenimport.html">Ausführen von Code in Jupyter Notebooks</a></li>
 
@@ -190,13 +192,17 @@
 
 
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">UEBUNG 1</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Wasserbau 4 – Übung 02</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">HYDROLOGISCHE MODELLIERUNG</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">UEBUNG 01</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../Hausarbeit/Hausarbeit.html">Notebook 1: Zeitbeiwertverfahren, Einheitsganglinie, Block- und detaillierte Modelle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Uebung_1/Uebung_1.html">Wasserbau 4, Uebung 01</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">UEBUNG 02</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Wasserbau 4, Uebung 02</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">HAUSARBEIT</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Hausarbeit/Hausarbeit.html">Notebook 1 Zeitbeiwertverfahren, Einheitsganglinie, Block- und detaillierte Modelle</a></li>
 </ul>
 
     </div>
@@ -431,7 +437,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Wasserbau 4 – Übung 02</h1>
+    <h1>Wasserbau 4, Uebung 02</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -442,7 +448,23 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aufgabe-1-interaktiver-wehrbedienungsplan">Aufgabe 1 – Interaktiver Wehrbedienungsplan</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bernoulli-energiegleichung">Bernoulli-Energiegleichung</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bedeutung-der-terme">Bedeutung der Terme:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#der-ebene-freie-wechselsprung">Der ebene freie Wechselsprung</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aufgabe-1">Aufgabe 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Aufgabe 1</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gegeben">Gegeben:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#berechnung-von-h-2-text-erf">Berechnung von <strong><span class="math notranslate nohighlight">\(h_{2,\text{erf}}\)</span></strong>:</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aufgabe">✍ Aufgabe:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uberfallhohen">Überfallhöhen</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vollkommener-uberfall">Vollkommener Überfall</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unvollkommener-uberfall">Unvollkommener Überfall</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -456,20 +478,74 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="wasserbau-4-ubung-02">
-<h1>Wasserbau 4 – Übung 02<a class="headerlink" href="#wasserbau-4-ubung-02" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="wasserbau-4-uebung-02">
+<h1>Wasserbau 4, Uebung 02<a class="headerlink" href="#wasserbau-4-uebung-02" title="Link to this heading">#</a></h1>
 <section id="aufgabe-1-interaktiver-wehrbedienungsplan">
 <h2>Aufgabe 1 – Interaktiver Wehrbedienungsplan<a class="headerlink" href="#aufgabe-1-interaktiver-wehrbedienungsplan" title="Link to this heading">#</a></h2>
 <p>Dieses interaktive Notebook erlaubt es, Parameter für eine Wehranlage selbst zu variieren und die Auswirkungen auf hydraulische Kenngrößen zu untersuchen.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Konstanten</span>
-<span class="n">b_klappe</span> <span class="o">=</span> <span class="mf">7.2</span>  <span class="c1"># Breite pro Klappe [m]</span>
-<span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>        <span class="c1"># Erdbeschleunigung [m/s²]</span>
-</pre></div>
-</div>
-</div>
-</div>
+<p>Für eine geplante Wehranlage soll Ihr Ingenieurbüro die erforderlichen Berechnungen
+durchführen und den Wehrbedienungsplan erstellen. Folgende Werte wurden bestimmt:
+Das Wehr wird mit 5 Fischbauchklappen mit einer Breite von je 7,2 m und einem Verlustbeiwert
+von 𝜇 = 0,65 ausgebildet. Die Stauhöhe beträgt 10 m. Die Wehrhöhe ist auf 6 m festgelegt. Die
+Sohleintiefung beträgt 𝑠 = 2 m. Die Abflusskurve ist in der Excel-Tabelle (Anlage gegeben).
+Setzen Sie Verluste mit <strong><span class="math notranslate nohighlight">\(ℎ_𝑣\)</span></strong> = 0,2 ℎ′ an.</p>
+<p><img alt="" src="../../_images/AufbauWehr.png" /></p>
+<section id="bernoulli-energiegleichung">
+<h3>Bernoulli-Energiegleichung<a class="headerlink" href="#bernoulli-energiegleichung" title="Link to this heading">#</a></h3>
+<p>Die Bernoulli-Gleichung beschreibt die Energieerhaltung in einer idealen, reibungsfreien Strömung. Sie lautet:</p>
+<div class="math notranslate nohighlight">
+\[ \frac{p_1}{\rho g} + \frac{v_1^2}{2g} + z_1 = \frac{p_2}{\rho g} + \frac{v_2^2}{2g} + z_2 + h_v \]</div>
+<section id="bedeutung-der-terme">
+<h4>Bedeutung der Terme:<a class="headerlink" href="#bedeutung-der-terme" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\( \frac{p}{\rho g} \)</span>
+ist der Druckhöhenanteil.</p></li>
+<li><p><span class="math notranslate nohighlight">\( \frac{v^2}{2g} \)</span>
+ist der Geschwindigkeits- oder dynamische Höhenanteil.</p></li>
+<li><p><span class="math notranslate nohighlight">\( \ z_2 \)</span>
+ist der geodätische Höhenanteil.</p></li>
+<li><p><span class="math notranslate nohighlight">\( \ h_v \)</span>
+ist die Verlusthöhe</p></li>
+</ul>
+<p>Diese Gleichung beschreibt die Energieerhaltung entlang eines Stromfadens und setzt voraus, dass keine äußeren Kräfte oder Reibungsverluste wirken.</p>
+<p><img alt="" src="Notebooks/Uebung_2/img/Erkl%C3%A4rungVerlusth%C3%B6he.png" /></p>
+</section>
+</section>
+<section id="der-ebene-freie-wechselsprung">
+<h3>Der ebene freie Wechselsprung<a class="headerlink" href="#der-ebene-freie-wechselsprung" title="Link to this heading">#</a></h3>
+<p>Durch die Anwendung des Impulssatzes an den Kontrollschnitten 1-1 und 2-2 kann die Gleichung der konjugierten Wassertiefen beim Wechselsprung hergeleitet werden</p>
+<div class="math notranslate nohighlight">
+\[ \frac{h_2}{h_1} = \frac{1}{2} \left( \sqrt{1 + 8 \cdot Fr_1^2} - 1 \right)  \quad   bzw.  \quad   \frac{h_1}{h_2} = \frac{1}{2} \left( \sqrt{1 + 8 \cdot Fr_2^2} - 1 \right) \]</div>
+<p>Durch die zusätzliche Anwendung der Bernoulli-Gleichung kann die Verlusthöhe im Wechselsprung wie folgt berechnet werden:</p>
+<p><img alt="" src="../../_images/VerlusthoeheWechselsprung.png" /></p>
+<div class="math notranslate nohighlight">
+\[ h_i = \frac{(h_2 - h_1)^3}{4 \cdot h_1 \cdot h_2} \]</div>
+</section>
+<section id="aufgabe-1">
+<h3>Aufgabe 1<a class="headerlink" href="#aufgabe-1" title="Link to this heading">#</a></h3>
+</section>
+<section id="id1">
+<h3>Aufgabe 1<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>→ Es wurden bereits für drei in der Tabelle angegebene Abflüsse die erforderlichen Unterwassertiefen bei Ableitung über jeweils 4 Klappen bestimmt:</p>
+<p><img alt="" src="../../_images/Table440.png" /></p>
+<p>      a) Berechnen Sie die noch fehlenden Werte und zeichnen Sie den Wehrbedienungsplan</p>
+<p>      b) Ist die Tiefe des Tosbeckens ausreichend bemessen?</p>
+<p>      c) Über wie viele Klappen muss ein Abfluss von 𝑄 = 30 m³/s abgeführt werden?</p>
+<section id="gegeben">
+<h4>Gegeben:<a class="headerlink" href="#gegeben" title="Link to this heading">#</a></h4>
+<p>n = 5        𝑏 = 7,2 m        𝜇 = 0,65        <strong><span class="math notranslate nohighlight">\(h_o\)</span></strong> = 10 m        𝑤 = 6 m        𝑠 = 2 m        <strong><span class="math notranslate nohighlight">\(ℎ_𝑣\)</span></strong> = 0,2 ⋅ ℎ′</p>
+</section>
+<section id="berechnung-von-h-2-text-erf">
+<h4>Berechnung von <strong><span class="math notranslate nohighlight">\(h_{2,\text{erf}}\)</span></strong>:<a class="headerlink" href="#berechnung-von-h-2-text-erf" title="Link to this heading">#</a></h4>
+<div class="math notranslate nohighlight">
+\[ h' + \frac{v_0^2}{2 \cdot g} = h_1 + \frac{v_1^2}{2 \cdot g} + h_v \]</div>
+<div class="math notranslate nohighlight">
+\[ h' = h_o + s \]</div>
+<div class="math notranslate nohighlight">
+\[ Fr = \frac{v}{\sqrt{g \cdot h_1}} \]</div>
+<div class="math notranslate nohighlight">
+\[ h_{2,\text{erf}} = \frac{h_1}{2} \left( \sqrt{1 + 8 \cdot Fr_r^2} - 1 \right) \]</div>
+<p>→ Mindestwassertiefe des Unterwassers, damit das Bauwerk keinen Schaden nimmt</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">ipywidgets</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">widgets</span>
@@ -481,6 +557,10 @@ document.write(`
 <span class="n">n_widget</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Klappen n:&#39;</span><span class="p">)</span>
 <span class="n">Q_widget</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">FloatSlider</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">440</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Q [m³/s]:&#39;</span><span class="p">)</span>
 <span class="n">h1_widget</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">FloatSlider</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mf">1.19</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.005</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;h1 [m]:&#39;</span><span class="p">)</span>
+
+<span class="c1"># Konstanten</span>
+<span class="n">b_klappe</span> <span class="o">=</span> <span class="mf">7.2</span>  <span class="c1"># Breite pro Klappe [m]</span>
+<span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>        <span class="c1"># Erdbeschleunigung [m/s²]</span>
 
 <span class="c1">#display(mu_widget, n_widget, Q_widget, h1_widget)</span>
 
@@ -497,11 +577,19 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "8851754848ff491a8b15d5f4d30771a3"}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.berechne_interaktiv(mu, n, Q, h1)&gt;
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "51be9864efd8499db563cf924cd943f5"}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.berechne_interaktiv(mu, n, Q, h1)&gt;
 </pre></div>
 </div>
 </div>
 </div>
+</section>
+</section>
+<section id="aufgabe">
+<h3>✍ Aufgabe:<a class="headerlink" href="#aufgabe" title="Link to this heading">#</a></h3>
+<p>Variieren Sie den Abfluss Q und beobachten Sie, wie sich die erforderliche Wassertiefe h2_erf verändert.</p>
+<p>Was passiert bei hoher Froude-Zahl?</p>
+<p>Wie verändert sich der Wehrbedienungsplan bei geringer Klappenzahl?</p>
+<p><img alt="" src="../../_images/Tableh2erf.png" /></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
@@ -8317,9 +8405,9 @@ maplibre-gl/dist/maplibre-gl.js:
 
 window.Plotly = Plotly;
 return Plotly;
-}));</script>                <div id="d6c030cf-9cea-48d3-a303-6225d7a676bb" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("d6c030cf-9cea-48d3-a303-6225d7a676bb")) {                    Plotly.newPlot(                        "d6c030cf-9cea-48d3-a303-6225d7a676bb",                        [{"hovertemplate":"Klappenanzahl=n=1\u003cbr\u003eAbfluss Q [m\u00b3\u002fs]=%{x}\u003cbr\u003eh2_erf [m]=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"n=1","line":{"color":"#636efa","dash":"solid"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"n=1","orientation":"v","showlegend":true,"x":{"dtype":"i1","bdata":"BhQybg=="},"xaxis":"x","y":{"dtype":"f8","bdata":"16NwPQrX9z9cj8L1KFwFQFyPwvUoXBBACtejcD0KF0A="},"yaxis":"y","type":"scatter"},{"hovertemplate":"Klappenanzahl=n=2\u003cbr\u003eAbfluss Q [m\u00b3\u002fs]=%{x}\u003cbr\u003eh2_erf [m]=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"n=2","line":{"color":"#EF553B","dash":"solid"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"n=2","orientation":"v","showlegend":true,"x":{"dtype":"i2","bdata":"DAAoAGQA3AA="},"xaxis":"x","y":{"dtype":"f8","bdata":"16NwPQrX9z9cj8L1KFwFQFyPwvUoXBBACtejcD0KF0A="},"yaxis":"y","type":"scatter"},{"hovertemplate":"Klappenanzahl=n=3\u003cbr\u003eAbfluss Q [m\u00b3\u002fs]=%{x}\u003cbr\u003eh2_erf [m]=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"n=3","line":{"color":"#00cc96","dash":"solid"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"n=3","orientation":"v","showlegend":true,"x":{"dtype":"i2","bdata":"EgA8AJYASgE="},"xaxis":"x","y":{"dtype":"f8","bdata":"16NwPQrX9z9cj8L1KFwFQFyPwvUoXBBACtejcD0KF0A="},"yaxis":"y","type":"scatter"},{"hovertemplate":"Klappenanzahl=n=4\u003cbr\u003eAbfluss Q [m\u00b3\u002fs]=%{x}\u003cbr\u003eh2_erf [m]=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"n=4","line":{"color":"#ab63fa","dash":"solid"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"n=4","orientation":"v","showlegend":true,"x":{"dtype":"i2","bdata":"GABQAMgAuAE="},"xaxis":"x","y":{"dtype":"f8","bdata":"16NwPQrX9z9cj8L1KFwFQFyPwvUoXBBACtejcD0KF0A="},"yaxis":"y","type":"scatter"},{"hovertemplate":"Klappenanzahl=n=5\u003cbr\u003eAbfluss Q [m\u00b3\u002fs]=%{x}\u003cbr\u003eh2_erf [m]=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"n=5","line":{"color":"#FFA15A","dash":"solid"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"n=5","orientation":"v","showlegend":true,"x":{"dtype":"i2","bdata":"HgBkAPoAJgI="},"xaxis":"x","y":{"dtype":"f8","bdata":"16NwPQrX9z9cj8L1KFwFQFyPwvUoXBBACtejcD0KF0A="},"yaxis":"y","type":"scatter"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"xaxis":{"anchor":"y","domain":[0.0,1.0],"title":{"text":"Abfluss Q [m\u00b3\u002fs]"},"range":[0,550],"gridcolor":"lightgrey"},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"h2_erf [m]"},"range":[0,6],"gridcolor":"lightgrey"},"legend":{"title":{"text":"Klappenanzahl"},"tracegroupgap":0},"title":{"text":"Wehrbedienungsplan (Alle Klappen)"},"plot_bgcolor":"white"},                        {"responsive": true}                    ).then(function(){
+}));</script>                <div id="ad4d93e3-6183-4db9-93bc-7ccb8a94f050" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("ad4d93e3-6183-4db9-93bc-7ccb8a94f050")) {                    Plotly.newPlot(                        "ad4d93e3-6183-4db9-93bc-7ccb8a94f050",                        [{"hovertemplate":"Klappenanzahl=n=1\u003cbr\u003eAbfluss Q [m\u00b3\u002fs]=%{x}\u003cbr\u003eh2_erf [m]=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"n=1","line":{"color":"#636efa","dash":"solid"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"n=1","orientation":"v","showlegend":true,"x":{"dtype":"i1","bdata":"BhQybg=="},"xaxis":"x","y":{"dtype":"f8","bdata":"16NwPQrX9z9cj8L1KFwFQFyPwvUoXBBACtejcD0KF0A="},"yaxis":"y","type":"scatter"},{"hovertemplate":"Klappenanzahl=n=2\u003cbr\u003eAbfluss Q [m\u00b3\u002fs]=%{x}\u003cbr\u003eh2_erf [m]=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"n=2","line":{"color":"#EF553B","dash":"solid"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"n=2","orientation":"v","showlegend":true,"x":{"dtype":"i2","bdata":"DAAoAGQA3AA="},"xaxis":"x","y":{"dtype":"f8","bdata":"16NwPQrX9z9cj8L1KFwFQFyPwvUoXBBACtejcD0KF0A="},"yaxis":"y","type":"scatter"},{"hovertemplate":"Klappenanzahl=n=3\u003cbr\u003eAbfluss Q [m\u00b3\u002fs]=%{x}\u003cbr\u003eh2_erf [m]=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"n=3","line":{"color":"#00cc96","dash":"solid"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"n=3","orientation":"v","showlegend":true,"x":{"dtype":"i2","bdata":"EgA8AJYASgE="},"xaxis":"x","y":{"dtype":"f8","bdata":"16NwPQrX9z9cj8L1KFwFQFyPwvUoXBBACtejcD0KF0A="},"yaxis":"y","type":"scatter"},{"hovertemplate":"Klappenanzahl=n=4\u003cbr\u003eAbfluss Q [m\u00b3\u002fs]=%{x}\u003cbr\u003eh2_erf [m]=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"n=4","line":{"color":"#ab63fa","dash":"solid"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"n=4","orientation":"v","showlegend":true,"x":{"dtype":"i2","bdata":"GABQAMgAuAE="},"xaxis":"x","y":{"dtype":"f8","bdata":"16NwPQrX9z9cj8L1KFwFQFyPwvUoXBBACtejcD0KF0A="},"yaxis":"y","type":"scatter"},{"hovertemplate":"Klappenanzahl=n=5\u003cbr\u003eAbfluss Q [m\u00b3\u002fs]=%{x}\u003cbr\u003eh2_erf [m]=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"n=5","line":{"color":"#FFA15A","dash":"solid"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"n=5","orientation":"v","showlegend":true,"x":{"dtype":"i2","bdata":"HgBkAPoAJgI="},"xaxis":"x","y":{"dtype":"f8","bdata":"16NwPQrX9z9cj8L1KFwFQFyPwvUoXBBACtejcD0KF0A="},"yaxis":"y","type":"scatter"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"xaxis":{"anchor":"y","domain":[0.0,1.0],"title":{"text":"Abfluss Q [m\u00b3\u002fs]"},"range":[0,550],"gridcolor":"lightgrey"},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"h2_erf [m]"},"range":[0,6],"gridcolor":"lightgrey"},"legend":{"title":{"text":"Klappenanzahl"},"tracegroupgap":0},"title":{"text":"Wehrbedienungsplan (Alle Klappen)"},"plot_bgcolor":"white"},                        {"responsive": true}                    ).then(function(){
                             
-var gd = document.getElementById('d6c030cf-9cea-48d3-a303-6225d7a676bb');
+var gd = document.getElementById('ad4d93e3-6183-4db9-93bc-7ccb8a94f050');
 var x = new MutationObserver(function (mutations, observer) {{
         var display = window.getComputedStyle(gd).display;
         if (!display || display === 'none') {{
@@ -8344,11 +8432,7 @@ if (outputEl) {{
                         })                };            </script>        </div></div></div>
 </div>
 <p>Plotly-Diagramme sind ein wertvolles Werkzeug, um hydraulische Daten interaktiv zu erkunden. Anders als statische Grafiken ermöglichen sie es, durch einfaches Hovern mit der Maus präzise Werte an einzelnen Datenpunkten abzulesen. Für Detailanalysen könnt ihr in bestimmte Bereiche zoomen oder das Diagramm verschieben. Ein wesentliches Feature ist die interaktive Legende: Einzelne Datensätze lassen sich durch einen Klick gezielt ein- oder ausblenden. Der Doppelklick auf einen Eintrag in der Legende isoliert diesen Datensatz, was den Vergleich mit anderen Datensätzen vereinfacht.</p>
-<section id="aufgabe">
-<h3>✍ Aufgabe:<a class="headerlink" href="#aufgabe" title="Link to this heading">#</a></h3>
-<p>Variieren Sie den Abfluss Q und beobachten Sie, wie sich die erforderliche Wassertiefe h2_erf verändert.</p>
-<p>Was passiert bei hoher Froude-Zahl?</p>
-<p>Wie verändert sich der Wehrbedienungsplan bei geringer Klappenzahl?</p>
+<p>Im nächsten Schritt muss <strong><span class="math notranslate nohighlight">\(h_u\)</span></strong> bestimmt werden. Dies kann aus der Abflusskurve abgelesen werden. Markiere die entsprechenden Punkte für <strong><span class="math notranslate nohighlight">\(h_u\)</span></strong> im nächsten Diagramm!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
@@ -8363,7 +8447,7 @@ if (outputEl) {{
 <span class="p">}</span>
 
 <span class="n">df_abflusskurve</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">abflusskurve_data</span><span class="p">)</span>
-<span class="n">rp</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">24</span><span class="p">,</span> <span class="mf">0.66</span><span class="p">),</span> <span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mf">1.37</span><span class="p">),</span> <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mf">2.45</span><span class="p">),</span> <span class="p">(</span><span class="mi">440</span><span class="p">,</span> <span class="mf">3.9</span><span class="p">)]</span>
+<span class="n">richtige_punkte</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">24</span><span class="p">,</span> <span class="mf">0.66</span><span class="p">),</span> <span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mf">1.37</span><span class="p">),</span> <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mf">2.45</span><span class="p">),</span> <span class="p">(</span><span class="mi">440</span><span class="p">,</span> <span class="mf">3.9</span><span class="p">)]</span>
 
 <span class="n">toleranz_Q</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">toleranz_hu</span> <span class="o">=</span> <span class="mf">0.1</span>
@@ -8401,15 +8485,15 @@ if (outputEl) {{
         <span class="n">clicked_x</span> <span class="o">=</span> <span class="n">clickData</span><span class="p">[</span><span class="s1">&#39;points&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;x&#39;</span><span class="p">]</span>
         <span class="n">clicked_y</span> <span class="o">=</span> <span class="n">clickData</span><span class="p">[</span><span class="s1">&#39;points&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;y&#39;</span><span class="p">]</span>
         
-        <span class="n">richtig</span> <span class="o">=</span> <span class="nb">any</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">clicked_x</span> <span class="o">-</span> <span class="n">Q</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">toleranz_Q</span> <span class="ow">and</span> <span class="nb">abs</span><span class="p">(</span><span class="n">clicked_y</span> <span class="o">-</span> <span class="n">hu</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">toleranz_hu</span> <span class="k">for</span> <span class="n">Q</span><span class="p">,</span> <span class="n">hu</span> <span class="ow">in</span> <span class="n">rp</span><span class="p">)</span>
+        <span class="n">richtig</span> <span class="o">=</span> <span class="nb">any</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">clicked_x</span> <span class="o">-</span> <span class="n">Q</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">toleranz_Q</span> <span class="ow">and</span> <span class="nb">abs</span><span class="p">(</span><span class="n">clicked_y</span> <span class="o">-</span> <span class="n">hu</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">toleranz_hu</span> <span class="k">for</span> <span class="n">Q</span><span class="p">,</span> <span class="n">hu</span> <span class="ow">in</span> <span class="n">richtige_punkte</span><span class="p">)</span>
         
         <span class="k">if</span> <span class="n">richtig</span><span class="p">:</span>
-            <span class="n">naechster_punkt</span> <span class="o">=</span> <span class="nb">next</span><span class="p">((</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">rp</span> <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">clicked_x</span> <span class="o">-</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&lt;=</span> <span class="n">toleranz_Q</span> <span class="ow">and</span> <span class="nb">abs</span><span class="p">(</span><span class="n">clicked_y</span> <span class="o">-</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">&lt;=</span> <span class="n">toleranz_hu</span><span class="p">),</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="n">naechster_punkt</span> <span class="o">=</span> <span class="nb">next</span><span class="p">((</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">richtige_punkte</span> <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">clicked_x</span> <span class="o">-</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&lt;=</span> <span class="n">toleranz_Q</span> <span class="ow">and</span> <span class="nb">abs</span><span class="p">(</span><span class="n">clicked_y</span> <span class="o">-</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">&lt;=</span> <span class="n">toleranz_hu</span><span class="p">),</span> <span class="kc">None</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">naechster_punkt</span> <span class="ow">and</span> <span class="n">naechster_punkt</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">korrekt_ausgewaehlt</span><span class="p">:</span>
                 <span class="n">farbe</span> <span class="o">=</span> <span class="s1">&#39;green&#39;</span>
                 <span class="n">rueckmeldung</span> <span class="o">=</span> <span class="s2">&quot;✅ Punkt richtig!&quot;</span>
                 <span class="n">korrekt_ausgewaehlt</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">naechster_punkt</span><span class="p">)</span>
-                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">korrekt_ausgewaehlt</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">rp</span><span class="p">):</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">korrekt_ausgewaehlt</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">richtige_punkte</span><span class="p">):</span>
                     <span class="n">erfolg_nachricht</span> <span class="o">=</span> <span class="s2">&quot;Herzlichen Glückwunsch - alle Punkte gefunden!&quot;</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">farbe</span> <span class="o">=</span> <span class="s1">&#39;orange&#39;</span>
@@ -8442,7 +8526,7 @@ if (outputEl) {{
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">OSError</span><span class="g g-Whitespace">                                   </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">85</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">85</span>
 <span class="g g-Whitespace">     </span><span class="mi">82</span>     <span class="k">return</span> <span class="n">fig</span><span class="p">,</span> <span class="n">rueckmeldung</span><span class="p">,</span> <span class="n">korrekte_punkte_text</span> <span class="k">if</span> <span class="n">korrekte_punkte_text</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">erfolg_nachricht</span>
 <span class="g g-Whitespace">     </span><span class="mi">84</span> <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
 <span class="ne">---&gt; </span><span class="mi">85</span>     <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -8526,107 +8610,127 @@ if (outputEl) {{
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">dash</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">dash</span><span class="w"> </span><span class="kn">import</span> <span class="n">dcc</span><span class="p">,</span> <span class="n">html</span><span class="p">,</span> <span class="n">Input</span><span class="p">,</span> <span class="n">Output</span><span class="p">,</span> <span class="n">State</span><span class="p">,</span> <span class="n">dash_table</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.graph_objects</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">go</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">dash</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dash</span><span class="w"> </span><span class="kn">import</span> <span class="n">dcc</span><span class="p">,</span> <span class="n">html</span>
+
+<span class="c1"># Daten für Wehrbedienungsplan</span>
+<span class="n">wehr_data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;h2_erf [m]&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">1.49</span><span class="p">,</span> <span class="mf">2.67</span><span class="p">,</span> <span class="mf">4.09</span><span class="p">,</span> <span class="mf">5.76</span><span class="p">],</span>
+    <span class="s2">&quot;n=1&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">110</span><span class="p">],</span>
+    <span class="s2">&quot;n=2&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">220</span><span class="p">],</span>
+    <span class="s2">&quot;n=3&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">330</span><span class="p">],</span>
+    <span class="s2">&quot;n=4&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">24</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">440</span><span class="p">],</span>
+    <span class="s2">&quot;n=5&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">550</span><span class="p">],</span>
+<span class="p">}</span>
+<span class="n">df_wehr</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">wehr_data</span><span class="p">)</span>
+
+<span class="c1"># Daten für Abflusskurve</span>
+<span class="n">abflusskurve_data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Q&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">140</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">220</span><span class="p">,</span> <span class="mi">240</span><span class="p">,</span> <span class="mi">260</span><span class="p">,</span> <span class="mi">280</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">320</span><span class="p">,</span> <span class="mi">340</span><span class="p">,</span> <span class="mi">360</span><span class="p">,</span> <span class="mi">380</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">420</span><span class="p">,</span> <span class="mi">440</span><span class="p">],</span>
+    <span class="s2">&quot;hu&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.66</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">1.15</span><span class="p">,</span> <span class="mf">1.37</span><span class="p">,</span> <span class="mf">1.59</span><span class="p">,</span> <span class="mf">1.78</span><span class="p">,</span> <span class="mf">1.97</span><span class="p">,</span> <span class="mf">2.13</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">,</span> <span class="mf">2.45</span><span class="p">,</span> <span class="mf">2.6</span><span class="p">,</span> <span class="mf">2.75</span><span class="p">,</span> <span class="mf">2.89</span><span class="p">,</span> <span class="mf">3.02</span><span class="p">,</span> <span class="mf">3.15</span><span class="p">,</span> <span class="mf">3.28</span><span class="p">,</span> <span class="mf">3.4</span><span class="p">,</span> <span class="mf">3.52</span><span class="p">,</span> <span class="mf">3.64</span><span class="p">,</span> <span class="mf">3.76</span><span class="p">,</span> <span class="mf">3.82</span><span class="p">,</span> <span class="mf">3.9</span><span class="p">]</span>
+<span class="p">}</span>
+<span class="n">df_abflusskurve</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">abflusskurve_data</span><span class="p">)</span>
+
+<span class="c1"># Abflusskurve + 2m berechnen</span>
+<span class="n">df_abflusskurve</span><span class="p">[</span><span class="s2">&quot;hu+2&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_abflusskurve</span><span class="p">[</span><span class="s2">&quot;hu&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">2</span>
+
+<span class="c1"># Funktion zum Finden der Schnittpunkte</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">find_intersections</span><span class="p">(</span><span class="n">df_wehr</span><span class="p">,</span> <span class="n">df_abflusskurve</span><span class="p">,</span> <span class="n">tolerance</span><span class="o">=</span><span class="mf">0.01</span><span class="p">):</span>
+    <span class="n">intersections</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;n=1&quot;</span><span class="p">,</span> <span class="s2">&quot;n=2&quot;</span><span class="p">,</span> <span class="s2">&quot;n=3&quot;</span><span class="p">]:</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df_wehr</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span> <span class="o">=</span> <span class="n">df_wehr</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">df_wehr</span><span class="p">[</span><span class="s2">&quot;h2_erf [m]&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span> <span class="o">=</span> <span class="n">df_wehr</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">df_wehr</span><span class="p">[</span><span class="s2">&quot;h2_erf [m]&quot;</span><span class="p">][</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+            
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df_abflusskurve</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="n">x3</span><span class="p">,</span> <span class="n">y3</span> <span class="o">=</span> <span class="n">df_abflusskurve</span><span class="p">[</span><span class="s2">&quot;Q&quot;</span><span class="p">][</span><span class="n">j</span><span class="p">],</span> <span class="n">df_abflusskurve</span><span class="p">[</span><span class="s2">&quot;hu+2&quot;</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+                <span class="n">x4</span><span class="p">,</span> <span class="n">y4</span> <span class="o">=</span> <span class="n">df_abflusskurve</span><span class="p">[</span><span class="s2">&quot;Q&quot;</span><span class="p">][</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">df_abflusskurve</span><span class="p">[</span><span class="s2">&quot;hu+2&quot;</span><span class="p">][</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+                
+                <span class="n">denom</span> <span class="o">=</span> <span class="p">(</span><span class="n">y4</span><span class="o">-</span><span class="n">y3</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x2</span><span class="o">-</span><span class="n">x1</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">x4</span><span class="o">-</span><span class="n">x3</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">y2</span><span class="o">-</span><span class="n">y1</span><span class="p">)</span>
+                <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">denom</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">1e-8</span><span class="p">:</span>  <span class="c1"># Vermeidung von Division durch Null</span>
+                    <span class="n">ua</span> <span class="o">=</span> <span class="p">((</span><span class="n">x4</span><span class="o">-</span><span class="n">x3</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">y1</span><span class="o">-</span><span class="n">y3</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">y4</span><span class="o">-</span><span class="n">y3</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x1</span><span class="o">-</span><span class="n">x3</span><span class="p">))</span> <span class="o">/</span> <span class="n">denom</span>
+                    <span class="n">ub</span> <span class="o">=</span> <span class="p">((</span><span class="n">x2</span><span class="o">-</span><span class="n">x1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">y1</span><span class="o">-</span><span class="n">y3</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">y2</span><span class="o">-</span><span class="n">y1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x1</span><span class="o">-</span><span class="n">x3</span><span class="p">))</span> <span class="o">/</span> <span class="n">denom</span>
+                    <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">ua</span> <span class="o">&lt;=</span> <span class="mi">1</span> <span class="ow">and</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">ub</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+                        <span class="n">x</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">+</span> <span class="n">ua</span> <span class="o">*</span> <span class="p">(</span><span class="n">x2</span><span class="o">-</span><span class="n">x1</span><span class="p">)</span>
+                        <span class="n">y</span> <span class="o">=</span> <span class="n">y1</span> <span class="o">+</span> <span class="n">ua</span> <span class="o">*</span> <span class="p">(</span><span class="n">y2</span><span class="o">-</span><span class="n">y1</span><span class="p">)</span>
+                        <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="p">(</span><span class="n">y3</span> <span class="o">+</span> <span class="n">ub</span> <span class="o">*</span> <span class="p">(</span><span class="n">y4</span><span class="o">-</span><span class="n">y3</span><span class="p">)))</span> <span class="o">&lt;</span> <span class="n">tolerance</span><span class="p">:</span>
+                            <span class="n">intersections</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;n&quot;</span><span class="p">:</span> <span class="n">n</span><span class="p">,</span> <span class="s2">&quot;Q&quot;</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="s2">&quot;h&quot;</span><span class="p">:</span> <span class="n">y</span><span class="p">})</span>
+    
+    <span class="k">return</span> <span class="n">intersections</span>
+
+
+<span class="n">intersections</span> <span class="o">=</span> <span class="n">find_intersections</span><span class="p">(</span><span class="n">df_wehr</span><span class="p">,</span> <span class="n">df_abflusskurve</span><span class="p">)</span>
 
 <span class="c1"># Dash-App erstellen</span>
 <span class="n">app</span> <span class="o">=</span> <span class="n">dash</span><span class="o">.</span><span class="n">Dash</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
-<span class="c1"># Formel zur Berechnung von Q</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">berechne_Q</span><span class="p">(</span><span class="n">hu</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-    <span class="n">µ</span> <span class="o">=</span> <span class="mf">0.65</span>
-    <span class="n">b</span> <span class="o">=</span> <span class="n">n</span> <span class="o">*</span> <span class="mf">7.2</span>
-    <span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>
-    <span class="k">return</span> <span class="p">(</span><span class="mi">2</span> <span class="o">/</span> <span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="n">µ</span> <span class="o">*</span> <span class="n">b</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">g</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">hu</span> <span class="o">**</span> <span class="p">(</span><span class="mi">3</span> <span class="o">/</span> <span class="mi">2</span><span class="p">))</span>
+<span class="c1"># Graph erstellen</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
+<span class="n">farben</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;purple&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="s2">&quot;n=1&quot;</span><span class="p">,</span> <span class="s2">&quot;n=2&quot;</span><span class="p">,</span> <span class="s2">&quot;n=3&quot;</span><span class="p">,</span> <span class="s2">&quot;n=4&quot;</span><span class="p">,</span> <span class="s2">&quot;n=5&quot;</span><span class="p">]):</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df_wehr</span><span class="p">[</span><span class="n">col</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">df_wehr</span><span class="p">[</span><span class="s2">&quot;h2_erf [m]&quot;</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;lines+markers&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">col</span><span class="p">,</span> <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">farben</span><span class="p">[</span><span class="n">i</span><span class="p">])))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df_abflusskurve</span><span class="p">[</span><span class="s1">&#39;Q&#39;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">df_abflusskurve</span><span class="p">[</span><span class="s1">&#39;hu&#39;</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;lines&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Abflusskurve&#39;</span><span class="p">,</span> <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkgrey&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">dash</span><span class="o">=</span><span class="s1">&#39;dash&#39;</span><span class="p">)))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df_abflusskurve</span><span class="p">[</span><span class="s1">&#39;Q&#39;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">df_abflusskurve</span><span class="p">[</span><span class="s1">&#39;hu+2&#39;</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;lines&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Abflusskurve +2m&#39;</span><span class="p">,</span> <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">dash</span><span class="o">=</span><span class="s1">&#39;dash&#39;</span><span class="p">)))</span>
 
-<span class="c1"># Daten definieren</span>
-<span class="n">hü_values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
-<span class="n">n_values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="c1"># Schnittpunkte zur Figur hinzufügen</span>
+<span class="k">for</span> <span class="n">point</span> <span class="ow">in</span> <span class="n">intersections</span><span class="p">:</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span>
+        <span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="n">point</span><span class="p">[</span><span class="s1">&#39;Q&#39;</span><span class="p">]],</span>
+        <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="n">point</span><span class="p">[</span><span class="s1">&#39;h&#39;</span><span class="p">]],</span>
+        <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;markers&#39;</span><span class="p">,</span>
+        <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s1">&#39;circle-open&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">),</span>  
+        <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Schnittpunkt </span><span class="si">{</span><span class="n">point</span><span class="p">[</span><span class="s1">&#39;n&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="n">text</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;n=</span><span class="si">{</span><span class="n">point</span><span class="p">[</span><span class="s1">&#39;n&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">, Q=</span><span class="si">{</span><span class="n">point</span><span class="p">[</span><span class="s1">&#39;Q&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">, h=</span><span class="si">{</span><span class="n">point</span><span class="p">[</span><span class="s1">&#39;h&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="n">hoverinfo</span><span class="o">=</span><span class="s1">&#39;text&#39;</span>
+    <span class="p">))</span>
 
-<span class="c1"># Kontrollwerte aus der Tabelle auf Folie 22</span>
-<span class="n">expected_values</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span> <span class="mf">0.00</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span> <span class="mf">0.00</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span> <span class="mf">0.00</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span> <span class="mf">0.00</span><span class="p">,</span>
-    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span> <span class="mf">13.82</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span> <span class="mf">27.64</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span> <span class="mf">41.46</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span> <span class="mf">55.28</span><span class="p">,</span>
-    <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span> <span class="mf">39.09</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span> <span class="mf">78.18</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span> <span class="mf">117.27</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span> <span class="mf">156.35</span><span class="p">,</span>
-    <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span> <span class="mf">71.81</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span> <span class="mf">143.62</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span> <span class="mf">215.43</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span> <span class="mf">287.24</span><span class="p">,</span>
-    <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span> <span class="mf">110.56</span><span class="p">,</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span> <span class="mf">221.12</span><span class="p">,</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span> <span class="mf">331.68</span><span class="p">,</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span> <span class="mf">442.24</span><span class="p">,</span>
-<span class="p">}</span>
-
-<span class="c1"># Leere Tabelle erstellen</span>
-<span class="n">df_table</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-    <span class="p">[[</span><span class="kc">None</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">n_values</span><span class="p">]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">hü_values</span><span class="p">],</span>
-    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;n_</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">n_values</span><span class="p">],</span>
-    <span class="n">index</span><span class="o">=</span><span class="n">hü_values</span>
+<span class="c1"># Layout-Anpassungen</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Wehrbedienungsplan und Abflusskurve mit Schnittpunkten&quot;</span><span class="p">,</span>
+    <span class="n">xaxis_title</span><span class="o">=</span><span class="s2">&quot;Abfluss Q [m³/s]&quot;</span><span class="p">,</span>
+    <span class="n">yaxis_title</span><span class="o">=</span><span class="s2">&quot;h2_erf [m] / hu + s [m]&quot;</span><span class="p">,</span>
+    <span class="n">plot_bgcolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span>
+    <span class="n">yaxis_range</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
+    <span class="n">xaxis_range</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">550</span><span class="p">],</span>
+    <span class="n">xaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+        <span class="n">tickmode</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span>
+        <span class="n">tick0</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+        <span class="n">dtick</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+        <span class="n">gridcolor</span><span class="o">=</span><span class="s1">&#39;darkgrey&#39;</span><span class="p">,</span>
+        <span class="n">gridwidth</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+        <span class="n">ticklen</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+        <span class="n">minor</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+            <span class="n">tickmode</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span>
+            <span class="n">tick0</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+            <span class="n">dtick</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+            <span class="n">gridcolor</span><span class="o">=</span><span class="s1">&#39;lightgrey&#39;</span><span class="p">,</span>
+            <span class="n">gridwidth</span><span class="o">=</span><span class="mf">0.5</span>
+        <span class="p">)</span>
+    <span class="p">),</span>
+    <span class="n">yaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+        <span class="n">tickmode</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span>
+        <span class="n">tick0</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+        <span class="n">dtick</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">gridcolor</span><span class="o">=</span><span class="s1">&#39;darkgrey&#39;</span><span class="p">,</span>
+        <span class="n">gridwidth</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+        <span class="n">minor</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+            <span class="n">dtick</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+            <span class="n">gridcolor</span><span class="o">=</span><span class="s1">&#39;lightgrey&#39;</span><span class="p">,</span>
+            <span class="n">gridwidth</span><span class="o">=</span><span class="mf">0.2</span>
+        <span class="p">)</span>
+    <span class="p">),</span>
+    <span class="n">legend_title</span><span class="o">=</span><span class="s2">&quot;Legende&quot;</span><span class="p">,</span>
+    <span class="n">hovermode</span><span class="o">=</span><span class="s2">&quot;closest&quot;</span>
 <span class="p">)</span>
-
-<span class="n">df_table</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;hü&quot;</span><span class="p">,</span> <span class="n">hü_values</span><span class="p">)</span>
 
 <span class="n">app</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">([</span>
-    <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">([</span>
-        <span class="n">html</span><span class="o">.</span><span class="n">H3</span><span class="p">(</span><span class="s2">&quot;Formel:&quot;</span><span class="p">),</span>
-        <span class="n">html</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="s2">&quot;Q = (2/3) ⋅ µ ⋅ b ⋅ √(2 ⋅ g) ⋅ hü^(3/2)&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;font-size&#39;</span><span class="p">:</span> <span class="s1">&#39;18px&#39;</span><span class="p">}),</span>
-        <span class="n">html</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="s2">&quot;b = n ⋅ 7.2&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;font-size&#39;</span><span class="p">:</span> <span class="s1">&#39;18px&#39;</span><span class="p">}),</span>
-        <span class="n">html</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="s2">&quot;µ = 0.65, g = 9.81&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;font-size&#39;</span><span class="p">:</span> <span class="s1">&#39;18px&#39;</span><span class="p">}),</span>
-    <span class="p">],</span> <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;margin-bottom&#39;</span><span class="p">:</span> <span class="s1">&#39;20px&#39;</span><span class="p">}),</span>
-    
-    <span class="n">dash_table</span><span class="o">.</span><span class="n">DataTable</span><span class="p">(</span>
-        <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;interaktive-tabelle&#39;</span><span class="p">,</span>
-        <span class="n">columns</span><span class="o">=</span><span class="p">[{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;hü&quot;</span><span class="p">,</span> <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;hü&quot;</span><span class="p">,</span> <span class="s2">&quot;editable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}]</span> <span class="o">+</span> 
-                <span class="p">[{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;n = </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;n_</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;editable&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">n_values</span><span class="p">],</span>
-        <span class="n">data</span><span class="o">=</span><span class="n">df_table</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(</span><span class="s1">&#39;records&#39;</span><span class="p">),</span>
-        <span class="n">editable</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-        <span class="n">style_table</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;margin&#39;</span><span class="p">:</span> <span class="s1">&#39;20px&#39;</span><span class="p">},</span>
-        <span class="n">style_cell</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;textAlign&#39;</span><span class="p">:</span> <span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="s1">&#39;font-size&#39;</span><span class="p">:</span> <span class="s1">&#39;16px&#39;</span><span class="p">},</span>
-        <span class="n">style_header</span><span class="o">=</span><span class="p">{</span>
-            <span class="s1">&#39;backgroundColor&#39;</span><span class="p">:</span> <span class="s1">&#39;rgb(220, 220, 220)&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;fontWeight&#39;</span><span class="p">:</span> <span class="s1">&#39;bold&#39;</span>
-        <span class="p">},</span>
-        <span class="n">style_data_conditional</span><span class="o">=</span><span class="p">[</span>
-            <span class="p">{</span>
-                <span class="s1">&#39;if&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;row_index&#39;</span><span class="p">:</span> <span class="s1">&#39;odd&#39;</span><span class="p">},</span>
-                <span class="s1">&#39;backgroundColor&#39;</span><span class="p">:</span> <span class="s1">&#39;rgb(248, 248, 248)&#39;</span>
-            <span class="p">}</span>
-        <span class="p">]</span>
-    <span class="p">),</span>
-    
-    <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;feedback&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;margin-top&#39;</span><span class="p">:</span> <span class="s1">&#39;20px&#39;</span><span class="p">,</span> <span class="s1">&#39;font-weight&#39;</span><span class="p">:</span> <span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="s1">&#39;font-size&#39;</span><span class="p">:</span> <span class="s1">&#39;18px&#39;</span><span class="p">})</span>
+    <span class="n">html</span><span class="o">.</span><span class="n">H1</span><span class="p">(</span><span class="s2">&quot;Wehrbedienungsplan und Abflusskurve&quot;</span><span class="p">),</span>
+    <span class="n">dcc</span><span class="o">.</span><span class="n">Graph</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;graph&quot;</span><span class="p">,</span> <span class="n">figure</span><span class="o">=</span><span class="n">fig</span><span class="p">),</span>
+    <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;output-container&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;margin&quot;</span><span class="p">:</span> <span class="s2">&quot;20px&quot;</span><span class="p">,</span> <span class="s2">&quot;padding&quot;</span><span class="p">:</span> <span class="s2">&quot;15px&quot;</span><span class="p">,</span> <span class="s2">&quot;border&quot;</span><span class="p">:</span> <span class="s2">&quot;1px solid gray&quot;</span><span class="p">})</span>
 <span class="p">])</span>
-
-<span class="nd">@app</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span>
-    <span class="p">[</span><span class="n">Output</span><span class="p">(</span><span class="s1">&#39;interaktive-tabelle&#39;</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">),</span> <span class="n">Output</span><span class="p">(</span><span class="s1">&#39;feedback&#39;</span><span class="p">,</span> <span class="s1">&#39;children&#39;</span><span class="p">)],</span>
-    <span class="n">Input</span><span class="p">(</span><span class="s1">&#39;interaktive-tabelle&#39;</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">),</span>
-    <span class="n">State</span><span class="p">(</span><span class="s1">&#39;interaktive-tabelle&#39;</span><span class="p">,</span> <span class="s1">&#39;data_previous&#39;</span><span class="p">)</span>
-<span class="p">)</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">validate_table</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">data_previous</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">data_previous</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">data</span><span class="p">,</span> <span class="s2">&quot;&quot;</span>
-    
-    <span class="n">feedback_messages</span> <span class="o">=</span> <span class="p">[]</span>
-    
-    <span class="k">for</span> <span class="n">row_idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-        <span class="n">hü_value</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;hü&#39;</span><span class="p">]</span>
-        <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">n_values</span><span class="p">:</span>
-            <span class="n">col_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;n_</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">&quot;</span>
-            <span class="n">prev_value</span> <span class="o">=</span> <span class="n">data_previous</span><span class="p">[</span><span class="n">row_idx</span><span class="p">][</span><span class="n">col_name</span><span class="p">]</span> <span class="k">if</span> <span class="n">data_previous</span> <span class="k">else</span> <span class="kc">None</span>
-            <span class="n">cell_value</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="n">col_name</span><span class="p">]</span>
-            
-            <span class="k">if</span> <span class="n">cell_value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">cell_value</span> <span class="o">!=</span> <span class="n">prev_value</span><span class="p">:</span>
-                <span class="k">try</span><span class="p">:</span>
-                    <span class="n">cell_value_float</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">cell_value</span><span class="p">)</span>
-                    <span class="n">expected_value</span> <span class="o">=</span> <span class="n">expected_values</span><span class="o">.</span><span class="n">get</span><span class="p">((</span><span class="n">hü_value</span><span class="p">,</span> <span class="n">n</span><span class="p">),</span> <span class="kc">None</span><span class="p">)</span>
-                    <span class="k">if</span> <span class="n">expected_value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">cell_value_float</span><span class="p">,</span> <span class="n">expected_value</span><span class="p">,</span> <span class="n">rel_tol</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">):</span>
-                        <span class="n">feedback_messages</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✅ Richtig: hü=</span><span class="si">{</span><span class="n">hü_value</span><span class="si">}</span><span class="s2">, n=</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">cell_value_float</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-                        <span class="n">row</span><span class="p">[</span><span class="n">col_name</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">cell_value_float</span><span class="si">}</span><span class="s2"> ✅&quot;</span>
-                    <span class="k">else</span><span class="p">:</span>
-                        <span class="n">feedback_messages</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;❌ Falsch: hü=</span><span class="si">{</span><span class="n">hü_value</span><span class="si">}</span><span class="s2">, n=</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">cell_value_float</span><span class="si">}</span><span class="s2">. Erwartet: </span><span class="si">{</span><span class="n">expected_value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-                        <span class="n">row</span><span class="p">[</span><span class="n">col_name</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">cell_value_float</span><span class="si">}</span><span class="s2"> ❌&quot;</span>
-                <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
-                    <span class="n">feedback_messages</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;❌ Ungültige Eingabe: hü=</span><span class="si">{</span><span class="n">hü_value</span><span class="si">}</span><span class="s2">, n=</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">cell_value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-                    <span class="n">row</span><span class="p">[</span><span class="n">col_name</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">cell_value</span><span class="si">}</span><span class="s2"> ❌&quot;</span>
-    
-    <span class="k">return</span> <span class="n">data</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">feedback_messages</span><span class="p">)</span>
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -8645,6 +8749,32 @@ if (outputEl) {{
         ></iframe>
         </div></div>
 </div>
+</section>
+<section id="uberfallhohen">
+<h3>Überfallhöhen<a class="headerlink" href="#uberfallhohen" title="Link to this heading">#</a></h3>
+<p>Im nächsten Schritt wird die Überfallhöhe berechnet. Es gibt zwei verschiedene Überfallarten.</p>
+<section id="vollkommener-uberfall">
+<h4>Vollkommener Überfall<a class="headerlink" href="#vollkommener-uberfall" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Der Abfluss Q wird nicht vom Unterwasser her beeinflusst</p></li>
+<li><p>Im Bereich der Überfallkrone kommt es zum Fließwechsel Strömen → Schießen</p></li>
+<li><p>Im Bereich der Wehrkrone herrscht der Grenzzustand (<strong><span class="math notranslate nohighlight">\(h_gr\)</span></strong>)</p></li>
+</ul>
+<p><img alt="" src="Notebooks/Uebung_2/img/vollkommener%C3%9Cberfall.png" /></p>
+</section>
+<section id="unvollkommener-uberfall">
+<h4>Unvollkommener Überfall<a class="headerlink" href="#unvollkommener-uberfall" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Der Abfluss Q kann vom Unterwasserstand beeinträchtigt bzw. vermindert werden (Abminderungsfaktor c)</p></li>
+<li><p>Es kommt nicht zu einem Fließwechsel</p></li>
+</ul>
+<p><img alt="" src="Notebooks/Uebung_2/img/unvollkommener%C3%9Cberfall.png" /></p>
+<div class="math notranslate nohighlight">
+\[ Q = \frac{2}{3} (\cdot \ c) \cdot \mu \cdot b \cdot \sqrt{2 \cdot g} \cdot h_ü^{\frac{3}{2}} \]</div>
+<div class="math notranslate nohighlight">
+\[ b = n \cdot b \]</div>
+<div class="math notranslate nohighlight">
+\[ \mu = 0.65, \, b = 7.2, \, g = 9.81 \]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">dash</span>
@@ -8684,12 +8814,6 @@ if (outputEl) {{
 <span class="n">previous_plot_data</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="n">app</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">([</span>
-    <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">([</span>
-        <span class="n">html</span><span class="o">.</span><span class="n">H3</span><span class="p">(</span><span class="s2">&quot;Formel:&quot;</span><span class="p">),</span>
-        <span class="n">html</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="s2">&quot;Q = (2/3) ⋅ µ ⋅ b ⋅ √(2 ⋅ g) ⋅ hü^(3/2)&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;font-size&#39;</span><span class="p">:</span> <span class="s1">&#39;18px&#39;</span><span class="p">}),</span>
-        <span class="n">html</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="s2">&quot;b = n ⋅ 7.2&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;font-size&#39;</span><span class="p">:</span> <span class="s1">&#39;18px&#39;</span><span class="p">}),</span>
-        <span class="n">html</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="s2">&quot;µ = 0.65, g = 9.81&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;font-size&#39;</span><span class="p">:</span> <span class="s1">&#39;18px&#39;</span><span class="p">}),</span>
-    <span class="p">],</span> <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;margin-bottom&#39;</span><span class="p">:</span> <span class="s1">&#39;20px&#39;</span><span class="p">}),</span>
     
     <span class="n">dash_table</span><span class="o">.</span><span class="n">DataTable</span><span class="p">(</span>
         <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;interaktive-tabelle&#39;</span><span class="p">,</span>
@@ -8774,6 +8898,7 @@ if (outputEl) {{
 </section>
 </section>
 </section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -8806,12 +8931,12 @@ if (outputEl) {{
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../Einleitung/Einfuehrung_Datenimport.html"
+       href="../Uebung_1/Uebung_1.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Ausführen von Code in Jupyter Notebooks</p>
+        <p class="prev-next-title">Wasserbau 4, Uebung 01</p>
       </div>
     </a>
     <a class="right-next"
@@ -8819,7 +8944,7 @@ if (outputEl) {{
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Notebook 1: Zeitbeiwertverfahren, Einheitsganglinie, Block- und detaillierte Modelle</p>
+        <p class="prev-next-title">Notebook 1 Zeitbeiwertverfahren, Einheitsganglinie, Block- und detaillierte Modelle</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -8840,7 +8965,23 @@ if (outputEl) {{
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aufgabe-1-interaktiver-wehrbedienungsplan">Aufgabe 1 – Interaktiver Wehrbedienungsplan</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bernoulli-energiegleichung">Bernoulli-Energiegleichung</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bedeutung-der-terme">Bedeutung der Terme:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#der-ebene-freie-wechselsprung">Der ebene freie Wechselsprung</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aufgabe-1">Aufgabe 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Aufgabe 1</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gegeben">Gegeben:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#berechnung-von-h-2-text-erf">Berechnung von <strong><span class="math notranslate nohighlight">\(h_{2,\text{erf}}\)</span></strong>:</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aufgabe">✍ Aufgabe:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uberfallhohen">Überfallhöhen</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vollkommener-uberfall">Vollkommener Überfall</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unvollkommener-uberfall">Unvollkommener Überfall</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

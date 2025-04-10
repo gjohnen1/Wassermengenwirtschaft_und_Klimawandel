@@ -1,15 +1,15 @@
 format: jb-book
 root: Einleitung
 parts:
-- caption: EINFUEHRUNG IN PYTHON
+- caption: EINLEITUNG
   chapters:
   - file: Notebooks/Einleitung/Einfuehrung_Datenimport
-- caption: Uebung 1
+- caption: UEBUNG 01
   chapters:
   - file: Notebooks/Uebung_1/Uebung_1
-- caption: Uebung 2
+- caption: UEBUNG 02
   chapters:
   - file: Notebooks/Uebung_2/Uebung_2
-- caption: HYDROLOGISCHE MODELLIERUNG
+- caption: HAUSARBEIT
   chapters:
   - file: Notebooks/Hausarbeit/Hausarbeit
