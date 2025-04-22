@@ -187,15 +187,10 @@
 <li class="toctree-l1"><a class="reference internal" href="Notebooks/Einleitung/Einfuehrung_Datenimport.html">Ausführen von Code in Jupyter Notebooks</a></li>
 
 
-
-
-
-
-
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">UEBUNG 01</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Notebooks/Uebung_1/Uebung_1.html">Wasserbau 4, Uebung 01</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Notebooks/Uebung_1/Uebung_1.html">Wasserbau 4, Übung 01 - Hochwasserstatistik mit Python</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">UEBUNG 02</span></p>
 <ul class="nav bd-sidenav">
@@ -400,14 +395,18 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#erste-schritte-mit-interaktiven-python-notebooks">Erste Schritte mit interaktiven Python-Notebooks</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-der-cloud">In der Cloud</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-1-lokale-installation-empfohlen">Option 1: Lokale Installation (Empfohlen)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-2-cloud-basierte-nutzung">Option 2: Cloud-basierte Nutzung</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#einrichtung-und-vorbereitung">Einrichtung und Vorbereitung</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lernressourcen">Lernressourcen</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eine-umfassende-liste-interessanter-nutzlicher-und-leistungsfahiger-jupyter-notebook-beispiele-findet-man-hier">Eine umfassende Liste interessanter, nützlicher und leistungsfähiger Jupyter-Notebook-Beispiele findet man hier.</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weitere-informationen">Weitere Informationen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#navigation-in-diesem-jupyter-book">Navigation in diesem Jupyter Book</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#projektstruktur">Projektstruktur</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paket-installation">Paket-Installation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#troubleshooting-hilfe">Troubleshooting &amp; Hilfe</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lizenz">Lizenz</a></li>
@@ -424,30 +423,49 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="vorwort">
 <h1>Vorwort<a class="headerlink" href="#vorwort" title="Link to this heading">#</a></h1>
-<p>Dieses Juypter-Book besteht aus einer Reihe interaktiver Jupyter-Notebooks zum Thema Wassermengenwirtschaft und Klimawandel. Es wurde ursprünglich von <a class="reference external" href="https://civil.ubc.ca/faculty/dan-kovacek/">Dan Kovacek</a> und <a class="reference external" href="https://Civil.ubc.ca/faculty/steven-weijs/">Steven Weijs</a> an der University of British Columbia erstellt und von <a class="reference external" href="https://www.uni-due.de/wasserbau/mitarbeiter_johnen.php">Gregor Johnen</a> ins Deutsche übersetzt und angepasst. Ziel der einzelnen Notebooks ist es, Studierenden die systematische Datenanalyse mithilfe der Open-Source-Software <em>Python</em> und <em>Jupyter-Notebooks</em> näherzubringen.</p>
-<p><strong>Es wird nicht erwartet, dass Teilnehmende über Vorkenntnisse der Programmierung verfügen.</strong> Der Schwerpunkt der Notebooks liegt auf hydrologischen Konzepten und nicht auf der Programmierung selbst, weshalb der erforderliche Code bereitgestellt wird. Jedes Notebook konzentriert sich auf eine bestimmte Komponente der hydrologischen Datenanalyse- und Auswertung. Anschließend sollten Fragen zu den zugrunde liegenden Konzepten beantwortet werden. Dies erfordert möglicherweise das Ändern von Variablen und das erneute Ausführen von Codeblöcken, um die Ergebnisse im Anschluss zu aktualisieren.</p>
+<p>Dieses Juypter-Book besteht aus einer Reihe interaktiver Jupyter-Notebooks zum Thema Wassermengenwirtschaft und Klimawandel. Es wurde ursprünglich von <a class="reference external" href="https://civil.ubc.ca/faculty/dan-kovacek/">Dan Kovacek</a> und <a class="reference external" href="https://Civil.ubc.ca/faculty/steven-weijs/">Steven Weijs</a> an der University of British Columbia erstellt und von <a class="reference external" href="https://www.uni-due.de/wasserbau/mitarbeiter_johnen.php">Gregor Johnen</a> und <a class="reference external" href="https://www.uni-due.de/wasserbau/schimanski.php">Johanna Schimanski</a> ins Deutsche übersetzt, angepasst und stetig erweitert. Ziel der einzelnen Notebooks ist es, Studierenden die systematische Datenanalyse mithilfe der Open-Source-Software <em>Python</em> und <em>Jupyter-Notebooks</em> näherzubringen.</p>
+<p><strong>Es wird nicht erwartet, dass Teilnehmende über Vorkenntnisse der Programmierung verfügen.</strong> Der Schwerpunkt der Notebooks liegt auf hydrologischen Konzepten und nicht auf der Programmierung selbst, weshalb der erforderliche Code zum Großteil bereitgestellt wird. Jedes Notebook konzentriert sich auf eine bestimmte Komponente der hydrologischen Datenanalyse- und Auswertung. Anschließend sollten Fragen zu den zugrunde liegenden Konzepten beantwortet werden. Dies erfordert möglicherweise das Ändern von Variablen und das erneute Ausführen von Codeblöcken, um die Ergebnisse im Anschluss zu aktualisieren.</p>
 <blockquote>
-<div><p><strong>Anmerkung</strong>: Der Inhalt dieser Notebooks stellt keine vorgeschriebene bzw. normierte Kombination von Methoden für hydrologische Analysen dar. Vielmehr sollen einige grundlegende Konzepte vorgestellt werden und so zum Nachdenken über Modellunsicherheiten und Sensitivitäten anregen.</p>
+<div><p><strong>Anmerkung</strong>: Der Inhalt dieser Notebooks stellt keine vorgeschriebene bzw. normierte Kombination von Methoden für hydrologische Analysen dar. Vielmehr sollen einige grundlegende Konzepte aus dem Bereich Wassermengenwirtschaft und Klimawandelanalyse vorgestellt werden und so zum Nachdenken über Modellunsicherheiten und Sensitivitäten anregen.</p>
 </div></blockquote>
 <section id="erste-schritte-mit-interaktiven-python-notebooks">
 <h2>Erste Schritte mit interaktiven Python-Notebooks<a class="headerlink" href="#erste-schritte-mit-interaktiven-python-notebooks" title="Link to this heading">#</a></h2>
 <p>Die Jupyter-Notebooks in diesem Kurs können auf die folgenden Arten aufgerufen und ausgeführt werden:</p>
-<ul class="simple">
-<li><p><strong>Auf dem lokalen Rechner</strong>: Hier wird der Paket- und Umgebungsmanager <a class="reference external" href="https://www.anaconda.com/">Anaconda</a> empfohlen. Die Programmierung in Python ist so vielseitig und leistungsstark, weil sie leistungsstarke Funktionen verwendet, die in anwendungsspezifischen Bibliotheken (bspw. pandas) geschrieben sind.  Anaconda ist die Software, die sicherstellt, dass bei der Nutzung mehrerer solcher Pakete alles reibungslos läuft und keine Versionskonflikte entstehen. Im Fokus steht dabei ein simples Management von Paketen und Entwicklungsumgebungen. Denn dank dieses Tools muss nicht jedes Paket separat installiert werden, sondern bei der Installation werden Python und die wichtigsten Pakete automatisch mitinstalliert. Nach der Installation von Anaconda kann im Anschluss <a class="reference external" href="https://jupyter.org/">Jupyter Lab</a> installiert werden.</p></li>
-</ul>
-<section id="in-der-cloud">
-<h3>In der Cloud<a class="headerlink" href="#in-der-cloud" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p><strong>Mit Binder</strong>: Die Notebooks können alternativ auch “in der Cloud” mit <a class="reference external" href="https://mybinder.org/">Binder</a> ausgeführt werden. Über Binder kann mit dem Webbrowser auf die Notebooks zugegriffen werden, ohne Python oder Anaconda lokal zu installieren. Binder ist hier eine super Möglichkeit, Code mit anderen zu teilen und Projekte remote bei voller Funktionalität zu präsentieren. WICHTIG zu beachten ist, dass Dateien, auf die auf diese Weise zugegriffen wird, <strong>nicht in der Cloud-Instanz gespeichert</strong> werden können und dass alle vorgenommenen Änderungen lokal gespeichert oder neu geschrieben werden müssen, sobald die Instanz verlassen wird und später neu gestartet wird.</p></li>
-<li><p><strong>Mit Google Colab</strong>: Eine weitere Möglichkeit, die Notebooks auszuführen, ist die Nutzung von <a class="reference external" href="https://colab.research.google.com/">Google Colab</a>. Colab ist eine kostenlose Cloud-basierte Plattform, die es ermöglicht, Jupyter-Notebooks direkt im Webbrowser auszuführen. Hierfür ist lediglich ein Google-Konto erforderlich. Der Vorteil von Colab liegt darin, dass keine lokale Installation von Python oder Jupyter notwendig ist und dass die Plattform Zugriff auf leistungsstarke Hardware wie GPUs bietet. Änderungen können gespeichert werden, indem das Notebook entweder lokal heruntergeladen oder in Google Drive gespeichert wird.</p></li>
-</ul>
+<section id="option-1-lokale-installation-empfohlen">
+<h3>Option 1: Lokale Installation (Empfohlen)<a class="headerlink" href="#option-1-lokale-installation-empfohlen" title="Link to this heading">#</a></h3>
+<p>Hier wird der Paket- und Umgebungsmanager <a class="reference external" href="https://www.anaconda.com/">Anaconda</a> empfohlen. Die Programmierung in Python ist so vielseitig und leistungsstark, weil sie leistungsstarke Funktionen verwendet, die in anwendungsspezifischen Bibliotheken (bspw. pandas) geschrieben sind. Anaconda ist die Software, die sicherstellt, dass bei der Nutzung mehrerer solcher Pakete alles reibungslos läuft und keine Versionskonflikte entstehen. Im Fokus steht dabei ein simples Management von Paketen und Entwicklungsumgebungen. Dank dieses Tools muss nicht jedes Paket separat installiert werden, sondern bei der Installation werden Python und die wichtigsten Pakete für die Datenanalyse automatisch mitinstalliert, was den Einstieg erheblich erleichtert.</p>
 <blockquote>
-<div><p><strong>Anmerkung</strong>: Anaconda hat kürzlich eine sog. Paywall eingeführt. Dieses Abonemment ist aber grundsätzlich nicht notwendig, um die Software zu nutzen. Da die komplette Anaconda-Distribution mit allen Paketen lokal sehr viel Speicherplatz verbraucht, gibt es außerdem die Variante <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/user-guide/install/windows.html">Miniconda</a>, die nur Python, Conda sowie ein paar grundlegende Pakete enthält. Diese erfordert demnach auch eine manuelle Installation der in den Jupyter-Notebooks verwendeten Pakete.  Dieser Installationsprozess ist jedoch nicht schwierig und kann wahlweise direkt im Notebook durchgeführt werden. D.h. die Installation von bspw. numpy und pandas wäre einfach eine Sache des Ausführens von <code class="docutils literal notranslate"><span class="pre">!conda</span> <span class="pre">install</span> <span class="pre">numpy</span> <span class="pre">pandas</span></code> in einem Codeblock— Es reicht die Pakete einmal zu installieren, es sei denn, man installiert miniconda neu.</p>
+<div><p><strong>Anmerkung</strong>: Für die lokale Installation empfehlen wir die <a class="reference external" href="https://www.anaconda.com/download/success">Anaconda Distribution</a>. Sie installiert Python und viele nützliche Pakete auf einmal, was besonders für Anfänger praktisch ist. Anaconda hat kürzlich eine sog. Paywall eingeführt. Dieses Abonnement ist aber grundsätzlich nicht notwendig, um die Software für akademische Zwecke zu nutzen.</p>
 </div></blockquote>
+<p>Nach der Installation von Anaconda kann im Anschluss <a class="reference external" href="https://jupyter.org/">Jupyter Notebook</a> verwendet werden, da es bereits enthalten ist. Eine detaillierte Anleitung zur Installation von Python über Anaconda findet man <a class="reference external" href="https://www.anaconda.com/products/distribution">hier</a>.</p>
+<p><strong>Installationsschritte:</strong></p>
+<ol class="arabic simple">
+<li><p>Installieren Sie Anaconda über den oben genannten Link.</p></li>
+<li><p>Öffnen Sie die ‘Anaconda Prompt’ (unter Windows) oder das Terminal (unter macOS/Linux).</p></li>
+<li><p>Jupyter Notebook ist bereits Teil der Anaconda Distribution. Sie müssen es nicht separat installieren.</p></li>
+<li><p>Überprüfen Sie die Installation, indem Sie folgende Befehle eingeben und jeweils mit Enter bestätigen:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">--version</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">--version</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">notebook</span> <span class="pre">--version</span></code>
+Es sollten die jeweiligen Versionsnummern angezeigt werden.</p></li>
+</ul>
+</li>
+<li><p>Starten Sie Jupyter Notebook, indem Sie <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">notebook</span></code> in die Anaconda Prompt (oder Terminal) eingeben und Enter drücken. Es sollte sich ein neuer Tab in Ihrem Webbrowser öffnen.</p></li>
+</ol>
+</section>
+<section id="option-2-cloud-basierte-nutzung">
+<h3>Option 2: Cloud-basierte Nutzung<a class="headerlink" href="#option-2-cloud-basierte-nutzung" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Mit Binder</strong>: Die Notebooks können alternativ auch “in der Cloud” mit <a class="reference external" href="https://mybinder.org/">Binder</a> ausgeführt werden. Über Binder kann mit dem Webbrowser auf die Notebooks zugegriffen werden, ohne Python oder Anaconda lokal zu installieren. Binder ist hier eine super Möglichkeit, Code mit anderen zu teilen und Projekte remote bei voller Funktionalität zu präsentieren. <strong>WICHTIG:</strong> Bei Nutzung von Binder werden Ihre Änderungen <strong>nicht dauerhaft gespeichert!</strong> Wenn Sie den Browser-Tab schließen, gehen alle Änderungen verloren. Speichern Sie Ihre Arbeit regelmäßig lokal herunter.</p></li>
+<li><p><strong>Mit Google Colab</strong>: Eine weitere Möglichkeit, die Notebooks auszuführen, ist die Nutzung von <a class="reference external" href="https://colab.research.google.com/">Google Colab</a>. Colab ist eine kostenlose Cloud-basierte Plattform, die es ermöglicht, Jupyter-Notebooks direkt im Webbrowser auszuführen. Hierfür ist lediglich ein Google-Konto erforderlich. Der Vorteil von Colab liegt darin, dass keine lokale Installation von Python oder Jupyter notwendig ist und dass die Plattform Zugriff auf leistungsstarke Hardware wie GPUs bietet. Änderungen können gespeichert werden, indem das Notebook entweder lokal heruntergeladen oder in Google Drive gespeichert wird. Beachten Sie, dass Sie möglicherweise die Notebook-Dateien (.ipynb) aus diesem Kurs manuell in Colab hochladen oder von GitHub öffnen müssen.</p></li>
+</ul>
 </section>
 <section id="einrichtung-und-vorbereitung">
 <h3>Einrichtung und Vorbereitung<a class="headerlink" href="#einrichtung-und-vorbereitung" title="Link to this heading">#</a></h3>
-<p>Eine detaillierte Anleitung zur Installation von Python über Anaconda findet man <a class="reference external" href="https://www.anaconda.com/products/distribution">hier</a>. Nach der Installation von Anaconda ist darauf zu achten, dass Python (Version 3.10 oder höher) korrekt installiert wurde. Überprüfen Sie dies, indem Sie in der Anaconda Prompt <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">--version</span></code> eingeben. Stellen Sie ebenfalls sicher, dass Jupyter Notebook über den Anaconda Navigator oder die Anaconda Prompt (mit dem Befehl <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">notebook</span></code>) geöffnet und gestartet werden kann.</p>
+<p>Eine detaillierte Anleitung zur Installation von Python über Anaconda findet man <a class="reference external" href="https://www.anaconda.com/products/distribution">hier</a>. Nach der Installation von Anaconda ist darauf zu achten, dass Python (Version 3.10 oder höher) korrekt installiert wurde. Überprüfen Sie dies, indem Sie in der Anaconda Prompt <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">--version</span></code> eingeben. Stellen Sie ebenfalls sicher, dass Jupyter Notebook über die Anaconda Prompt (mit dem Befehl <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">notebook</span></code>) geöffnet und gestartet werden kann.</p>
+<p><strong>Speichern Ihrer Arbeit:</strong> Denken Sie daran, Ihre Arbeit regelmäßig zu speichern! In Jupyter Notebook geht das über <code class="docutils literal notranslate"><span class="pre">Datei</span> <span class="pre">-&gt;</span> <span class="pre">Speichern</span> <span class="pre">und</span> <span class="pre">Checkpoint</span> <span class="pre">erstellen</span></code> (oder das Disketten-Symbol in der Werkzeugleiste).</p>
+<p><strong>Der Kernel:</strong> Jede Notebook-Datei wird von einem ‘Kernel’ ausgeführt, der die Code-Engine ist. Wenn Ihr Code hängen bleibt oder unerwartete Fehler auftreten, kann ein Neustart des Kernels helfen: <code class="docutils literal notranslate"><span class="pre">Kernel</span> <span class="pre">-&gt;</span> <span class="pre">Kernel</span> <span class="pre">neu</span> <span class="pre">starten</span></code>.</p>
 <p>Für weitere Unterstützung wird im <a class="reference external" href="https://moodle.uni-due.de/course/view.php?id=12978">Moodle-Kurs</a> ein Diskussionsforum zur Installation eingerichtet. Sollten nach Durchsicht der bereitgestellten Materialien Schwierigkeiten bei der Installation bestehen, können Fragen dort so detailliert wie möglich gestellt werden. Diese werden zeitnah beantwortet.</p>
 </section>
 <section id="lernressourcen">
@@ -460,6 +478,7 @@ document.write(`
 <li><p><a class="reference external" href="https://nbviewer.org/github/jupyter/notebook/blob/main/docs/source/examples/Notebook/Running%20Code.ipynb">Wie führt man Code in einem Notebook aus</a>. Grundlagen der Python-Syntax und der Programmierung im Jupyter-Notebook.</p></li>
 <li><p><a class="reference external" href="http://nbviewer.ipython.org/github/jrjohansson/scientific-python-lectures/blob/master/Lecture-4-Matplotlib.ipynb">Matplotlib</a> ist eine beliebte Bibliothek zur Erstellung einer Vielzahl von Diagrammen.</p></li>
 <li><p><a class="reference external" href="https://nbviewer.org/github/ehmatthes/intro_programming/blob/master/notebooks/index.ipynb">Einführung in Python</a>.  Ein Einführungskurs, der anhand eines interaktiven Python-Notizbuchs in Jupyter unterrichtet wird.</p></li>
+<li><p>Für die Formatierung von Textzellen in den Notebooks wird Markdown verwendet. Eine Übersicht finden Sie im Kapitel <a class="reference internal" href="markdown.html"><span class="std std-doc">Markdown Grundlagen</span></a>.</p></li>
 </ul>
 </section>
 <section id="eine-umfassende-liste-interessanter-nutzlicher-und-leistungsfahiger-jupyter-notebook-beispiele-findet-man-hier">
@@ -468,20 +487,49 @@ document.write(`
 </section>
 <section id="weitere-informationen">
 <h2>Weitere Informationen<a class="headerlink" href="#weitere-informationen" title="Link to this heading">#</a></h2>
+<section id="navigation-in-diesem-jupyter-book">
+<h3>Navigation in diesem Jupyter Book<a class="headerlink" href="#navigation-in-diesem-jupyter-book" title="Link to this heading">#</a></h3>
+<p>Dieses Jupyter Book ist in Kapitel und Abschnitte gegliedert, die in der Datei <code class="docutils literal notranslate"><span class="pre">_toc.yml</span></code> definiert sind. Wenn Sie das Buch online betrachten oder lokal bauen (siehe README), erscheint am linken Rand eine Navigationsleiste, mit der Sie einfach zwischen den verschiedenen Notebooks und Seiten wechseln können.</p>
+</section>
+<section id="projektstruktur">
+<h3>Projektstruktur<a class="headerlink" href="#projektstruktur" title="Link to this heading">#</a></h3>
+<p>Für Ihre Arbeit sind vor allem folgende Ordner relevant:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Inhalt/Notebooks/</span></code>: Enthält die interaktiven Übungsnotebooks (<code class="docutils literal notranslate"><span class="pre">Uebung_X/</span></code>) und die Hausarbeit (<code class="docutils literal notranslate"><span class="pre">Hausarbeit/</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Inhalt/Notebook_Daten/</span></code>: Enthält die Datensätze, die für die Übungen und die Hausarbeit benötigt werden.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Inhalt/Projekt_Daten/</span></code>: Enthält zusätzliche Datensätze, die in einigen Notebooks verwendet werden.</p></li>
+</ul>
+</section>
 <section id="paket-installation">
 <h3>Paket-Installation<a class="headerlink" href="#paket-installation" title="Link to this heading">#</a></h3>
+<p>Diese Notebooks verwenden Pakete wie <code class="docutils literal notranslate"><span class="pre">pandas</span></code> zur Datenanalyse und <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> oder <code class="docutils literal notranslate"><span class="pre">plotly</span></code> zur Visualisierung. Wenn Sie eine Fehlermeldung wie ‘ModuleNotFoundError’ sehen, bedeutet das, dass ein benötigtes Paket fehlt.</p>
 <p>Wenn beim Ausführen einer Code-Zelle in Jupyter die folgende Fehlermeldung zurückgegeben wird:</p>
 <p><img alt="Example Package Error" src="_images/package_error.png" /></p>
-<p>Dies bedeutet im Allgemeinen, dass ein Paket nicht installiert wurde.  In diesem Fall handelt es sich um das Paket <code class="docutils literal notranslate"><span class="pre">Pandas</span></code>, das durch Erstellen einer neuen Zelle installiert werden kann:</p>
+<p>Dies bedeutet im Allgemeinen, dass ein Paket nicht installiert wurde. In diesem Fall handelt es sich um das Paket <code class="docutils literal notranslate"><span class="pre">Pandas</span></code>. Innerhalb einer Anaconda-Umgebung ist es am besten, Pakete mit <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">&lt;paketname&gt;</span></code> zu installieren, um Konflikte zu vermeiden. Dies kann durch Erstellen einer neuen Zelle geschehen:</p>
 <p><img alt="Neue Zelle erstellen" src="_images/new_cell.png" /></p>
-<p>Es kann folgendes eingegeben werden (Hier kann <code class="docutils literal notranslate"><span class="pre">pandas</span></code> durch den jeweiligen Namen des Pakets ersetzt werden, das installiert werden soll)</p>
+<p>Es kann folgendes eingegeben werden (Hier kann <code class="docutils literal notranslate"><span class="pre">pandas</span></code> durch den jeweiligen Namen des Pakets ersetzt werden, das installiert werden soll). Führen Sie den Befehl nur einmal pro Paket aus:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">conda</span> <span class="n">install</span> <span class="n">pandas</span> <span class="o">-</span><span class="n">y</span>
+<span class="c1"># oder für mehrere Pakete gleichzeitig:</span>
+<span class="c1"># !conda install numpy pandas matplotlib -y</span>
+</pre></div>
+</div>
 <p><img alt="Befehl zur Installation eines Python-Pakets" src="_images/package_install.png" /></p>
-<p>Die Zelle kann nun ausgeführt werden (Umschalttaste + Eingabetaste) (empfohlen), oder durch drücken der Schaltfläche “Ausführen”.</p>
+<p>Die Zelle kann nun ausgeführt werden (Umschalttaste + Eingabetaste) (empfohlen), oder durch drücken der Schaltfläche “Ausführen”. Das <code class="docutils literal notranslate"><span class="pre">-y</span></code> am Ende überspringt die Bestätigungsabfrage.</p>
+</section>
+<section id="troubleshooting-hilfe">
+<h3>Troubleshooting &amp; Hilfe<a class="headerlink" href="#troubleshooting-hilfe" title="Link to this heading">#</a></h3>
+<p>Zusätzlich zum Moodle-Forum hier einige Tipps zur Fehlerbehebung:</p>
+<ul class="simple">
+<li><p><strong>Fehlermeldungen lesen:</strong> Lesen Sie Fehlermeldungen sorgfältig – oft geben sie genaue Hinweise auf das Problem (z.B. welche Zeile den Fehler verursacht oder welches Paket fehlt).</p></li>
+<li><p><strong>Online-Suche:</strong> Kopieren Sie die Fehlermeldung und suchen Sie online danach (z.B. auf Google oder Stack Overflow). Oft hatten andere schon das gleiche Problem.</p></li>
+<li><p><strong>Kernel neu starten:</strong> Wie oben erwähnt, kann ein Neustart des Kernels (<code class="docutils literal notranslate"><span class="pre">Kernel</span> <span class="pre">-&gt;</span> <span class="pre">Kernel</span> <span class="pre">neu</span> <span class="pre">starten</span></code>) manchmal helfen, wenn sich das Notebook seltsam verhält.</p></li>
+<li><p><strong>Hilfe im Forum:</strong> Wenn Sie im Moodle-Forum fragen, beschreiben Sie genau, was Sie versucht haben, welchen Code Sie ausgeführt haben und welche vollständige Fehlermeldung Sie erhalten haben. Screenshots können ebenfalls hilfreich sein.</p></li>
+</ul>
 </section>
 </section>
 <section id="lizenz">
 <h2>Lizenz<a class="headerlink" href="#lizenz" title="Link to this heading">#</a></h2>
-<p>Die Notizbücher, aus denen dieses Jupyter-Buch besteht, stehen unter der Lizenz [Creative Commons Attribution 4.0 International] (<a class="reference external" href="https://creativecommons.org/licenses/by/4.0/legalcode">https://creativecommons.org/licenses/by/4.0/legalcode</a>).</p>
+<p>Die Notizbücher, aus denen dieses Jupyter-Buch besteht, stehen unter der Lizenz <a class="reference external" href="https://creativecommons.org/licenses/by/4.0/legalcode">Creative Commons Attribution 4.0 International</a>.</p>
 </section>
 <div class="toctree-wrapper compound">
 </div>
@@ -549,14 +597,18 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#erste-schritte-mit-interaktiven-python-notebooks">Erste Schritte mit interaktiven Python-Notebooks</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-der-cloud">In der Cloud</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-1-lokale-installation-empfohlen">Option 1: Lokale Installation (Empfohlen)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-2-cloud-basierte-nutzung">Option 2: Cloud-basierte Nutzung</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#einrichtung-und-vorbereitung">Einrichtung und Vorbereitung</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lernressourcen">Lernressourcen</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eine-umfassende-liste-interessanter-nutzlicher-und-leistungsfahiger-jupyter-notebook-beispiele-findet-man-hier">Eine umfassende Liste interessanter, nützlicher und leistungsfähiger Jupyter-Notebook-Beispiele findet man hier.</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weitere-informationen">Weitere Informationen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#navigation-in-diesem-jupyter-book">Navigation in diesem Jupyter Book</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#projektstruktur">Projektstruktur</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paket-installation">Paket-Installation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#troubleshooting-hilfe">Troubleshooting &amp; Hilfe</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lizenz">Lizenz</a></li>
