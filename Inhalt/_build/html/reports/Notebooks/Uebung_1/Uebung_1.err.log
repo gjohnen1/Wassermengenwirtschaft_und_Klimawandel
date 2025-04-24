@@ -56,7 +56,7 @@ print(f"Empirisch interpoliertes HQ100: {HQ100_emp:.2f} m³/s")
 
 [1;31m---------------------------------------------------------------------------[0m
 [1;31mTypeError[0m                                 Traceback (most recent call last)
-Cell [1;32mIn[9], line 32[0m
+Cell [1;32mIn[10], line 32[0m
 [0;32m     30[0m [38;5;66;03m# Beispiel: Interpolation für T=50 Jahre[39;00m
 [0;32m     31[0m HQ50_emp [38;5;241m=[39m interpolate_HQ([38;5;241m50[39m, df)
 [1;32m---> 32[0m [38;5;28mprint[39m([38;5;124mf[39m[38;5;124m"[39m[38;5;124mEmpirisch interpoliertes HQ50: [39m[38;5;132;01m{[39;00mHQ50_emp[38;5;132;01m:[39;00m[38;5;124m.2f[39m[38;5;132;01m}[39;00m[38;5;124m m³/s[39m[38;5;124m"[39m)

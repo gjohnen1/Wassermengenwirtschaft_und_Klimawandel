@@ -62,8 +62,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Notebooks/Uebung_1/Uebung_1';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Wasserbau 4, Uebung 02" href="../Uebung_2/Uebung_2.html" />
-    <link rel="prev" title="Ausführen von Code in Jupyter Notebooks" href="../Einleitung/Einfuehrung_Datenimport.html" />
+    <link rel="next" title="Environment Setup" href="../Uebung_2/Uebung_2.html" />
+    <link rel="prev" title="Environment Setup" href="../Einleitung/Einfuehrung_Datenimport.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -183,7 +183,8 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">EINLEITUNG</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../Einleitung/Einfuehrung_Datenimport.html">Ausführen von Code in Jupyter Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Einleitung/Einfuehrung_Datenimport.html">Environment Setup</a></li>
+
 
 
 </ul>
@@ -193,7 +194,8 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">UEBUNG 02</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../Uebung_2/Uebung_2.html">Wasserbau 4, Uebung 02</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Uebung_2/Uebung_2.html">Environment Setup</a></li>
+
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">HAUSARBEIT</span></p>
 <ul class="nav bd-sidenav">
@@ -443,7 +445,8 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#einfuhrung">Einführung</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ubersicht">Übersicht</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ubersicht">Übersicht</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environment-setup">Environment Setup</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aufgabe-1-1-berechnung-statistischer-kennwerte">Aufgabe 1.1: Berechnung statistischer Kennwerte</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aufgabe-1-2-logarithmische-transformation-und-pearson-parameter">Aufgabe 1.2: Logarithmische Transformation und Pearson-Parameter</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aufgabe-1-3-berechnung-von-bemessungshochwasser">Aufgabe 1.3: Berechnung von Bemessungshochwasser</a></li>
@@ -490,6 +493,28 @@ document.write(`
 <li><p><strong>Auslegung einer rauen Rampe</strong> für Hochwasserentlastung</p></li>
 </ol>
 <p>Diese statistischen und hydraulischen Methoden sind grundlegend für die Planung von Hochwasserschutzmaßnahmen in der wasserbaulichen Praxis.</p>
+</section>
+<section id="environment-setup">
+<h2>Environment Setup<a class="headerlink" href="#environment-setup" title="Link to this heading">#</a></h2>
+<p>This notebook requires specific Python packages. Please follow the instructions below based on your environment:</p>
+<p><strong>Local Environment:</strong>
+If running locally, please follow the setup instructions in the <code class="docutils literal notranslate"><span class="pre">README.md</span></code> file of this repository to create a Conda environment and install the required packages from <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>.</p>
+<p><strong>Binder:</strong>
+If running in Binder, the environment is automatically set up based on the repository’s configuration files. No manual installation is needed.</p>
+<p><strong>Google Colab:</strong>
+If running in Google Colab, execute the following cell to install the necessary packages. <strong>Important:</strong> After the installation completes, you <strong>must</strong> restart the Colab runtime by clicking <code class="docutils literal notranslate"><span class="pre">Runtime</span> <span class="pre">&gt;</span> <span class="pre">Restart</span> <span class="pre">runtime</span></code> in the menu bar.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Execute this cell only if running in Google Colab</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="k">if</span> <span class="s1">&#39;google.colab&#39;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Installing packages for Colab...&quot;</span><span class="p">)</span>
+    <span class="o">%</span><span class="k">pip</span> install pandas numpy matplotlib scipy ipywidgets plotly
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Installation complete. Please restart the runtime (Runtime &gt; Restart runtime).&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 <!-- ## 1. Pearson-Typ-III-Verteilung – Grundlagen und Berechnung
 
 ### Frage 1: Was ist die Pearson-Typ-III-Verteilung und wozu wird sie in der Hydrologie verwendet?
@@ -677,7 +702,7 @@ Schiefekoeffizient C_sy = 0.231
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "d47e112eb3474eb8827e036e8aa88f75"}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.design_flood(T=100)&gt;
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "4ebaea6dd0dd489dbd1fbec2b912a3c3"}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.design_flood(T=100)&gt;
 </pre></div>
 </div>
 </div>
@@ -934,7 +959,7 @@ Schiefekoeffizient C_sy = 0.231
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">32</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">32</span>
 <span class="g g-Whitespace">     </span><span class="mi">30</span> <span class="c1"># Beispiel: Interpolation für T=50 Jahre</span>
 <span class="g g-Whitespace">     </span><span class="mi">31</span> <span class="n">HQ50_emp</span> <span class="o">=</span> <span class="n">interpolate_HQ</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>
 <span class="ne">---&gt; </span><span class="mi">32</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Empirisch interpoliertes HQ50: </span><span class="si">{</span><span class="n">HQ50_emp</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> m³/s&quot;</span><span class="p">)</span>
@@ -969,20 +994,6 @@ Schiefekoeffizient C_sy = 0.231
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Pearson-III-Wert noch nicht berechnet. Bitte erst Aufgabe 1.3 durchführen.&quot;</span><span class="p">)</span>
 
 <span class="c1"># Ihre Antwort zu Frage 3: Welche Methode ist konservativer und warum?</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">29</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Berechnung des HQ200 durch empirische Interpolation</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">HQ200_emp</span> <span class="o">=</span> <span class="n">interpolate_HQ</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Empirisch interpoliertes HQ200: </span><span class="si">{</span><span class="n">HQ200_emp</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> m³/s&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># Vergleich mit dem Pearson-III-Wert (falls bereits berechnet)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="k">try</span><span class="p">:</span>
-
-<span class="ne">TypeError</span>: unsupported format string passed to NoneType.__format__
 </pre></div>
 </div>
 </div>
@@ -1042,9 +1053,6 @@ Schiefekoeffizient C_sy = 0.231
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../_images/2d39c912c41d5792eb904048f7dc59bfcae5bfc4e84b09b24e14ed7d0c489ca5.png" src="../../_images/2d39c912c41d5792eb904048f7dc59bfcae5bfc4e84b09b24e14ed7d0c489ca5.png" />
-</div>
 </div>
 </section>
 </section>
@@ -1066,11 +1074,6 @@ Schiefekoeffizient C_sy = 0.231
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "322d95d8e3174bbbb0edc0411e7220a7", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.weir_outflow(Q=55.0, b=20.0, mu=0.74)&gt;
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 <section id="hochwasserentlastung-uber-raue-rampe">
@@ -1088,11 +1091,6 @@ Schiefekoeffizient C_sy = 0.231
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;d_65 ≈ </span><span class="si">{</span><span class="n">d65</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> m, d_s ≈ </span><span class="si">{</span><span class="n">d_s</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> m, Steinmasse ≈ </span><span class="si">{</span><span class="n">m_s</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> kg&quot;</span><span class="p">)</span>
 
 <span class="n">interact</span><span class="p">(</span><span class="n">ramp_design</span><span class="p">,</span> <span class="n">Q</span><span class="o">=</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="mi">80</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">b</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">I_R</span><span class="o">=</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">0.15</span><span class="p">,</span><span class="mf">0.005</span><span class="p">),</span> <span class="n">rho_s</span><span class="o">=</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span><span class="mi">3000</span><span class="p">,</span><span class="mi">50</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "28bec91dab6840bc8465cfab3e179947", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.ramp_design(Q=55.0, b=20.0, I_R=0.075, rho_s=2650.0)&gt;
 </pre></div>
 </div>
 </div>
@@ -1136,7 +1134,7 @@ Schiefekoeffizient C_sy = 0.231
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Ausführen von Code in Jupyter Notebooks</p>
+        <p class="prev-next-title">Environment Setup</p>
       </div>
     </a>
     <a class="right-next"
@@ -1144,7 +1142,7 @@ Schiefekoeffizient C_sy = 0.231
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Wasserbau 4, Uebung 02</p>
+        <p class="prev-next-title">Environment Setup</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1165,7 +1163,8 @@ Schiefekoeffizient C_sy = 0.231
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#einfuhrung">Einführung</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ubersicht">Übersicht</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ubersicht">Übersicht</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environment-setup">Environment Setup</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aufgabe-1-1-berechnung-statistischer-kennwerte">Aufgabe 1.1: Berechnung statistischer Kennwerte</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aufgabe-1-2-logarithmische-transformation-und-pearson-parameter">Aufgabe 1.2: Logarithmische Transformation und Pearson-Parameter</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aufgabe-1-3-berechnung-von-bemessungshochwasser">Aufgabe 1.3: Berechnung von Bemessungshochwasser</a></li>
