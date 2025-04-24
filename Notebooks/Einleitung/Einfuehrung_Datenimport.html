@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Environment Setup &#8212; Wasserwirtschaft und Klimawandel</title>
+    <title>Wasserbau 4, Einführung - Jupyter Notebooks und Grundlegende Konzepte in Python &#8212; Wasserwirtschaft und Klimawandel</title>
   
   
   
@@ -183,7 +183,7 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">EINLEITUNG</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Environment Setup</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Wasserbau 4, Einführung - Jupyter Notebooks und Grundlegende Konzepte in Python</a></li>
 
 
 
@@ -194,12 +194,13 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">UEBUNG 02</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../Uebung_2/Uebung_2.html">Environment Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Uebung_2/Uebung_2.html">Wasserbau 4, Übung 02 - HIER STEHT DER TITEL</a></li>
+
 
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">HAUSARBEIT</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../Hausarbeit/Hausarbeit.html">Notebook 1 Zeitbeiwertverfahren, Einheitsganglinie, Block- und detaillierte Modelle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Hausarbeit/Hausarbeit.html">Wasserbau 4, Hausarbeit: Zeitbeiwertverfahren, Einheitsganglinie, Block- und detaillierte Modelle</a></li>
 </ul>
 
     </div>
@@ -434,7 +435,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Environment Setup</h1>
+    <h1>Wasserbau 4, Einführung - Jupyter Notebooks und Grundlegende Konzepte in Python</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -444,7 +445,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Environment Setup</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Wasserbau 4, Einführung - Jupyter Notebooks und Grundlegende Konzepte in Python</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#umgebung-einrichten">Umgebung einrichten</a></li>
+</ul>
+</li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ausfuhren-von-code-in-jupyter-notebooks">Ausführen von Code in Jupyter Notebooks</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#grundlegende-python-konzepte">Grundlegende Python-Konzepte</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variablen-und-datentypen">Variablen und Datentypen</a></li>
@@ -494,18 +498,20 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="environment-setup">
-<h1>Environment Setup<a class="headerlink" href="#environment-setup" title="Link to this heading">#</a></h1>
-<p>This notebook requires specific Python packages. Please follow the instructions below based on your environment:</p>
-<p><strong>Local Environment:</strong>
-If running locally, please follow the setup instructions in the <code class="docutils literal notranslate"><span class="pre">README.md</span></code> file of this repository to create a Conda environment and install the required packages from <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="wasserbau-4-einfuhrung-jupyter-notebooks-und-grundlegende-konzepte-in-python">
+<h1>Wasserbau 4, Einführung - Jupyter Notebooks und Grundlegende Konzepte in Python<a class="headerlink" href="#wasserbau-4-einfuhrung-jupyter-notebooks-und-grundlegende-konzepte-in-python" title="Link to this heading">#</a></h1>
+<section id="umgebung-einrichten">
+<h2>Umgebung einrichten<a class="headerlink" href="#umgebung-einrichten" title="Link to this heading">#</a></h2>
+<p>Dieses Notebook benötigt bestimmte Python-Pakete. Bitte befolgen Sie die nachstehenden Anweisungen je nach Umgebung:</p>
+<p><strong>Lokale Umgebung:</strong>
+Richten Sie lokal gemäß der <code class="docutils literal notranslate"><span class="pre">README.md</span></code>-Datei dieses Repositories eine Conda‑Umgebung ein und installieren Sie die Pakete aus <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>.</p>
 <p><strong>Binder:</strong>
-If running in Binder, the environment is automatically set up based on the repository’s configuration files. No manual installation is needed.</p>
+Binder konfiguriert die Umgebung automatisch anhand der Repository‑Dateien. Eine manuelle Installation ist nicht erforderlich.</p>
 <p><strong>Google Colab:</strong>
-If running in Google Colab, execute the following cell to install the necessary packages. <strong>Important:</strong> After the installation completes, you <strong>must</strong> restart the Colab runtime by clicking <code class="docutils literal notranslate"><span class="pre">Runtime</span> <span class="pre">&gt;</span> <span class="pre">Restart</span> <span class="pre">runtime</span></code> in the menu bar.</p>
+Führen Sie in Colab die folgende Zelle aus, um die benötigten Pakete zu installieren. <strong>Wichtig:</strong> Starten Sie danach die Laufzeit neu (<code class="docutils literal notranslate"><span class="pre">Runtime &gt; Restart</span> <span class="pre">runtime</span></code>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Execute this cell only if running in Google Colab</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Zelle nur ausführen, wenn in Colab gearbeitet wird</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 <span class="k">if</span> <span class="s1">&#39;google.colab&#39;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Installing packages for Colab...&quot;</span><span class="p">)</span>
@@ -515,6 +521,7 @@ If running in Google Colab, execute the following cell to install the necessary 
 </div>
 </div>
 </div>
+</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="ausfuhren-von-code-in-jupyter-notebooks">
 <h1>Ausführen von Code in Jupyter Notebooks<a class="headerlink" href="#ausfuhren-von-code-in-jupyter-notebooks" title="Link to this heading">#</a></h1>
@@ -1646,6 +1653,9 @@ dtype: int64
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Date&#39;-Spalte erfolgreich als DatetimeIndex gesetzt.
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -2164,7 +2174,10 @@ Erste paar Zeilen mit Lücken:
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Environment Setup</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Wasserbau 4, Einführung - Jupyter Notebooks und Grundlegende Konzepte in Python</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#umgebung-einrichten">Umgebung einrichten</a></li>
+</ul>
+</li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ausfuhren-von-code-in-jupyter-notebooks">Ausführen von Code in Jupyter Notebooks</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#grundlegende-python-konzepte">Grundlegende Python-Konzepte</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variablen-und-datentypen">Variablen und Datentypen</a></li>
