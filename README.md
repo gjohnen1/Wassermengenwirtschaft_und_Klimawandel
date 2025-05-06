@@ -23,3 +23,29 @@ Anschließend muss die GitHub Pages Seite aktualisiert werden. Hierzu kann das g
 [Besuchen Sie die Seite](https://gjohnen1.github.io/Wassermengenwirtschaft_und_Klimawandel/) auf Github-Pages
 
 `https://gjohnen1.github.io/Wassermengenwirtschaft_und_Klimawandel/`
+
+## Lokale Einrichtung mit Conda
+
+Um die Notebooks lokal auszuführen, wird empfohlen, eine dedizierte Conda-Umgebung zu verwenden:
+
+1.  **Conda-Umgebung erstellen** (falls noch nicht geschehen):
+    ```bash
+    conda create -n wasserbuch python=3.9
+    ```
+2.  **Umgebung aktivieren**:
+    ```bash
+    conda activate wasserbuch
+    ```
+3.  **Abhängigkeiten installieren**:
+    Navigieren Sie im Terminal zum Hauptverzeichnis dieses Repositorys (wo sich die `requirements.txt` befindet) und führen Sie aus:
+    ```bash
+    pip install -r requirements.txt
+    ```
+4.  **Jupyter starten**:
+    Nach der Installation können Sie Jupyter Lab oder Jupyter Notebook starten:
+    ```bash
+    jupyter lab
+    # oder
+    jupyter notebook
+    ```
+    Navigieren Sie dann zum Ordner `Inhalt/Notebooks/`, um die Notebooks zu öffnen und auszuführen.
