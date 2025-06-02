@@ -444,12 +444,15 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#umgebung-einrichten">Umgebung einrichten</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aufgabe-1-interaktiver-wehrbedienungsplan">Aufgabe 1 – Interaktiver Wehrbedienungsplan</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#theoretische-grundlagen">Theoretische Grundlagen</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bernoulli-energiegleichung">Bernoulli-Energiegleichung</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bedeutung-der-terme">Bedeutung der Terme:</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#der-ebene-freie-wechselsprung">Der ebene freie Wechselsprung</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aufgabe-1-interaktiver-wehrbedienungsplan">Aufgabe 1 – Interaktiver Wehrbedienungsplan</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aufgabe-1">Aufgabe 1</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gegeben">Gegeben:</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#berechnung-von-h-2-text-erf">Berechnung von <span class="math notranslate nohighlight">\(h_{2,\text{erf}}\)</span>:</a></li>
@@ -502,6 +505,8 @@ Führen Sie in Colab die folgende Zelle aus, um die benötigten Pakete zu instal
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Alle benötigten Pakete importieren</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">threading</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 
 <span class="c1"># Datenverarbeitung</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
@@ -523,16 +528,59 @@ Führen Sie in Colab die folgende Zelle aus, um die benötigten Pakete zu instal
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dash App Port Management System</span>
+<span class="c1"># Global port tracker</span>
+<span class="n">_used_ports</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="n">_current_port</span> <span class="o">=</span> <span class="mi">8050</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">get_next_available_port</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get the next available port for Dash apps&quot;&quot;&quot;</span>
+    <span class="k">global</span> <span class="n">_current_port</span>
+    <span class="k">while</span> <span class="n">_current_port</span> <span class="ow">in</span> <span class="n">_used_ports</span><span class="p">:</span>
+        <span class="n">_current_port</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">_used_ports</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">_current_port</span><span class="p">)</span>
+    <span class="n">port</span> <span class="o">=</span> <span class="n">_current_port</span>
+    <span class="n">_current_port</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">port</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">stop_all_dash_apps</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Stop all running Dash apps by clearing the port tracker&quot;&quot;&quot;</span>
+    <span class="k">global</span> <span class="n">_used_ports</span><span class="p">,</span> <span class="n">_current_port</span>
+    <span class="n">_used_ports</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+    <span class="n">_current_port</span> <span class="o">=</span> <span class="mi">8050</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All Dash app ports cleared. You can now restart apps.&quot;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">run_dash_app_safe</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">600</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Safely run a Dash app with automatic port management&quot;&quot;&quot;</span>
+    <span class="n">port</span> <span class="o">=</span> <span class="n">get_next_available_port</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Starting Dash app on port </span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># In Jupyter, run with the assigned port</span>
+        <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="n">debug</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">port</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="n">height</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="c1"># Remove port from used ports if startup fails</span>
+        <span class="n">_used_ports</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="n">port</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to start app on port </span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">raise</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;✅ Dash Port Management System geladen&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;💡 Bei Problemen mit Dash-Apps: stop_all_dash_apps() ausführen&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>✅ Dash Port Management System geladen
+💡 Bei Problemen mit Dash-Apps: stop_all_dash_apps() ausführen
+</pre></div>
+</div>
+</div>
+</div>
 </section>
-<section id="aufgabe-1-interaktiver-wehrbedienungsplan">
-<h2>Aufgabe 1 – Interaktiver Wehrbedienungsplan<a class="headerlink" href="#aufgabe-1-interaktiver-wehrbedienungsplan" title="Link to this heading">#</a></h2>
-<p>Für eine geplante Wehranlage soll Ihr Ingenieurbüro die erforderlichen Berechnungen
-durchführen und den Wehrbedienungsplan erstellen. Folgende Werte wurden bestimmt:
-Das Wehr wird mit 5 Fischbauchklappen mit einer Breite von je 7,2 m und einem Verlustbeiwert
-von <span class="math notranslate nohighlight">\(\mu = 0,65\)</span> ausgebildet. Die Stauhöhe beträgt 10 m. Die Wehrhöhe ist auf 6 m festgelegt. Die
-Sohleintiefung beträgt <span class="math notranslate nohighlight">\(s = 2\)</span> m. Die Abflusskurve ist in der Excel-Tabelle (Anlage gegeben).
-Setzen Sie Verluste mit <span class="math notranslate nohighlight">\(h_v = 0,2 h'\)</span> an.</p>
-<p><img alt="" src="../../_images/AufbauWehr.png" /></p>
+<section id="theoretische-grundlagen">
+<h2>Theoretische Grundlagen<a class="headerlink" href="#theoretische-grundlagen" title="Link to this heading">#</a></h2>
 <section id="bernoulli-energiegleichung">
 <h3>Bernoulli-Energiegleichung<a class="headerlink" href="#bernoulli-energiegleichung" title="Link to this heading">#</a></h3>
 <p>Die Bernoulli-Gleichung beschreibt die Energieerhaltung in einer idealen, reibungsfreien Strömung. Sie lautet:</p>
@@ -560,6 +608,16 @@ Setzen Sie Verluste mit <span class="math notranslate nohighlight">\(h_v = 0,2 h
 <div class="math notranslate nohighlight">
 \[h_i = \frac{(h_2 - h_1)^3}{4 \cdot h_1 \cdot h_2}\]</div>
 </section>
+</section>
+<section id="aufgabe-1-interaktiver-wehrbedienungsplan">
+<h2>Aufgabe 1 – Interaktiver Wehrbedienungsplan<a class="headerlink" href="#aufgabe-1-interaktiver-wehrbedienungsplan" title="Link to this heading">#</a></h2>
+<p>Für eine geplante Wehranlage soll Ihr Ingenieurbüro die erforderlichen Berechnungen
+durchführen und den Wehrbedienungsplan erstellen. Folgende Werte wurden bestimmt:
+Das Wehr wird mit 5 Fischbauchklappen mit einer Breite von je 7,2 m und einem Verlustbeiwert
+von <span class="math notranslate nohighlight">\(\mu = 0,65\)</span> ausgebildet. Die Stauhöhe beträgt 10 m. Die Wehrhöhe ist auf 6 m festgelegt. Die
+Sohleintiefung beträgt <span class="math notranslate nohighlight">\(s = 2\)</span> m. Die Abflusskurve ist in der Excel-Tabelle (Anlage gegeben).
+Setzen Sie Verluste mit <span class="math notranslate nohighlight">\(h_v = 0,2 h'\)</span> an.</p>
+<p><img alt="" src="../../_images/AufbauWehr.png" /></p>
 <section id="aufgabe-1">
 <h3>Aufgabe 1<a class="headerlink" href="#aufgabe-1" title="Link to this heading">#</a></h3>
 <p>→ Es wurden bereits für drei in der Tabelle angegebene Abflüsse die erforderlichen Unterwassertiefen bei Ableitung über jeweils 4 Klappen bestimmt:</p>
@@ -609,7 +667,7 @@ Setzen Sie Verluste mit <span class="math notranslate nohighlight">\(h_v = 0,2 h
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "063f0cd0546943c2a70bb51015913b6a"}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.berechne_interaktiv(mu, n, Q, h1)&gt;
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "f43aab6753c34390bd1992633c093a88"}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.berechne_interaktiv(mu, n, Q, h1)&gt;
 </pre></div>
 </div>
 </div>
@@ -8434,9 +8492,9 @@ maplibre-gl/dist/maplibre-gl.js:
 
 window.Plotly = Plotly;
 return Plotly;
-}));</script>                <div id="ad6adaca-6acb-40d9-8629-48e2f6702176" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("ad6adaca-6acb-40d9-8629-48e2f6702176")) {                    Plotly.newPlot(                        "ad6adaca-6acb-40d9-8629-48e2f6702176",                        [{"hovertemplate":"Klappenanzahl=n=1\u003cbr\u003eAbfluss Q [m\u00b3\u002fs]=%{x}\u003cbr\u003eh2_erf [m]=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"n=1","line":{"color":"#636efa","dash":"solid"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"n=1","orientation":"v","showlegend":true,"x":{"dtype":"i1","bdata":"BhQybg=="},"xaxis":"x","y":{"dtype":"f8","bdata":"16NwPQrX9z9cj8L1KFwFQFyPwvUoXBBACtejcD0KF0A="},"yaxis":"y","type":"scatter"},{"hovertemplate":"Klappenanzahl=n=2\u003cbr\u003eAbfluss Q [m\u00b3\u002fs]=%{x}\u003cbr\u003eh2_erf [m]=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"n=2","line":{"color":"#EF553B","dash":"solid"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"n=2","orientation":"v","showlegend":true,"x":{"dtype":"i2","bdata":"DAAoAGQA3AA="},"xaxis":"x","y":{"dtype":"f8","bdata":"16NwPQrX9z9cj8L1KFwFQFyPwvUoXBBACtejcD0KF0A="},"yaxis":"y","type":"scatter"},{"hovertemplate":"Klappenanzahl=n=3\u003cbr\u003eAbfluss Q [m\u00b3\u002fs]=%{x}\u003cbr\u003eh2_erf [m]=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"n=3","line":{"color":"#00cc96","dash":"solid"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"n=3","orientation":"v","showlegend":true,"x":{"dtype":"i2","bdata":"EgA8AJYASgE="},"xaxis":"x","y":{"dtype":"f8","bdata":"16NwPQrX9z9cj8L1KFwFQFyPwvUoXBBACtejcD0KF0A="},"yaxis":"y","type":"scatter"},{"hovertemplate":"Klappenanzahl=n=4\u003cbr\u003eAbfluss Q [m\u00b3\u002fs]=%{x}\u003cbr\u003eh2_erf [m]=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"n=4","line":{"color":"#ab63fa","dash":"solid"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"n=4","orientation":"v","showlegend":true,"x":{"dtype":"i2","bdata":"GABQAMgAuAE="},"xaxis":"x","y":{"dtype":"f8","bdata":"16NwPQrX9z9cj8L1KFwFQFyPwvUoXBBACtejcD0KF0A="},"yaxis":"y","type":"scatter"},{"hovertemplate":"Klappenanzahl=n=5\u003cbr\u003eAbfluss Q [m\u00b3\u002fs]=%{x}\u003cbr\u003eh2_erf [m]=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"n=5","line":{"color":"#FFA15A","dash":"solid"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"n=5","orientation":"v","showlegend":true,"x":{"dtype":"i2","bdata":"HgBkAPoAJgI="},"xaxis":"x","y":{"dtype":"f8","bdata":"16NwPQrX9z9cj8L1KFwFQFyPwvUoXBBACtejcD0KF0A="},"yaxis":"y","type":"scatter"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"xaxis":{"anchor":"y","domain":[0.0,1.0],"title":{"text":"Abfluss Q [m\u00b3\u002fs]"},"range":[0,550],"gridcolor":"lightgrey"},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"h2_erf [m]"},"range":[0,6],"gridcolor":"lightgrey"},"legend":{"title":{"text":"Klappenanzahl"},"tracegroupgap":0},"title":{"text":"Wehrbedienungsplan (Alle Klappen)"},"plot_bgcolor":"white"},                        {"responsive": true}                    ).then(function(){
+}));</script>                <div id="5a783528-7935-46d9-8bf5-37a894bab971" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("5a783528-7935-46d9-8bf5-37a894bab971")) {                    Plotly.newPlot(                        "5a783528-7935-46d9-8bf5-37a894bab971",                        [{"hovertemplate":"Klappenanzahl=n=1\u003cbr\u003eAbfluss Q [m\u00b3\u002fs]=%{x}\u003cbr\u003eh2_erf [m]=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"n=1","line":{"color":"#636efa","dash":"solid"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"n=1","orientation":"v","showlegend":true,"x":{"dtype":"i1","bdata":"BhQybg=="},"xaxis":"x","y":{"dtype":"f8","bdata":"16NwPQrX9z9cj8L1KFwFQFyPwvUoXBBACtejcD0KF0A="},"yaxis":"y","type":"scatter"},{"hovertemplate":"Klappenanzahl=n=2\u003cbr\u003eAbfluss Q [m\u00b3\u002fs]=%{x}\u003cbr\u003eh2_erf [m]=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"n=2","line":{"color":"#EF553B","dash":"solid"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"n=2","orientation":"v","showlegend":true,"x":{"dtype":"i2","bdata":"DAAoAGQA3AA="},"xaxis":"x","y":{"dtype":"f8","bdata":"16NwPQrX9z9cj8L1KFwFQFyPwvUoXBBACtejcD0KF0A="},"yaxis":"y","type":"scatter"},{"hovertemplate":"Klappenanzahl=n=3\u003cbr\u003eAbfluss Q [m\u00b3\u002fs]=%{x}\u003cbr\u003eh2_erf [m]=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"n=3","line":{"color":"#00cc96","dash":"solid"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"n=3","orientation":"v","showlegend":true,"x":{"dtype":"i2","bdata":"EgA8AJYASgE="},"xaxis":"x","y":{"dtype":"f8","bdata":"16NwPQrX9z9cj8L1KFwFQFyPwvUoXBBACtejcD0KF0A="},"yaxis":"y","type":"scatter"},{"hovertemplate":"Klappenanzahl=n=4\u003cbr\u003eAbfluss Q [m\u00b3\u002fs]=%{x}\u003cbr\u003eh2_erf [m]=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"n=4","line":{"color":"#ab63fa","dash":"solid"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"n=4","orientation":"v","showlegend":true,"x":{"dtype":"i2","bdata":"GABQAMgAuAE="},"xaxis":"x","y":{"dtype":"f8","bdata":"16NwPQrX9z9cj8L1KFwFQFyPwvUoXBBACtejcD0KF0A="},"yaxis":"y","type":"scatter"},{"hovertemplate":"Klappenanzahl=n=5\u003cbr\u003eAbfluss Q [m\u00b3\u002fs]=%{x}\u003cbr\u003eh2_erf [m]=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"n=5","line":{"color":"#FFA15A","dash":"solid"},"marker":{"symbol":"circle"},"mode":"lines+markers","name":"n=5","orientation":"v","showlegend":true,"x":{"dtype":"i2","bdata":"HgBkAPoAJgI="},"xaxis":"x","y":{"dtype":"f8","bdata":"16NwPQrX9z9cj8L1KFwFQFyPwvUoXBBACtejcD0KF0A="},"yaxis":"y","type":"scatter"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"xaxis":{"anchor":"y","domain":[0.0,1.0],"title":{"text":"Abfluss Q [m\u00b3\u002fs]"},"range":[0,550],"gridcolor":"lightgrey"},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"h2_erf [m]"},"range":[0,6],"gridcolor":"lightgrey"},"legend":{"title":{"text":"Klappenanzahl"},"tracegroupgap":0},"title":{"text":"Wehrbedienungsplan (Alle Klappen)"},"plot_bgcolor":"white"},                        {"responsive": true}                    ).then(function(){
                             
-var gd = document.getElementById('ad6adaca-6acb-40d9-8629-48e2f6702176');
+var gd = document.getElementById('5a783528-7935-46d9-8bf5-37a894bab971');
 var x = new MutationObserver(function (mutations, observer) {{
         var display = window.getComputedStyle(gd).display;
         if (!display || display === 'none') {{
@@ -8545,17 +8603,33 @@ if (outputEl) {{
     <span class="k">return</span> <span class="n">fig</span><span class="p">,</span> <span class="n">rueckmeldung</span><span class="p">,</span> <span class="n">korrekte_punkte_text</span> <span class="k">if</span> <span class="n">korrekte_punkte_text</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">erfolg_nachricht</span>
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">run_dash_app_safe</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Starting Dash app on port 8050
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Failed to start app on port 8050: Address &#39;http://127.0.0.1:8050&#39; already in use.
+    Try passing a different port to run.
+</pre></div>
+</div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">OSError</span><span class="g g-Whitespace">                                   </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">82</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">82</span>
 <span class="g g-Whitespace">     </span><span class="mi">79</span>     <span class="k">return</span> <span class="n">fig</span><span class="p">,</span> <span class="n">rueckmeldung</span><span class="p">,</span> <span class="n">korrekte_punkte_text</span> <span class="k">if</span> <span class="n">korrekte_punkte_text</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">erfolg_nachricht</span>
 <span class="g g-Whitespace">     </span><span class="mi">81</span> <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">82</span>     <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">82</span>     <span class="n">run_dash_app_safe</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="nn">Cell In[3], line 30,</span> in <span class="ni">run_dash_app_safe</span><span class="nt">(app, debug, height)</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Starting Dash app on port </span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">28</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">29</span>     <span class="c1"># In Jupyter, run with the assigned port</span>
+<span class="ne">---&gt; </span><span class="mi">30</span>     <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="n">debug</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">port</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="n">height</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">31</span> <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">32</span>     <span class="c1"># Remove port from used ports if startup fails</span>
+<span class="g g-Whitespace">     </span><span class="mi">33</span>     <span class="n">_used_ports</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="n">port</span><span class="p">)</span>
 
 <span class="nn">File ~\anaconda3\envs\hausarbeit_wb4\lib\site-packages\dash\dash.py:2267,</span> in <span class="ni">Dash.run</span><span class="nt">(self, host, port, proxy, debug, jupyter_mode, jupyter_width, jupyter_height, jupyter_server_url, dev_tools_ui, dev_tools_props_check, dev_tools_serve_dev_bundles, dev_tools_hot_reload, dev_tools_hot_reload_interval, dev_tools_hot_reload_watch_interval, dev_tools_hot_reload_max_retry, dev_tools_silence_routes_logging, dev_tools_disable_version_check, dev_tools_prune_errors, **flask_run_options)</span>
 <span class="g g-Whitespace">   </span><span class="mi">2264</span>             <span class="n">extra_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
@@ -8755,16 +8829,19 @@ if (outputEl) {{
 <span class="p">])</span>
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">run_dash_app_safe</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Starting Dash app on port 8051
+</pre></div>
+</div>
 <div class="output text_html">
         <iframe
             width="100%"
             height="650"
-            src="http://127.0.0.1:8050/"
+            src="http://127.0.0.1:8051/"
             frameborder="0"
             allowfullscreen
             
@@ -8897,16 +8974,19 @@ if (outputEl) {{
     <span class="k">return</span> <span class="n">data</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">feedback_messages</span><span class="p">),</span> <span class="n">fig</span>
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">run_dash_app_safe</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Starting Dash app on port 8052
+</pre></div>
+</div>
 <div class="output text_html">
         <iframe
             width="100%"
             height="650"
-            src="http://127.0.0.1:8050/"
+            src="http://127.0.0.1:8052/"
             frameborder="0"
             allowfullscreen
             
@@ -8983,12 +9063,15 @@ if (outputEl) {{
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#umgebung-einrichten">Umgebung einrichten</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aufgabe-1-interaktiver-wehrbedienungsplan">Aufgabe 1 – Interaktiver Wehrbedienungsplan</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#theoretische-grundlagen">Theoretische Grundlagen</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bernoulli-energiegleichung">Bernoulli-Energiegleichung</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bedeutung-der-terme">Bedeutung der Terme:</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#der-ebene-freie-wechselsprung">Der ebene freie Wechselsprung</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aufgabe-1-interaktiver-wehrbedienungsplan">Aufgabe 1 – Interaktiver Wehrbedienungsplan</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aufgabe-1">Aufgabe 1</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gegeben">Gegeben:</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#berechnung-von-h-2-text-erf">Berechnung von <span class="math notranslate nohighlight">\(h_{2,\text{erf}}\)</span>:</a></li>

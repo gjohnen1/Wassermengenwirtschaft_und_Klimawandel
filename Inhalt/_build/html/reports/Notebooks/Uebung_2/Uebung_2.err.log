@@ -96,16 +96,31 @@ def update_plot(clickData):
     return fig, rueckmeldung, korrekte_punkte_text if korrekte_punkte_text else "", erfolg_nachricht
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    run_dash_app_safe(app, debug=False)
 ------------------
 
+----- stdout -----
+Starting Dash app on port 8050
+----- stdout -----
+Failed to start app on port 8050: Address 'http://127.0.0.1:8050' already in use.
+    Try passing a different port to run.
+------------------
 
 [1;31m---------------------------------------------------------------------------[0m
 [1;31mOSError[0m                                   Traceback (most recent call last)
-Cell [1;32mIn[5], line 82[0m
+Cell [1;32mIn[6], line 82[0m
 [0;32m     79[0m     [38;5;28;01mreturn[39;00m fig, rueckmeldung, korrekte_punkte_text [38;5;28;01mif[39;00m korrekte_punkte_text [38;5;28;01melse[39;00m [38;5;124m"[39m[38;5;124m"[39m, erfolg_nachricht
 [0;32m     81[0m [38;5;28;01mif[39;00m [38;5;18m__name__[39m [38;5;241m==[39m [38;5;124m'[39m[38;5;124m__main__[39m[38;5;124m'[39m:
-[1;32m---> 82[0m     [43mapp[49m[38;5;241;43m.[39;49m[43mrun[49m[43m([49m[43mdebug[49m[38;5;241;43m=[39;49m[38;5;28;43;01mFalse[39;49;00m[43m)[49m
+[1;32m---> 82[0m     [43mrun_dash_app_safe[49m[43m([49m[43mapp[49m[43m,[49m[43m [49m[43mdebug[49m[38;5;241;43m=[39;49m[38;5;28;43;01mFalse[39;49;00m[43m)[49m
+
+Cell [1;32mIn[3], line 30[0m, in [0;36mrun_dash_app_safe[1;34m(app, debug, height)[0m
+[0;32m     26[0m [38;5;28mprint[39m([38;5;124mf[39m[38;5;124m"[39m[38;5;124mStarting Dash app on port [39m[38;5;132;01m{[39;00mport[38;5;132;01m}[39;00m[38;5;124m"[39m)
+[0;32m     28[0m [38;5;28;01mtry[39;00m:
+[0;32m     29[0m     [38;5;66;03m# In Jupyter, run with the assigned port[39;00m
+[1;32m---> 30[0m     [43mapp[49m[38;5;241;43m.[39;49m[43mrun[49m[43m([49m[43mdebug[49m[38;5;241;43m=[39;49m[43mdebug[49m[43m,[49m[43m [49m[43mport[49m[38;5;241;43m=[39;49m[43mport[49m[43m,[49m[43m [49m[43mheight[49m[38;5;241;43m=[39;49m[43mheight[49m[43m)[49m
+[0;32m     31[0m [38;5;28;01mexcept[39;00m [38;5;167;01mException[39;00m [38;5;28;01mas[39;00m e:
+[0;32m     32[0m     [38;5;66;03m# Remove port from used ports if startup fails[39;00m
+[0;32m     33[0m     _used_ports[38;5;241m.[39mdiscard(port)
 
 File [1;32m~\anaconda3\envs\hausarbeit_wb4\lib\site-packages\dash\dash.py:2267[0m, in [0;36mDash.run[1;34m(self, host, port, proxy, debug, jupyter_mode, jupyter_width, jupyter_height, jupyter_server_url, dev_tools_ui, dev_tools_props_check, dev_tools_serve_dev_bundles, dev_tools_hot_reload, dev_tools_hot_reload_interval, dev_tools_hot_reload_watch_interval, dev_tools_hot_reload_max_retry, dev_tools_silence_routes_logging, dev_tools_disable_version_check, dev_tools_prune_errors, **flask_run_options)[0m
 [0;32m   2264[0m             extra_files[38;5;241m.[39mappend(path)
