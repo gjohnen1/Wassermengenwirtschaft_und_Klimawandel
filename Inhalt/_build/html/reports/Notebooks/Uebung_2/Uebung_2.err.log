@@ -15,10 +15,7 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-import pandas as pd
-import plotly.express as px
-import dash
-from dash import dcc, html, Input, Output
+# Alle Dash-Imports bereits oben importiert
 
 # Daten definieren
 abflusskurve_data = {
@@ -100,16 +97,15 @@ def update_plot(clickData):
 
 if __name__ == '__main__':
     app.run(debug=False)
-
 ------------------
 
 
 [1;31m---------------------------------------------------------------------------[0m
 [1;31mOSError[0m                                   Traceback (most recent call last)
-Cell [1;32mIn[4], line 85[0m
-[0;32m     82[0m     [38;5;28;01mreturn[39;00m fig, rueckmeldung, korrekte_punkte_text [38;5;28;01mif[39;00m korrekte_punkte_text [38;5;28;01melse[39;00m [38;5;124m"[39m[38;5;124m"[39m, erfolg_nachricht
-[0;32m     84[0m [38;5;28;01mif[39;00m [38;5;18m__name__[39m [38;5;241m==[39m [38;5;124m'[39m[38;5;124m__main__[39m[38;5;124m'[39m:
-[1;32m---> 85[0m     [43mapp[49m[38;5;241;43m.[39;49m[43mrun[49m[43m([49m[43mdebug[49m[38;5;241;43m=[39;49m[38;5;28;43;01mFalse[39;49;00m[43m)[49m
+Cell [1;32mIn[5], line 82[0m
+[0;32m     79[0m     [38;5;28;01mreturn[39;00m fig, rueckmeldung, korrekte_punkte_text [38;5;28;01mif[39;00m korrekte_punkte_text [38;5;28;01melse[39;00m [38;5;124m"[39m[38;5;124m"[39m, erfolg_nachricht
+[0;32m     81[0m [38;5;28;01mif[39;00m [38;5;18m__name__[39m [38;5;241m==[39m [38;5;124m'[39m[38;5;124m__main__[39m[38;5;124m'[39m:
+[1;32m---> 82[0m     [43mapp[49m[38;5;241;43m.[39;49m[43mrun[49m[43m([49m[43mdebug[49m[38;5;241;43m=[39;49m[38;5;28;43;01mFalse[39;49;00m[43m)[49m
 
 File [1;32m~\anaconda3\envs\hausarbeit_wb4\lib\site-packages\dash\dash.py:2267[0m, in [0;36mDash.run[1;34m(self, host, port, proxy, debug, jupyter_mode, jupyter_width, jupyter_height, jupyter_server_url, dev_tools_ui, dev_tools_props_check, dev_tools_serve_dev_bundles, dev_tools_hot_reload, dev_tools_hot_reload_interval, dev_tools_hot_reload_watch_interval, dev_tools_hot_reload_max_retry, dev_tools_silence_routes_logging, dev_tools_disable_version_check, dev_tools_prune_errors, **flask_run_options)[0m
 [0;32m   2264[0m             extra_files[38;5;241m.[39mappend(path)
