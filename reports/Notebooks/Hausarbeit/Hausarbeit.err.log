@@ -1,37 +1,57 @@
 Traceback (most recent call last):
-  File "C:\Users\WaWi\anaconda3\envs\hausarbeit_wb4\lib\site-packages\nbclient\client.py", line 782, in _async_poll_for_reply
-    msg = await ensure_async(self.kc.shell_channel.get_msg(timeout=new_timeout))
-  File "C:\Users\WaWi\anaconda3\envs\hausarbeit_wb4\lib\site-packages\jupyter_core\utils\__init__.py", line 198, in ensure_async
-    result = await obj
-  File "C:\Users\WaWi\anaconda3\envs\hausarbeit_wb4\lib\site-packages\jupyter_client\channels.py", line 313, in get_msg
-    raise Empty
-_queue.Empty
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\WaWi\anaconda3\envs\hausarbeit_wb4\lib\site-packages\jupyter_cache\executors\utils.py", line 58, in single_nb_execution
+  File "C:\Users\grego\anaconda3\envs\hausarbeit_wb4\lib\site-packages\jupyter_cache\executors\utils.py", line 58, in single_nb_execution
     executenb(
-  File "C:\Users\WaWi\anaconda3\envs\hausarbeit_wb4\lib\site-packages\nbclient\client.py", line 1319, in execute
+  File "C:\Users\grego\anaconda3\envs\hausarbeit_wb4\lib\site-packages\nbclient\client.py", line 1319, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-  File "C:\Users\WaWi\anaconda3\envs\hausarbeit_wb4\lib\site-packages\jupyter_core\utils\__init__.py", line 165, in wrapped
+  File "C:\Users\grego\anaconda3\envs\hausarbeit_wb4\lib\site-packages\jupyter_core\utils\__init__.py", line 165, in wrapped
     return loop.run_until_complete(inner)
-  File "C:\Users\WaWi\anaconda3\envs\hausarbeit_wb4\lib\asyncio\base_events.py", line 649, in run_until_complete
+  File "C:\Users\grego\anaconda3\envs\hausarbeit_wb4\lib\asyncio\base_events.py", line 649, in run_until_complete
     return future.result()
-  File "C:\Users\WaWi\anaconda3\envs\hausarbeit_wb4\lib\site-packages\nbclient\client.py", line 709, in async_execute
+  File "C:\Users\grego\anaconda3\envs\hausarbeit_wb4\lib\site-packages\nbclient\client.py", line 709, in async_execute
     await self.async_execute_cell(
-  File "C:\Users\WaWi\anaconda3\envs\hausarbeit_wb4\lib\site-packages\nbclient\client.py", line 1005, in async_execute_cell
-    exec_reply = await self.task_poll_for_reply
-  File "C:\Users\WaWi\anaconda3\envs\hausarbeit_wb4\lib\site-packages\nbclient\client.py", line 806, in _async_poll_for_reply
-    error_on_timeout_execute_reply = await self._async_handle_timeout(timeout, cell)
-  File "C:\Users\WaWi\anaconda3\envs\hausarbeit_wb4\lib\site-packages\nbclient\client.py", line 856, in _async_handle_timeout
-    raise CellTimeoutError.error_from_timeout_and_cell(
-nbclient.exceptions.CellTimeoutError: A cell timed out while it was being executed, after 30 seconds.
-The message was: Cell execution timed out.
-Here is a preview of the cell contents:
--------------------
-['# importiere die nötigen Pakete', 'import os', 'import pandas as pd', 'import numpy as np', 'import math']
-...
-['import matplotlib.pyplot as plt', 'import matplotlib.patches as mp', 'import matplotlib.colors as colors', '', 'from pysheds.grid import Grid']
--------------------
+  File "C:\Users\grego\anaconda3\envs\hausarbeit_wb4\lib\site-packages\nbclient\client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\grego\anaconda3\envs\hausarbeit_wb4\lib\site-packages\nbclient\client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# Matplotlib bereits oben importiert
+# D8-Flussrichtungen aus DEM bestimmen (D8 = Fließmodellalgorithmus)
+# ----------------------
+# Richtungsspezifisches Mapping festlegen
+          #N   NE  E  SE S  SW  W   NW
+dirmap = (64, 128, 1, 2, 4, 8, 16, 32)
+    
+# Berechne Fließrichtungen
+# -------------------------------------
+fdir = grid.flowdir(inflated_dem, dirmap=dirmap)
+fig = plt.figure(figsize=(8,6))
+fig.patch.set_alpha(0)
+
+# Wir müssen die Farben normalisieren umd Kontrast herzustellen
+cNorm  = colors.PowerNorm(gamma=0.5)
+plt.imshow(fdir, extent=grid.extent, norm=cNorm,
+cmap='terrain', zorder=2)
+boundaries = ([0] + sorted(list(dirmap)))
+plt.colorbar(boundaries= boundaries,
+             values=sorted(dirmap))
+plt.xlabel('Längengrad')
+plt.ylabel('Breitengrad')
+plt.title('Fließrichtungs Raster', size=14)
+plt.grid(zorder=-1)
+plt.tight_layout()
+------------------
+
+
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mAttributeError[0m                            Traceback (most recent call last)
+Cell [1;32mIn[24], line 15[0m
+[0;32m     12[0m fig[38;5;241m.[39mpatch[38;5;241m.[39mset_alpha([38;5;241m0[39m)
+[0;32m     14[0m [38;5;66;03m# Wir müssen die Farben normalisieren umd Kontrast herzustellen[39;00m
+[1;32m---> 15[0m cNorm  [38;5;241m=[39m [43mcolors[49m[38;5;241;43m.[39;49m[43mPowerNorm[49m(gamma[38;5;241m=[39m[38;5;241m0.5[39m)
+[0;32m     16[0m plt[38;5;241m.[39mimshow(fdir, extent[38;5;241m=[39mgrid[38;5;241m.[39mextent, norm[38;5;241m=[39mcNorm,
+[0;32m     17[0m cmap[38;5;241m=[39m[38;5;124m'[39m[38;5;124mterrain[39m[38;5;124m'[39m, zorder[38;5;241m=[39m[38;5;241m2[39m)
+[0;32m     18[0m boundaries [38;5;241m=[39m ([[38;5;241m0[39m] [38;5;241m+[39m [38;5;28msorted[39m([38;5;28mlist[39m(dirmap)))
+
+[1;31mAttributeError[0m: 'list' object has no attribute 'PowerNorm'
 
