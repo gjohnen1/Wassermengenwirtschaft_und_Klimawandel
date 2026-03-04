@@ -1,3 +1,33 @@
 .ipynb_checkpoints/
 content/_build/
-Inhalt/simple_reservoir/
+venvRTC-Tools/
+
+# Runtime outputs for RTC notebook
+Inhalt/Notebook_Daten/RTC_BlueRiver/runtime_case/
+
+# Ignore everything under simple_reservoir by default
+Inhalt/simple_reservoir/*
+# Allow only the necessary RTC-BlueRiver assets
+!Inhalt/simple_reservoir/BlueRiver2/
+!Inhalt/simple_reservoir/InstallationConfiguration/
+!Inhalt/simple_reservoir/InstallationConfiguration/**
+
+# Re-ignore large/unneeded BlueRiver2 data and outputs
+Inhalt/simple_reservoir/BlueRiver2/input/
+Inhalt/simple_reservoir/BlueRiver2/Datasets/
+Inhalt/simple_reservoir/BlueRiver2/output/
+Inhalt/simple_reservoir/BlueRiver2/venv-log.txt
+
+# Whitelist the required code/model/schema
+!Inhalt/simple_reservoir/BlueRiver2/src/**
+!Inhalt/simple_reservoir/BlueRiver2/model/**
+!Inhalt/simple_reservoir/BlueRiver2/xsd/**
+!Inhalt/simple_reservoir/BlueRiver2/runBlueRiver-venv.bat
+!Inhalt/simple_reservoir/BlueRiver2/runBlueRiver-WinPython.bat
+
+# Re-ignore caches within whitelisted paths
+Inhalt/simple_reservoir/BlueRiver2/src/__pycache__/
+Inhalt/simple_reservoir/BlueRiver2/src/*.pyc
+Inhalt/simple_reservoir/BlueRiver2/model/*.pymoca_cache
+Inhalt/simple_reservoir/BlueRiver2/model/reservoirs.csv
+Inhalt/simple_reservoir/BlueRiver2/model/volumelevel.csv
