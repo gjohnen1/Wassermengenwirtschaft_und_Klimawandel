@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<parameters xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.wldelft.nl/fews/PI" xsi:schemaLocation="http://www.wldelft.nl/fews/PI http://fews.wldelft.nl/schemas/version1.0/pi-schemas/pi_modelparameters.xsd" version="1.5">
+	<group id="default" readonly="false" modified="false">
+		<parameter id="surcharge" name="surcharge">
+			<dblValue>378.0</dblValue>
+		</parameter>
+				<parameter id="fullsupply" name="fullsupply">
+			<dblValue>377.5</dblValue>
+		</parameter>
+		<parameter id="crestheight" name="crestheight">
+			<dblValue>376</dblValue>
+		</parameter>
+	</group>
+</parameters>

@@ -1,0 +1,10 @@
+id,y_axis_title,variables_style_1,variables_style_2,custom_title,specified_in
+10,Volume (m$^3$),,,"Volume range (dam safety, dead storage)",goal_generator
+20,Volume (m$^3$),,,Volume operational range,goal_generator
+30,Discharge (m$^3/s$),,"TroutLake_Q_out, Alder_Inflow",Flow range goal for River City,goal_generator
+40,Discharge (m$^3/s$),,,Reservoir release goal for rafting,goal_generator
+60,Discharge (m$^3/s$),,TroutLake_Q_turbine,Minimize spill goal,goal_generator
+70,Volume (m$^3$),,,Minimize volume goal,goal_generator
+75,Volume (m$^3/s$),,,Maximize volume goal,goal_generator
+80,Volume rate of change (% of nominal value),,,Rate of change on volume,goal_generator
+90,Discharge (m$^3/s$),,,User-defined release,goal_generator

@@ -1,0 +1,10 @@
+id,state,active,goal_type,function_min,function_max,function_nominal,target_data_type,target_min,target_max,priority,weight,order
+10,TroutLake_V,1,range,,,,value,505066826.9,715419465.8,1,1,1
+20,TroutLake_V,1,range,,,,value,616740918.8,629075737.1,4,1,1
+30,RiverCity_Q,1,range,,,,value,7.044311236,23.48103745,3,1,1
+40,TroutLake_Q_out,0,range,,,,timeseries,Rafting_Qmin,Rafting_Qmax,5,1,1
+60,TroutLake_Q_spill,1,minimization_path,,,0.2,,,,9,1,1
+70,TroutLake_V,0,minimization_path,,,6.20E+08,,,,9,1,1
+75,TroutLake_V,0,maximization_path,,,6.20E+08,,,,9,1,1
+80,TroutLake_V,0,range_rate_of_change,,,,value,-5,5,6,1,1
+90,TroutLake_Q_out,0,range,,,,timeseries,Q_release_user,Q_release_user,2,1,1

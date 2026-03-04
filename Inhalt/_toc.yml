@@ -10,6 +10,9 @@ parts:
 - caption: UEBUNG 02
   chapters:
   - file: Notebooks/Uebung_2/Uebung_2
+- caption: RTC BLUE RIVER
+  chapters:
+  - file: Notebooks/RTC_BlueRiver/BlueRiver_RTC
 - caption: HAUSARBEIT
   chapters:
   - file: Notebooks/Hausarbeit/Hausarbeit
