@@ -1,51 +1,81 @@
-## Wassermengenwirtschaft und Klimawandel
-Dieses Buch besteht aus einer Reihe von interaktiven Notebooks zum Thema Wassermengenwirtschaft und Klimawandel. Die Notebooks wurden ursprünglich von Dan Kovacek und Steven Weijs an der University of British Columbia erstellt und von Gregor Johnen ins Deutsche übersetzt und angepasst. Sie sollen Studenten in die Datenanalyse mit der Open-Source-Software Python einzuführen.
+# Wassermengenwirtschaft und Klimawandel
 
-## Jupyter Book und Binder
+Ein interaktives Jupyter-Book mit hydrologischen Datenanalyse-Notebooks für Studierende im Bereich Wasserwirtschaft und Umweltingenieurwesen.
 
-Jedes der enthaltenen Notebooks kann im "interaktiven Modus" mit Binder gestartet werden:
-[![Binder](https://mybinder.org/badge_logo.svg)
+**Live-Version:** <https://gjohnen1.github.io/Wassermengenwirtschaft_und_Klimawandel/>
 
-Die Dateien der Notebooks selbst werden unter [Inhalt/notebooks/](https://github.com/gjohnen1/Wassermengenwirtschaft_und_Klimawandel/tree/main/Inhalt/Notebooks) gespeichert.
+## Überblick
 
-## Hinweise zum Kompilieren und Aktualisieren des Buches 
+Das Buch besteht aus einer Reihe interaktiver Jupyter-Notebooks, die Studierende schrittweise an die systematische Datenanalyse mit *Python* und *Jupyter-Notebooks* heranführen. Der Schwerpunkt liegt auf hydrologischen Konzepten; der benötigte Code wird zum Großteil bereitgestellt. Programmier-Vorkenntnisse werden nicht vorausgesetzt.
 
-Informationen zum [Erstellen von Büchern und Hosten auf Github Pages](https://jupyterbook.org/publish/gh-pages.html)
+Die Notebooks wurden ursprünglich von [Dan Kovacek](https://civil.ubc.ca/faculty/dan-kovacek/) und [Steven Weijs](https://civil.ubc.ca/faculty/steven-weijs/) an der University of British Columbia entwickelt und von [Gregor Johnen](https://www.uni-due.de/wasserbau/mitarbeiter_johnen.php) und [Johanna Schimanski](https://www.uni-due.de/wasserbau/schimanski.php) an der Universität Duisburg-Essen ins Deutsche übersetzt, angepasst und stetig erweitert.
 
-Nach dem Aktualisieren von Inhalten, wird das Buch neu kompiliert:
+## Zielgruppe dieses README
 
-`jupyter-book build Inhalt/`
+Dieses README richtet sich an **Lehrende, Fork-Interessierte und Entwickelnde**, die das Buch lokal bauen, auf GitHub Pages veröffentlichen oder den Inhalt anpassen möchten. Studierende finden ihre Einstiegsanleitung im [Vorwort](Inhalt/Einleitung.md) und im ersten Notebook [*Jupyter Notebooks, Python und KI-unterstütztes Programmieren*](Inhalt/Notebooks/Einleitung/Einfuehrung_Datenimport.ipynb).
 
-Anschließend muss die GitHub Pages Seite aktualisiert werden. Hierzu kann das gh-pages Branch Update Tool verwendet werden:
+## Struktur des Buches
 
-`ghp-import -n -p -f Inhalt/_build/html`
+Die Gliederung ist in [`Inhalt/_toc.yml`](Inhalt/_toc.yml) definiert:
 
-[Besuchen Sie die Seite](https://gjohnen1.github.io/Wassermengenwirtschaft_und_Klimawandel/) auf Github-Pages
+- **Einleitung** — Einführung in Jupyter, Python und KI-unterstütztes Programmieren
+- **Übung 01** — Hydrologische Zeitreihenanalyse
+- **Übung 02** — Aufbauende Datenanalyse
+- **RTC Blue River** — Real-Time-Control am Beispiel Blue River
+- **Hausarbeit** — Abschließendes Projekt
 
-`https://gjohnen1.github.io/Wassermengenwirtschaft_und_Klimawandel/`
+Inhalte liegen unter [`Inhalt/Notebooks/`](Inhalt/Notebooks), Datensätze unter [`Inhalt/Notebook_Daten/`](Inhalt/Notebook_Daten) und [`Inhalt/Projekt_Daten/`](Inhalt/Projekt_Daten).
 
-## Lokale Einrichtung mit Conda
+## Lokale Einrichtung
 
-Um die Notebooks lokal auszuführen, wird empfohlen, eine dedizierte Conda-Umgebung zu verwenden:
+Empfohlen ist eine dedizierte Conda-Umgebung mit Python 3.10 (Abhängigkeiten werden über `pip` in diese Umgebung installiert):
 
-1.  **Conda-Umgebung erstellen** (falls noch nicht geschehen):
-    ```bash
-    conda create -n wasserbuch python=3.9
-    ```
-2.  **Umgebung aktivieren**:
-    ```bash
-    conda activate wasserbuch
-    ```
-3.  **Abhängigkeiten installieren**:
-    Navigieren Sie im Terminal zum Hauptverzeichnis dieses Repositorys (wo sich die `requirements.txt` befindet) und führen Sie aus:
-    ```bash
-    pip install -r requirements.txt
-    ```
-4.  **Jupyter starten**:
-    Nach der Installation können Sie Jupyter Lab oder Jupyter Notebook starten:
-    ```bash
-    jupyter lab
-    # oder
-    jupyter notebook
-    ```
-    Navigieren Sie dann zum Ordner `Inhalt/Notebooks/`, um die Notebooks zu öffnen und auszuführen.
+```bash
+conda create -n wbw python=3.10
+conda activate wbw
+pip install -r requirements.txt
+```
+
+Anschließend lässt sich entweder VS Code mit der Jupyter-Extension oder ein klassischer Jupyter-Server starten:
+
+```bash
+jupyter lab
+# oder
+jupyter notebook
+```
+
+Die Notebooks befinden sich unter `Inhalt/Notebooks/`.
+
+> **Hinweis:** Der Umgebungsname `wbw` ist mit dem im Vorwort für Studierende konsistent. Wer bereits eine Umgebung `wasserbuch` aus älteren Versionen hat, kann diese weiter nutzen.
+
+## Interaktive Ausführung ohne lokale Installation
+
+Die Notebooks können mit [Binder](https://mybinder.org/) direkt im Browser ausgeführt werden — ohne Installation, aber ohne persistente Speicherung.
+
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/gjohnen1/Wassermengenwirtschaft_und_Klimawandel/main)
+
+Alternativ lässt sich jedes Notebook in [Google Colab](https://colab.research.google.com/) öffnen, indem es manuell hochgeladen oder per GitHub-Importfunktion eingebunden wird.
+
+## Buch kompilieren und veröffentlichen
+
+Das Buch wird mit [Jupyter Book](https://jupyterbook.org/) aus dem Ordner `Inhalt/` gebaut:
+
+```bash
+jupyter-book build Inhalt/
+```
+
+Der statische HTML-Export liegt anschließend unter `Inhalt/_build/html/`. Zur Veröffentlichung auf GitHub Pages dient `ghp-import`:
+
+```bash
+ghp-import -n -p -f Inhalt/_build/html
+```
+
+Weitere Hinweise: [Jupyter-Book-Dokumentation zu GitHub Pages](https://jupyterbook.org/publish/gh-pages.html).
+
+## Mitwirken
+
+Korrekturen, inhaltliche Ergänzungen und Übersetzungen sind willkommen. Pull Requests bitte gegen den `main`-Branch öffnen; bei größeren Änderungen empfiehlt sich vorab ein Issue zur Abstimmung.
+
+## Lizenz
+
+Die Notebooks stehen unter [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/legalcode). Details: siehe [`LICENSE`](LICENSE).
