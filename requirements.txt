@@ -8,8 +8,15 @@ pysheds
 rasterio
 jupyter_bokeh
 ipykernel
+ipywidgets
 jupyter
 jupyter-book
 ghp-import
 plotly
 dash
+
+# RTC-Tools stack for Inhalt/Notebooks/RTC_BlueRiver/BlueRiver_RTC.ipynb
+# (rtc-tools requires casadi >=3.6.3, !=3.6.6, <3.8 — pulled transitively)
+rtc-tools
+rtc-tools-channel-flow
+rtc-tools-interface
