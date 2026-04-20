@@ -31,3 +31,9 @@ Inhalt/simple_reservoir/BlueRiver2/src/*.pyc
 Inhalt/simple_reservoir/BlueRiver2/model/*.pymoca_cache
 Inhalt/simple_reservoir/BlueRiver2/model/reservoirs.csv
 Inhalt/simple_reservoir/BlueRiver2/model/volumelevel.csv
+
+# Ignore Update_Fundus
+Update_Fundus/*
+
+# Ignore Claude specific files
+.claude/*
