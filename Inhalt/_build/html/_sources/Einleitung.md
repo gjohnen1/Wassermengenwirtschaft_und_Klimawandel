@@ -1,113 +1,107 @@
 # Vorwort
 
-Dieses Juypter-Book besteht aus einer Reihe interaktiver Jupyter-Notebooks zum Thema Wassermengenwirtschaft und Klimawandel. Es wurde ursprünglich von [Dan Kovacek](https://civil.ubc.ca/faculty/dan-kovacek/) und [Steven Weijs](https://Civil.ubc.ca/faculty/steven-weijs/) an der University of British Columbia erstellt und von [Gregor Johnen](https://www.uni-due.de/wasserbau/mitarbeiter_johnen.php) und [Johanna Schimanski](https://www.uni-due.de/wasserbau/schimanski.php) ins Deutsche übersetzt, angepasst und stetig erweitert. Ziel der einzelnen Notebooks ist es, Studierenden die systematische Datenanalyse mithilfe der Open-Source-Software *Python* und *Jupyter-Notebooks* näherzubringen.
+Dieses Jupyter-Book besteht aus einer Reihe interaktiver Jupyter-Notebooks zum Thema Wassermengenwirtschaft und Klimawandel. Es wurde ursprünglich von [Dan Kovacek](https://civil.ubc.ca/faculty/dan-kovacek/) und [Steven Weijs](https://civil.ubc.ca/faculty/steven-weijs/) an der University of British Columbia erstellt und von [Gregor Johnen](https://www.uni-due.de/wasserbau/mitarbeiter_johnen.php) und [Johanna Schimanski](https://www.uni-due.de/wasserbau/schimanski.php) ins Deutsche übersetzt, angepasst und stetig erweitert. Ziel der einzelnen Notebooks ist es, Studierenden die systematische Datenanalyse mithilfe der Open-Source-Software *Python* und *Jupyter-Notebooks* näherzubringen.
 
-**Es wird nicht erwartet, dass Teilnehmende über Vorkenntnisse der Programmierung verfügen.** Der Schwerpunkt der Notebooks liegt auf hydrologischen Konzepten und nicht auf der Programmierung selbst, weshalb der erforderliche Code zum Großteil bereitgestellt wird. Jedes Notebook konzentriert sich auf eine bestimmte Komponente der hydrologischen Datenanalyse- und Auswertung. Anschließend sollten Fragen zu den zugrunde liegenden Konzepten beantwortet werden. Dies erfordert möglicherweise das Ändern von Variablen und das erneute Ausführen von Codeblöcken, um die Ergebnisse im Anschluss zu aktualisieren.
+**Es wird nicht erwartet, dass Teilnehmende über Vorkenntnisse der Programmierung verfügen.** Der Schwerpunkt der Notebooks liegt auf hydrologischen Konzepten und nicht auf der Programmierung selbst, weshalb der erforderliche Code zum Großteil bereitgestellt wird. Jedes Notebook konzentriert sich auf eine bestimmte Komponente der hydrologischen Datenanalyse und -auswertung. Anschließend sollten Fragen zu den zugrunde liegenden Konzepten beantwortet werden. Dies erfordert möglicherweise das Ändern von Variablen und das erneute Ausführen von Codeblöcken, um die Ergebnisse im Anschluss zu aktualisieren.
 
->**Anmerkung**: Der Inhalt dieser Notebooks stellt keine vorgeschriebene bzw. normierte Kombination von Methoden für hydrologische Analysen dar. Vielmehr sollen einige grundlegende Konzepte aus dem Bereich Wassermengenwirtschaft und Klimawandelanalyse vorgestellt werden und so zum Nachdenken über Modellunsicherheiten und Sensitivitäten anregen.
+> **Anmerkung:** Der Inhalt dieser Notebooks stellt keine vorgeschriebene bzw. normierte Kombination von Methoden für hydrologische Analysen dar. Vielmehr sollen einige grundlegende Konzepte aus dem Bereich Wassermengenwirtschaft und Klimawandelanalyse vorgestellt werden und so zum Nachdenken über Modellunsicherheiten und Sensitivitäten anregen.
 
-## Erste Schritte mit interaktiven Python-Notebooks
+## Was dieses Vorwort leistet – und was nicht
 
-Die Jupyter-Notebooks in diesem Kurs können auf die folgenden Arten aufgerufen und ausgeführt werden:
+Dieses Vorwort ist die **Vorbereitung vor dem Kurs**: Ihr richtet Eure Arbeitsumgebung ein, aktiviert Euren KI-Zugang und lernt den Aufbau des Buchs kennen. Die eigentliche Einführung in Jupyter-Zellen, Python-Grundlagen und den Umgang mit KI-Assistenten findet Ihr im ersten Notebook [*Jupyter Notebooks, Python und KI-unterstütztes Programmieren*](Notebooks/Einleitung/Einfuehrung_Datenimport.ipynb). Das Notebook ist auf einen Tagesblock (2 × 1,5 h) angelegt.
 
-### Option 1: Lokale Installation (Empfohlen)
+Plant ca. **30 Minuten** für die hier beschriebenen Vorbereitungen ein — idealerweise vor dem ersten Termin.
 
-Hier wird der Paket- und Umgebungsmanager [Anaconda](https://www.anaconda.com/) empfohlen. Die Programmierung in Python ist so vielseitig und leistungsstark, weil sie leistungsstarke Funktionen verwendet, die in anwendungsspezifischen Bibliotheken (bspw. pandas) geschrieben sind. Anaconda ist die Software, die sicherstellt, dass bei der Nutzung mehrerer solcher Pakete alles reibungslos läuft und keine Versionskonflikte entstehen. Im Fokus steht dabei ein simples Management von Paketen und Entwicklungsumgebungen. Dank dieses Tools muss nicht jedes Paket separat installiert werden, sondern bei der Installation werden Python und die wichtigsten Pakete für die Datenanalyse automatisch mitinstalliert, was den Einstieg erheblich erleichtert.
+## Schritt 1: Eure Arbeitsumgebung
 
->**Anmerkung**: Für die lokale Installation empfehlen wir die [Anaconda Distribution](https://www.anaconda.com/download/success). Sie installiert Python und viele nützliche Pakete auf einmal, was besonders für Anfänger praktisch ist. Anaconda hat kürzlich eine sog. Paywall eingeführt. Dieses Abonnement ist aber grundsätzlich nicht notwendig, um die Software für akademische Zwecke zu nutzen.
+Ihr habt drei Wege, die Notebooks auszuführen. Wir empfehlen klar Option A.
 
-Nach der Installation von Anaconda kann im Anschluss [Jupyter Notebook](https://jupyter.org/) verwendet werden, da es bereits enthalten ist. Eine detaillierte Anleitung zur Installation von Python über Anaconda findet man [hier](https://www.anaconda.com/products/distribution).
+### Option A: Lokale Installation mit Anaconda + VS Code (empfohlen)
 
-**Installationsschritte:**
+Dieser Weg ist auf Dauer der stabilste und erlaubt Euch die Nutzung von GitHub Copilot (siehe Schritt 2).
 
-1.  Installieren Sie Anaconda über den oben genannten Link.
-2.  Öffnen Sie die 'Anaconda Prompt' (unter Windows) oder das Terminal (unter macOS/Linux).
-3.  Jupyter Notebook ist bereits Teil der Anaconda Distribution. Sie müssen es nicht separat installieren.
-4.  Überprüfen Sie die Installation, indem Sie folgende Befehle eingeben und jeweils mit Enter bestätigen:
-    *   `python --version`
-    *   `conda --version`
-    *   `jupyter notebook --version`
-    Es sollten die jeweiligen Versionsnummern angezeigt werden.
-5.  Starten Sie Jupyter Notebook, indem Sie `jupyter notebook` in die Anaconda Prompt (oder Terminal) eingeben und Enter drücken. Es sollte sich ein neuer Tab in Ihrem Webbrowser öffnen.
+**1. Anaconda installieren.** Anaconda ist ein Paket- und Umgebungsmanager, der Python und viele wissenschaftliche Bibliotheken (u.a. `pandas`, `numpy`, `matplotlib`) in einem Schritt installiert. Ladet die [Anaconda Distribution](https://www.anaconda.com/download/success) herunter und folgt dem Installationsassistenten.
 
-### Option 2: Cloud-basierte Nutzung
+> **Anmerkung:** Anaconda hat vor einiger Zeit eine Paywall für kommerzielle Nutzung eingeführt. Für akademische Zwecke ist kein Abonnement nötig. Wer Anaconda bewusst vermeiden möchte, kann alternativ [Miniforge](https://github.com/conda-forge/miniforge) oder [Miniconda](https://www.anaconda.com/docs/getting-started/miniconda/main) mit `conda-forge` als Default-Kanal verwenden — das Ergebnis ist gleichwertig.
 
-*   **Mit Binder**: Die Notebooks können alternativ auch "in der Cloud" mit [Binder](https://mybinder.org/) ausgeführt werden. Über Binder kann mit dem Webbrowser auf die Notebooks zugegriffen werden, ohne Python oder Anaconda lokal zu installieren. Binder ist hier eine super Möglichkeit, Code mit anderen zu teilen und Projekte remote bei voller Funktionalität zu präsentieren. **WICHTIG:** Bei Nutzung von Binder werden Ihre Änderungen **nicht dauerhaft gespeichert!** Wenn Sie den Browser-Tab schließen, gehen alle Änderungen verloren. Speichern Sie Ihre Arbeit regelmäßig lokal herunter.
+**2. Umgebung und Pakete einrichten.** Klont oder ladet dieses Repository herunter und installiert die benötigten Pakete in einer eigenen Conda-Umgebung. In der Anaconda Prompt (Windows) bzw. im Terminal (macOS/Linux) im Projektverzeichnis:
 
-*   **Mit Google Colab**: Eine weitere Möglichkeit, die Notebooks auszuführen, ist die Nutzung von [Google Colab](https://colab.research.google.com/). Colab ist eine kostenlose Cloud-basierte Plattform, die es ermöglicht, Jupyter-Notebooks direkt im Webbrowser auszuführen. Hierfür ist lediglich ein Google-Konto erforderlich. Der Vorteil von Colab liegt darin, dass keine lokale Installation von Python oder Jupyter notwendig ist und dass die Plattform Zugriff auf leistungsstarke Hardware wie GPUs bietet. Änderungen können gespeichert werden, indem das Notebook entweder lokal heruntergeladen oder in Google Drive gespeichert wird. Beachten Sie, dass Sie möglicherweise die Notebook-Dateien (.ipynb) aus diesem Kurs manuell in Colab hochladen oder von GitHub öffnen müssen.
+```bash
+conda create -n wbw python=3.10
+conda activate wbw
+pip install -r requirements.txt
+```
 
-### Einrichtung und Vorbereitung
+**3. VS Code installieren und einrichten.** Installiert [Visual Studio Code](https://code.visualstudio.com/) und darin die Extensions *Python*, *Jupyter* und *GitHub Copilot* (+ optional *GitHub Copilot Chat*). VS Code ist Eure **empfohlene Arbeitsumgebung**, weil Copilot dort nativ integriert ist und Ihr Code und Terminal parallel bedienen könnt.
 
-Eine detaillierte Anleitung zur Installation von Python über Anaconda findet man [hier](https://www.anaconda.com/products/distribution). Nach der Installation von Anaconda ist darauf zu achten, dass Python (Version 3.10 oder höher) korrekt installiert wurde. Überprüfen Sie dies, indem Sie in der Anaconda Prompt `python --version` eingeben. Stellen Sie ebenfalls sicher, dass Jupyter Notebook über die Anaconda Prompt (mit dem Befehl `jupyter notebook`) geöffnet und gestartet werden kann.
+**4. Installation prüfen.** In der aktivierten Umgebung:
 
-**Speichern Ihrer Arbeit:** Denken Sie daran, Ihre Arbeit regelmäßig zu speichern! In Jupyter Notebook geht das über `Datei -> Speichern und Checkpoint erstellen` (oder das Disketten-Symbol in der Werkzeugleiste).
+```bash
+python --version
+conda --version
+jupyter --version
+```
 
-**Der Kernel:** Jede Notebook-Datei wird von einem 'Kernel' ausgeführt, der die Code-Engine ist. Wenn Ihr Code hängen bleibt oder unerwartete Fehler auftreten, kann ein Neustart des Kernels helfen: `Kernel -> Kernel neu starten`.
+Es sollten Versionsnummern angezeigt werden (Python ≥ 3.10).
 
-Für weitere Unterstützung wird im [Moodle-Kurs](https://moodle.uni-due.de/course/view.php?id=12978) ein Diskussionsforum zur Installation eingerichtet. Sollten nach Durchsicht der bereitgestellten Materialien Schwierigkeiten bei der Installation bestehen, können Fragen dort so detailliert wie möglich gestellt werden. Diese werden zeitnah beantwortet.
+**5. Kurs öffnen.** In VS Code: `Datei → Ordner öffnen` → Projektverzeichnis wählen → das Einführungsnotebook unter `Inhalt/Notebooks/Einleitung/Einfuehrung_Datenimport.ipynb` doppelklicken. Beim ersten Öffnen fragt VS Code nach einem Kernel — wählt die eben angelegte Umgebung `wbw`.
 
-### Lernressourcen
+> **Alternative zu VS Code:** Wer lieber im Browser arbeitet, kann nach `conda activate wbw` im Projektverzeichnis `jupyter notebook` eingeben. Damit öffnet sich das klassische Jupyter-Interface. Copilot-Inline-Vorschläge funktionieren dort allerdings nicht nativ.
 
-Es gibt eine große Vielfalt an Programmiersprachen und Paketen innerhalb einer jeweiligen Programmiersprache. Am Anfang kann die Anzahl der neuen Konzepte beim lernen einer Programmiersprace schnell überwältigend sein und es passiert (fast jedem von uns), dass man sich dem nicht gewachsen fühlt:
+### Option B: Binder (ohne lokale Installation)
 
-![Die gute Nachricht ist, wenn diese erste Hürde überwunden ist, schwindet auch die Angst](img/wave_smash.gif)  
-(Quelle: [Gfycat.com](https://gfycat.com/))
+Die Notebooks können „in der Cloud" mit [Binder](https://mybinder.org/) ausgeführt werden. Binder richtet die Umgebung automatisch anhand der Repository-Dateien ein. Keine lokale Installation, kein Account.
 
-Das Internet ist zudem voll von hervorragenden Lernressourcen! Eine Investition in das Erlernen einiger grundlegender Konzepte ist die Zeit definitiv wert. Im Folgenden sind einige Ressourcen aufgelistet, die einem den Einstieg erleichtern:
+> **WICHTIG:** In Binder werden **Änderungen nicht dauerhaft gespeichert**. Wenn Ihr den Browser-Tab schließt, ist Eure Arbeit weg. Ladet wichtige Notebooks regelmäßig lokal herunter. Copilot ist in Binder nicht verfügbar.
 
-* [Wie führt man Code in einem Notebook aus](https://nbviewer.org/github/jupyter/notebook/blob/main/docs/source/examples/Notebook/Running%20Code.ipynb). Grundlagen der Python-Syntax und der Programmierung im Jupyter-Notebook.
-* [Matplotlib](http://nbviewer.ipython.org/github/jrjohansson/scientific-python-lectures/blob/master/Lecture-4-Matplotlib.ipynb) ist eine beliebte Bibliothek zur Erstellung einer Vielzahl von Diagrammen.
-* [Einführung in Python](https://nbviewer.org/github/ehmatthes/intro_programming/blob/master/notebooks/index.ipynb).  Ein Einführungskurs, der anhand eines interaktiven Python-Notizbuchs in Jupyter unterrichtet wird.
-* Für die Formatierung von Textzellen in den Notebooks wird Markdown verwendet. Eine Übersicht finden Sie im Kapitel [Markdown Grundlagen](markdown.md).
+### Option C: Google Colab
 
-### Eine umfassende Liste interessanter, nützlicher und leistungsfähiger Jupyter-Notebook-Beispiele findet man [hier](https://github.com/jupyter/jupyter/wiki).
+[Google Colab](https://colab.research.google.com/) führt Jupyter-Notebooks im Browser aus. Ihr braucht nur einen Google-Account. Vorteile: keine Installation, optional GPU-Zugriff. Nachteile: Ihr müsst die `.ipynb`-Dateien manuell hochladen oder von GitHub öffnen, und Copilot ist dort nicht verfügbar — Google bietet mit „Gemini in Colab" ein eigenes LLM an.
 
-## Weitere Informationen
+## Schritt 2: GitHub Copilot aktivieren
 
-### Navigation in diesem Jupyter Book
+In diesem Kurs arbeitet Ihr explizit mit einem KI-Assistenten. Unser Default ist **GitHub Copilot**, weil er über das kostenlose Studierendenprogramm von GitHub zugänglich ist und sich nahtlos in VS Code integriert.
 
-Dieses Jupyter Book ist in Kapitel und Abschnitte gegliedert, die in der Datei `_toc.yml` definiert sind. Wenn Sie das Buch online betrachten oder lokal bauen (siehe README), erscheint am linken Rand eine Navigationsleiste, mit der Sie einfach zwischen den verschiedenen Notebooks und Seiten wechseln können.
+1. Meldet Euch mit Eurer Uni-E-Mail-Adresse für das [GitHub Student Developer Pack](https://github.com/education/students) an. Darin ist **GitHub Copilot Pro** kostenlos enthalten, solange Ihr eingeschrieben seid. Die Freischaltung kann 1–2 Tage dauern — plant das ein.
+2. Installiert in VS Code die Extensions *GitHub Copilot* und *GitHub Copilot Chat*.
+3. Meldet Euch in VS Code mit Eurem GitHub-Account an: `Strg+Umschalt+P` → `GitHub: Sign in`.
+4. Prüft die Freischaltung: in einer Codezelle einen Kommentar schreiben (z.B. `# Wasserstand aus CSV einlesen`) und ein paar Zeilen Platz lassen — nach kurzer Zeit sollten graue Vorschläge erscheinen.
+
+> **Hinweis:** Wenn Ihr bereits mit einem anderen Chat-LLM vertraut seid (Claude, ChatGPT, Gemini), könnt Ihr diesen ergänzend nutzen. Der Workflow — Prompt → Vorschlag → Prüfung — ist in allen Werkzeugen derselbe und wird im Einführungsnotebook in Block D ausführlich behandelt.
+
+## Schritt 3: Das Buch navigieren
+
+Das Jupyter-Book ist in Kapitel und Abschnitte gegliedert, die in `_toc.yml` definiert sind. Wenn Ihr das Buch online betrachtet oder lokal baut (siehe `README.md`), erscheint am linken Rand eine Navigationsleiste.
 
 ### Projektstruktur
 
-Für Ihre Arbeit sind vor allem folgende Ordner relevant:
-*   `Inhalt/Notebooks/`: Enthält die interaktiven Übungsnotebooks (`Uebung_X/`) und die Hausarbeit (`Hausarbeit/`).
-*   `Inhalt/Notebook_Daten/`: Enthält die Datensätze, die für die Übungen und die Hausarbeit benötigt werden.
-*   `Inhalt/Projekt_Daten/`: Enthält zusätzliche Datensätze, die in einigen Notebooks verwendet werden.
+Für Eure Arbeit sind diese Ordner relevant:
 
-### Paket-Installation
+- `Inhalt/Notebooks/` — die interaktiven Notebooks (`Einleitung/`, `Uebung_X/`, `Hausarbeit/`).
+- `Inhalt/Notebook_Daten/` — Datensätze für Übungen und Hausarbeit.
+- `Inhalt/Projekt_Daten/` — zusätzliche Datensätze, die in einzelnen Notebooks verwendet werden.
 
-Diese Notebooks verwenden Pakete wie `pandas` zur Datenanalyse und `matplotlib` oder `plotly` zur Visualisierung. Wenn Sie eine Fehlermeldung wie 'ModuleNotFoundError' sehen, bedeutet das, dass ein benötigtes Paket fehlt.
+## Wenn es hakt
 
-Wenn beim Ausführen einer Code-Zelle in Jupyter die folgende Fehlermeldung zurückgegeben wird:
+**Bei Installationsproblemen:** Im [Moodle-Kurs](https://moodle.uni-due.de/course/view.php?id=12978) gibt es ein Diskussionsforum zur Installation. Beschreibt Euer Problem möglichst genau (Betriebssystem, Fehlermeldung im Wortlaut, was Ihr bereits probiert habt). Screenshots helfen.
 
-![Example Package Error](img/package_error.png)
+**Bei Fragen zu Code oder Notebook-Bedienung:** Diese Themen behandelt das [Einführungsnotebook](Notebooks/Einleitung/Einfuehrung_Datenimport.ipynb) ausführlich. Dort findet Ihr u.a. wie Ihr Zellen ausführt, was ein Kernel ist, wie Ihr Fehlermeldungen lest und wie Ihr Copilot bzw. ein Chat-LLM einsetzt, um Probleme zu lösen.
 
-Dies bedeutet im Allgemeinen, dass ein Paket nicht installiert wurde. In diesem Fall handelt es sich um das Paket `Pandas`. Innerhalb einer Anaconda-Umgebung ist es am besten, Pakete mit `conda install <paketname>` zu installieren, um Konflikte zu vermeiden. Dies kann durch Erstellen einer neuen Zelle geschehen:
+## Lernressourcen
 
-![Neue Zelle erstellen](img/new_cell.png)
+Am Anfang kann die Vielzahl neuer Konzepte beim Erlernen einer Programmiersprache überwältigend wirken — fast jeder kennt dieses Gefühl:
 
-Es kann folgendes eingegeben werden (Hier kann `pandas` durch den jeweiligen Namen des Pakets ersetzt werden, das installiert werden soll). Führen Sie den Befehl nur einmal pro Paket aus:
+![Die gute Nachricht ist, wenn diese erste Hürde überwunden ist, schwindet auch die Angst](img/wave_smash.gif)
+(Quelle: [Gfycat.com](https://gfycat.com/))
 
-```python
-!conda install pandas -y
-# oder für mehrere Pakete gleichzeitig:
-# !conda install numpy pandas matplotlib -y
-```
-![Befehl zur Installation eines Python-Pakets](img/package_install.png)
+Das Internet ist voll von hervorragenden Lernressourcen. Ein paar Empfehlungen:
 
-Die Zelle kann nun ausgeführt werden (Umschalttaste + Eingabetaste) (empfohlen), oder durch drücken der Schaltfläche "Ausführen". Das `-y` am Ende überspringt die Bestätigungsabfrage.
-
-### Troubleshooting & Hilfe
-
-Zusätzlich zum Moodle-Forum hier einige Tipps zur Fehlerbehebung:
-*   **Fehlermeldungen lesen:** Lesen Sie Fehlermeldungen sorgfältig – oft geben sie genaue Hinweise auf das Problem (z.B. welche Zeile den Fehler verursacht oder welches Paket fehlt).
-*   **Online-Suche:** Kopieren Sie die Fehlermeldung und suchen Sie online danach (z.B. auf Google oder Stack Overflow). Oft hatten andere schon das gleiche Problem.
-*   **Kernel neu starten:** Wie oben erwähnt, kann ein Neustart des Kernels (`Kernel -> Kernel neu starten`) manchmal helfen, wenn sich das Notebook seltsam verhält.
-*   **Hilfe im Forum:** Wenn Sie im Moodle-Forum fragen, beschreiben Sie genau, was Sie versucht haben, welchen Code Sie ausgeführt haben und welche vollständige Fehlermeldung Sie erhalten haben. Screenshots können ebenfalls hilfreich sein.
+- [Wie führt man Code in einem Notebook aus](https://nbviewer.org/github/jupyter/notebook/blob/main/docs/source/examples/Notebook/Running%20Code.ipynb) — Grundlagen der Jupyter-Bedienung.
+- [Matplotlib](http://nbviewer.ipython.org/github/jrjohansson/scientific-python-lectures/blob/master/Lecture-4-Matplotlib.ipynb) — Einstieg in die meistgenutzte Plot-Bibliothek.
+- [Einführung in Python](https://nbviewer.org/github/ehmatthes/intro_programming/blob/master/notebooks/index.ipynb) — kompletter Einführungskurs als Notebook.
+- [Markdown-Grundlagen](markdown.md) — für die Formatierung der Textzellen in Euren eigenen Notebooks.
+- Eine umfassende Liste empfehlenswerter Jupyter-Beispiele findet Ihr im [Jupyter-Wiki](https://github.com/jupyter/jupyter/wiki).
 
 ## Lizenz
 
-Die Notizbücher, aus denen dieses Jupyter-Buch besteht, stehen unter der Lizenz [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/legalcode).
-
-
+Die Notebooks, aus denen dieses Jupyter-Book besteht, stehen unter der Lizenz [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/legalcode).
