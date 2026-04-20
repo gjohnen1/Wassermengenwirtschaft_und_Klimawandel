@@ -1,125 +1,143 @@
-# Markdown Files
+# Markdown-Grundlagen (MyST)
 
-Whether you write your book's content in Jupyter Notebooks (`.ipynb`) or
-in regular markdown files (`.md`), you'll write in the same flavor of markdown
-called **MyST Markdown**.
+Ob Ihr Inhalte in Jupyter Notebooks (`.ipynb`) oder in regulären Markdown-Dateien (`.md`) schreibt — gemeinsam ist die *MyST*-Variante von Markdown ("Markedly Structured Text"), eine kleine Erweiterung von [CommonMark](https://commonmark.org/) für die Sphinx-/Jupyter-Book-Welt.
 
-## What is MyST?
+Diese Seite ist eine Mini-Referenz mit den Bausteinen, die Ihr in Übungen, Hausarbeit und eigenen Notizen am häufigsten braucht.
 
-MyST stands for "Markedly Structured Text". It
-is a slight variation on a flavor of markdown called "CommonMark" markdown,
-with small syntax extensions to allow you to write **roles** and **directives**
-in the Sphinx ecosystem.
+## Rollen und Direktiven
 
-## What are roles and directives?
+Die zwei zentralen Werkzeuge in MyST sind **Rollen** (eine Zeile) und **Direktiven** (mehrere Zeilen). Beide sind benannte „Funktionen", deren Verhalten vom Namen abhängt.
 
-Roles and directives are two of the most powerful tools in Jupyter Book. They
-are kind of like functions, but written in a markup language. They both
-serve a similar purpose, but **roles are written in one line**, whereas
-**directives span many lines**. They both accept different kinds of inputs,
-and what they do with those inputs depends on the specific role or directive
-that is being called.
+### Direktiven (mehrzeilig)
 
-### Using a directive
-
-At its simplest, you can insert a directive into your book's content like so:
+Allgemeine Form:
 
 ````
-```{mydirectivename}
-My directive content
+```{name}
+Inhalt der Direktive
 ```
 ````
 
-This will only work if a directive with name `mydirectivename` already exists
-(which it doesn't). There are many pre-defined directives associated with
-Jupyter Book. For example, to insert a note box into your content, you can
-use the following directive:
+Konkretes Beispiel — eine Hinweis-Box:
 
 ````
 ```{note}
-Here is a note
+Hier steht ein Hinweis.
 ```
 ````
 
-This results in:
+Ergebnis:
 
 ```{note}
-Here is a note
+Hier steht ein Hinweis.
 ```
 
-In your built book.
+Weitere häufig nützliche Direktiven: `warning`, `tip`, `important`, `seealso`, `figure`, `table`, `code-block`, `math`. Eine vollständige Liste findet Ihr in der [MyST-Dokumentation](https://myst-parser.readthedocs.io/en/latest/syntax/roles-and-directives.html).
 
-For more information on writing directives, see the
-[MyST documentation](https://myst-parser.readthedocs.io/).
+### Rollen (einzeilig)
 
-
-### Using a role
-
-Roles are very similar to directives, but they are less-complex and written
-entirely on one line. You can insert a role into your book's content with
-this pattern:
+Allgemeine Form:
 
 ```
-Some content {rolename}`and here is my role's content!`
+Hier ein Beispieltext mit {rollenname}`Inhalt der Rolle`.
 ```
 
-Again, roles will only work if `rolename` is a valid role's name. For example,
-the `doc` role can be used to refer to another page in your book. You can
-refer directly to another page by its relative path. For example, the
-role syntax `` {doc}`intro` `` will result in: {doc}`intro`.
+Beispiel — die `doc`-Rolle erzeugt einen Querverweis auf eine andere Seite des Buches:
 
-For more information on writing roles, see the
-[MyST documentation](https://myst-parser.readthedocs.io/).
+```
+Siehe auch: {doc}`Notebooks/Einleitung/Einfuehrung_Datenimport`
+```
 
+Weitere häufige Rollen: `kbd` (Tastatur-Shortcut), `code`, `math`, `download`, `term`.
 
-### Adding a citation
+## Mathematik
 
-You can also cite references that are stored in a `bibtex` file. For example,
-the following syntax: `` {cite}`holdgraf_evidence_2014` `` will render like
-this: {cite}`holdgraf_evidence_2014`.
+Inline-Mathematik mit einfachen Dollarzeichen, abgesetzte Formeln mit doppelten:
 
-Moreoever, you can insert a bibliography into your page with this syntax:
-The `{bibliography}` directive must be used for all the `{cite}` roles to
-render properly.
-For example, if the references for your book are stored in `references.bib`,
-then the bibliography is inserted with:
+```
+Inline: $E = mc^2$
+
+Block:
+$$
+F(x) = \int_{-\infty}^{x} f(t)\,dt
+$$
+```
+
+Inline: $E = mc^2$
+
+Block:
+
+$$
+F(x) = \int_{-\infty}^{x} f(t)\,dt
+$$
+
+## Codeblöcke mit Syntaxhervorhebung
 
 ````
-```{bibliography}
+```python
+def manning_v(R, S, n):
+    return R**(2/3) * S**0.5 / n
 ```
 ````
 
-Resulting in a rendered bibliography that looks like:
-
-```{bibliography}
+```python
+def manning_v(R, S, n):
+    return R**(2/3) * S**0.5 / n
 ```
 
+## Tabellen
 
-### Executing code in your markdown files
+```
+| Variable | Einheit  | Beschreibung |
+|---|---|---|
+| Q  | m³/s    | Abfluss |
+| A  | km²     | Einzugsgebiet |
+| n  | s/m^(1/3) | Rauhigkeit |
+```
 
-If you'd like to include computational content inside these markdown files,
-you can use MyST Markdown to define cells that will be executed when your
-book is built. Jupyter Book uses *jupytext* to do this.
+| Variable | Einheit  | Beschreibung |
+|---|---|---|
+| Q  | m³/s    | Abfluss |
+| A  | km²     | Einzugsgebiet |
+| n  | s/m^(1/3) | Rauhigkeit |
 
-First, add Jupytext metadata to the file. For example, to add Jupytext metadata
-to this markdown page, run this command:
+## Bilder
+
+```
+![Beschreibung](relativer/Pfad/bild.png)
+```
+
+oder als Direktive mit Optionen:
+
+````
+```{figure} relativer/Pfad/bild.png
+:width: 400px
+:align: center
+
+Bildunterschrift mit *Markdown*-Formatierung.
+```
+````
+
+## Code in Markdown-Dateien ausführen
+
+Mit MyST-NB lassen sich Codezellen direkt in `.md`-Dateien ausführen — vorausgesetzt die Datei trägt Jupytext-Metadaten. Setup einmalig:
 
 ```
 jupyter-book myst init markdown.md
 ```
 
-Once a markdown file has Jupytext metadata in it, you can add the following
-directive to run the code at build time:
+Danach lassen sich `{code-cell}`-Direktiven nutzen:
 
 ````
 ```{code-cell}
-print("Here is some code to execute")
+print("Hier wird Code beim Buch-Build ausgeführt")
 ```
 ````
 
-When your book is built, the contents of any `{code-cell}` blocks will be
-executed with your default Jupyter kernel, and their outputs will be displayed
-in-line with the rest of your content.
+Beim Bauen werden diese Zellen mit dem konfigurierten Jupyter-Kernel ausgeführt; Ausgaben erscheinen direkt in der gerenderten Seite.
 
-For more information about executing computational content with Jupyter Book,
-see [The MyST-NB documentation](https://myst-nb.readthedocs.io/).
+## Weiterführend
+
+* [MyST Markdown — Syntax-Referenz](https://myst-parser.readthedocs.io/en/latest/syntax/syntax.html)
+* [Jupyter Book — Inhaltskonzepte](https://jupyterbook.org/en/stable/content/index.html)
+* [MyST-NB — Code in Markdown ausführen](https://myst-nb.readthedocs.io/)

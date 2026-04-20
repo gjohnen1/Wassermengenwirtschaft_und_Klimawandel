@@ -7,13 +7,20 @@ logo: img/logo_claim_en_rgb_72dpi.png
 
 exclude_patterns:
   - "simple_reservoir/**"
+  - "**/.ipynb_checkpoints/**"
+  - "_build/**"
 
-# Force re-execution of notebooks on each build.
+# Notebooks are cached: only re-executed when the source changes.
 # See https://jupyterbook.org/content/execute.html
+# Use `jupyter-book build --all Inhalt/` to force a full rebuild.
 execute:
-  execute_notebooks: force
+  execute_notebooks: cache
   exclude_patterns:
     - "simple_reservoir/**"
+    - "**/.ipynb_checkpoints/**"
+  # rtc-tools subprocess calls + plotly figure rendering can exceed the
+  # default 30 s per-cell timeout, especially on cold starts.
+  timeout: 120
 
 # Define the name of the latex output file for PDF builds
 latex:
@@ -38,6 +45,16 @@ html:
   navbar_number_sections: true  # Number sections in navigation
   sidebar:
     collapse_level: 1  # Control sidebar collapse level
+
+# Sphinx-level configuration
+sphinx:
+  config:
+    # Bokeh emits 'application/vnd.bokehjs_load.v0+json' / '..._exec.v0+json'
+    # alongside text/html for every figure. myst-nb correctly renders the HTML
+    # but emits a warning per unknown MIME type. Suppress the noise — these
+    # MIMEs are internal trigger signals and don't carry visible content.
+    suppress_warnings:
+      - mystnb.unknown_mime_type
 
 launch_buttons:
   binderhub_url: "https://mybinder.org"  # The URL for your BinderHub (e.g., https://mybinder.org)
