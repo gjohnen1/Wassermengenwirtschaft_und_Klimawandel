@@ -83,7 +83,7 @@ Für Eure Arbeit sind diese Ordner relevant:
 
 ## Wenn es hakt
 
-**Bei Installationsproblemen:** Im [Moodle-Kurs](https://moodle.uni-due.de/course/view.php?id=12978) gibt es ein Diskussionsforum zur Installation. Beschreibt Euer Problem möglichst genau (Betriebssystem, Fehlermeldung im Wortlaut, was Ihr bereits probiert habt). Screenshots helfen.
+**Bei Installationsproblemen:** Im [Moodle-Kurs](https://lehre.moodle.uni-due.de/course/view.php?id=5089) gibt es ein Diskussionsforum zur Installation. Beschreibt Euer Problem möglichst genau (Betriebssystem, Fehlermeldung im Wortlaut, was Ihr bereits probiert habt). Screenshots helfen.
 
 **Bei Fragen zu Code oder Notebook-Bedienung:** Diese Themen behandelt das [Einführungsnotebook](Notebooks/Einleitung/Einfuehrung_Datenimport.ipynb) ausführlich. Dort findet Ihr u.a. wie Ihr Zellen ausführt, was ein Kernel ist, wie Ihr Fehlermeldungen lest und wie Ihr Copilot bzw. ein Chat-LLM einsetzt, um Probleme zu lösen.
 
