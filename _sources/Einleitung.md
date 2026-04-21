@@ -48,15 +48,15 @@ Es sollten Versionsnummern angezeigt werden (Python ≥ 3.10).
 
 > **Alternative zu VS Code:** Wer lieber im Browser arbeitet, kann nach `conda activate wbw` im Projektverzeichnis `jupyter notebook` eingeben. Damit öffnet sich das klassische Jupyter-Interface. Copilot-Inline-Vorschläge funktionieren dort allerdings nicht nativ.
 
-### Option B: Binder (ohne lokale Installation)
+### Option B: Google Colab
+
+[Google Colab](https://colab.research.google.com/) führt Jupyter-Notebooks im Browser aus. Ihr braucht nur einen Google-Account. Vorteile: keine Installation, optional GPU-Zugriff. Nachteile: Ihr müsst die `.ipynb`-Dateien manuell hochladen oder von GitHub öffnen, und Copilot ist dort nicht verfügbar — Google bietet mit „Gemini in Colab" ein eigenes LLM an.
+
+### Option C: Binder (ohne lokale Installation)
 
 Die Notebooks können „in der Cloud" mit [Binder](https://mybinder.org/) ausgeführt werden. Binder richtet die Umgebung automatisch anhand der Repository-Dateien ein. Keine lokale Installation, kein Account.
 
 > **WICHTIG:** In Binder werden **Änderungen nicht dauerhaft gespeichert**. Wenn Ihr den Browser-Tab schließt, ist Eure Arbeit weg. Ladet wichtige Notebooks regelmäßig lokal herunter. Copilot ist in Binder nicht verfügbar.
-
-### Option C: Google Colab
-
-[Google Colab](https://colab.research.google.com/) führt Jupyter-Notebooks im Browser aus. Ihr braucht nur einen Google-Account. Vorteile: keine Installation, optional GPU-Zugriff. Nachteile: Ihr müsst die `.ipynb`-Dateien manuell hochladen oder von GitHub öffnen, und Copilot ist dort nicht verfügbar — Google bietet mit „Gemini in Colab" ein eigenes LLM an.
 
 ## Schritt 2: GitHub Copilot aktivieren
 
