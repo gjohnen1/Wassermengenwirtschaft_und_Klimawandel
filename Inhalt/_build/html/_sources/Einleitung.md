@@ -48,15 +48,15 @@ Es sollten Versionsnummern angezeigt werden (Python ≥ 3.10).
 
 > **Alternative zu VS Code:** Wer lieber im Browser arbeitet, kann nach `conda activate wbw` im Projektverzeichnis `jupyter notebook` eingeben. Damit öffnet sich das klassische Jupyter-Interface. Copilot-Inline-Vorschläge funktionieren dort allerdings nicht nativ.
 
-### Option B: Binder (ohne lokale Installation)
+### Option B: Google Colab
+
+[Google Colab](https://colab.research.google.com/) führt Jupyter-Notebooks im Browser aus. Ihr braucht nur einen Google-Account. Vorteile: keine Installation, optional GPU-Zugriff. Nachteile: Ihr müsst die `.ipynb`-Dateien manuell hochladen oder von GitHub öffnen, und Copilot ist dort nicht verfügbar — Google bietet mit „Gemini in Colab" ein eigenes LLM an.
+
+### Option C: Binder (ohne lokale Installation)
 
 Die Notebooks können „in der Cloud" mit [Binder](https://mybinder.org/) ausgeführt werden. Binder richtet die Umgebung automatisch anhand der Repository-Dateien ein. Keine lokale Installation, kein Account.
 
 > **WICHTIG:** In Binder werden **Änderungen nicht dauerhaft gespeichert**. Wenn Ihr den Browser-Tab schließt, ist Eure Arbeit weg. Ladet wichtige Notebooks regelmäßig lokal herunter. Copilot ist in Binder nicht verfügbar.
-
-### Option C: Google Colab
-
-[Google Colab](https://colab.research.google.com/) führt Jupyter-Notebooks im Browser aus. Ihr braucht nur einen Google-Account. Vorteile: keine Installation, optional GPU-Zugriff. Nachteile: Ihr müsst die `.ipynb`-Dateien manuell hochladen oder von GitHub öffnen, und Copilot ist dort nicht verfügbar — Google bietet mit „Gemini in Colab" ein eigenes LLM an.
 
 ## Schritt 2: GitHub Copilot aktivieren
 
@@ -83,7 +83,7 @@ Für Eure Arbeit sind diese Ordner relevant:
 
 ## Wenn es hakt
 
-**Bei Installationsproblemen:** Im [Moodle-Kurs](https://moodle.uni-due.de/course/view.php?id=12978) gibt es ein Diskussionsforum zur Installation. Beschreibt Euer Problem möglichst genau (Betriebssystem, Fehlermeldung im Wortlaut, was Ihr bereits probiert habt). Screenshots helfen.
+**Bei Installationsproblemen:** Im [Moodle-Kurs](https://lehre.moodle.uni-due.de/course/view.php?id=5089) gibt es ein Diskussionsforum zur Installation. Beschreibt Euer Problem möglichst genau (Betriebssystem, Fehlermeldung im Wortlaut, was Ihr bereits probiert habt). Screenshots helfen.
 
 **Bei Fragen zu Code oder Notebook-Bedienung:** Diese Themen behandelt das [Einführungsnotebook](Notebooks/Einleitung/Einfuehrung_Datenimport.ipynb) ausführlich. Dort findet Ihr u.a. wie Ihr Zellen ausführt, was ein Kernel ist, wie Ihr Fehlermeldungen lest und wie Ihr Copilot bzw. ein Chat-LLM einsetzt, um Probleme zu lösen.
 

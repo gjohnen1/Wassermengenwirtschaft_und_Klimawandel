@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Notebooks/Einleitung/Einfuehrung_Datenimport';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Markdown-Grundlagen (MyST)" href="../../markdown.html" />
+    <link rel="next" title="Hochwasserstatistik mit Python" href="../Uebung_1/Uebung_1.html" />
     <link rel="prev" title="Vorwort" href="../../Einleitung.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -186,7 +186,6 @@
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="../../markdown.html">Markdown-Grundlagen (MyST)</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">UEBUNG 01</span></p>
 <ul class="nav bd-sidenav">
@@ -451,7 +450,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#google-colab-vorbereiten">Google Colab vorbereiten</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lernziele">Lernziele</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zeitplan-richtwert">Zeitplan (Richtwert)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#umgebung-einrichten">Umgebung einrichten</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zellen-ausfuhren-die-mechanik">Zellen ausführen — die Mechanik</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#die-rolle-von-ki-in-diesem-kurs">Die Rolle von KI in diesem Kurs</a></li>
 </ul>
@@ -609,25 +607,6 @@ document.write(`
 </table>
 </div>
 <p>Der Zeitplan ist eine Orientierung — Ihr werdet in der Praxis an einzelnen Stellen länger hängen bleiben. Das ist normal. Die Blöcke sind so geschnitten, dass Ihr nach Block C den eigentlichen Arbeitsablauf eines Ingenieurs mit Daten einmal komplett durchlaufen habt.</p>
-</section>
-<section id="umgebung-einrichten">
-<h2>Umgebung einrichten<a class="headerlink" href="#umgebung-einrichten" title="Link to this heading">#</a></h2>
-<p>Dieses Notebook benötigt <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, <code class="docutils literal notranslate"><span class="pre">numpy</span></code> und <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>.</p>
-<p><strong>Lokale Umgebung (empfohlen):</strong> Richtet gemäß der <code class="docutils literal notranslate"><span class="pre">README.md</span></code> eine Conda-Umgebung ein und installiert die Pakete aus <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>. Öffnet das Notebook danach in <strong>VS Code</strong> (mit der Python- und Jupyter-Extension) oder im klassischen <strong>Jupyter-Browserinterface</strong> — beides funktioniert. VS Code hat den Vorteil, dass GitHub Copilot dort nativ integriert ist (siehe Block D).</p>
-<p><strong>Binder:</strong> Binder richtet die Umgebung automatisch ein. Keine manuelle Installation nötig. Copilot ist in Binder nicht verfügbar.</p>
-<p><strong>Google Colab:</strong> Führt die folgende Zelle aus und startet die Laufzeit danach neu (<code class="docutils literal notranslate"><span class="pre">Runtime</span> <span class="pre">&gt;</span> <span class="pre">Restart</span> <span class="pre">runtime</span></code>). Copilot ist in Colab nicht verfügbar; Google bietet dort jedoch mit „Gemini in Colab” ein eigenes LLM an.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Zelle nur ausführen, wenn in Colab gearbeitet wird</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
-<span class="k">if</span> <span class="s1">&#39;google.colab&#39;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Installing packages for Colab...&quot;</span><span class="p">)</span>
-    <span class="o">%</span><span class="k">pip</span> install pandas numpy matplotlib
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Installation complete. Please restart the runtime (Runtime &gt; Restart runtime).&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 <section id="zellen-ausfuhren-die-mechanik">
 <h2>Zellen ausführen — die Mechanik<a class="headerlink" href="#zellen-ausfuhren-die-mechanik" title="Link to this heading">#</a></h2>
@@ -1048,7 +1027,6 @@ Nachteil: <strong>funktioniert nur auf genau diesem Computer</strong> — versch
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Einleitung.md&#39;,
  &#39;img&#39;,
- &#39;markdown.md&#39;,
  &#39;Notebooks&#39;,
  &#39;Notebook_Daten&#39;,
  &#39;Projekt_Daten&#39;,
@@ -2211,11 +2189,11 @@ Verhältnis: 87.1% der Originaldaten bleiben übrig.
       </div>
     </a>
     <a class="right-next"
-       href="../../markdown.html"
+       href="../Uebung_1/Uebung_1.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Markdown-Grundlagen (MyST)</p>
+        <p class="prev-next-title">Hochwasserstatistik mit Python</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -2239,7 +2217,6 @@ Verhältnis: 87.1% der Originaldaten bleiben übrig.
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#google-colab-vorbereiten">Google Colab vorbereiten</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lernziele">Lernziele</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zeitplan-richtwert">Zeitplan (Richtwert)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#umgebung-einrichten">Umgebung einrichten</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zellen-ausfuhren-die-mechanik">Zellen ausführen — die Mechanik</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#die-rolle-von-ki-in-diesem-kurs">Die Rolle von KI in diesem Kurs</a></li>
 </ul>

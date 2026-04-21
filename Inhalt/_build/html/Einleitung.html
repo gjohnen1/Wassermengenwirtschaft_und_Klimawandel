@@ -189,7 +189,6 @@
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown-Grundlagen (MyST)</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">UEBUNG 01</span></p>
 <ul class="nav bd-sidenav">
@@ -404,8 +403,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#was-dieses-vorwort-leistet-und-was-nicht">Was dieses Vorwort leistet – und was nicht</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#schritt-1-eure-arbeitsumgebung">Schritt 1: Eure Arbeitsumgebung</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-a-lokale-installation-mit-anaconda-vs-code-empfohlen">Option A: Lokale Installation mit Anaconda + VS Code (empfohlen)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-b-binder-ohne-lokale-installation">Option B: Binder (ohne lokale Installation)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-c-google-colab">Option C: Google Colab</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-b-google-colab">Option B: Google Colab</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-c-binder-ohne-lokale-installation">Option C: Binder (ohne lokale Installation)</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#schritt-2-github-copilot-aktivieren">Schritt 2: GitHub Copilot aktivieren</a></li>
@@ -468,16 +467,16 @@ jupyter<span class="w"> </span>--version
 <div><p><strong>Alternative zu VS Code:</strong> Wer lieber im Browser arbeitet, kann nach <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">wbw</span></code> im Projektverzeichnis <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">notebook</span></code> eingeben. Damit öffnet sich das klassische Jupyter-Interface. Copilot-Inline-Vorschläge funktionieren dort allerdings nicht nativ.</p>
 </div></blockquote>
 </section>
-<section id="option-b-binder-ohne-lokale-installation">
-<h3>Option B: Binder (ohne lokale Installation)<a class="headerlink" href="#option-b-binder-ohne-lokale-installation" title="Link to this heading">#</a></h3>
+<section id="option-b-google-colab">
+<h3>Option B: Google Colab<a class="headerlink" href="#option-b-google-colab" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://colab.research.google.com/">Google Colab</a> führt Jupyter-Notebooks im Browser aus. Ihr braucht nur einen Google-Account. Vorteile: keine Installation, optional GPU-Zugriff. Nachteile: Ihr müsst die <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>-Dateien manuell hochladen oder von GitHub öffnen, und Copilot ist dort nicht verfügbar — Google bietet mit „Gemini in Colab” ein eigenes LLM an.</p>
+</section>
+<section id="option-c-binder-ohne-lokale-installation">
+<h3>Option C: Binder (ohne lokale Installation)<a class="headerlink" href="#option-c-binder-ohne-lokale-installation" title="Link to this heading">#</a></h3>
 <p>Die Notebooks können „in der Cloud” mit <a class="reference external" href="https://mybinder.org/">Binder</a> ausgeführt werden. Binder richtet die Umgebung automatisch anhand der Repository-Dateien ein. Keine lokale Installation, kein Account.</p>
 <blockquote>
 <div><p><strong>WICHTIG:</strong> In Binder werden <strong>Änderungen nicht dauerhaft gespeichert</strong>. Wenn Ihr den Browser-Tab schließt, ist Eure Arbeit weg. Ladet wichtige Notebooks regelmäßig lokal herunter. Copilot ist in Binder nicht verfügbar.</p>
 </div></blockquote>
-</section>
-<section id="option-c-google-colab">
-<h3>Option C: Google Colab<a class="headerlink" href="#option-c-google-colab" title="Link to this heading">#</a></h3>
-<p><a class="reference external" href="https://colab.research.google.com/">Google Colab</a> führt Jupyter-Notebooks im Browser aus. Ihr braucht nur einen Google-Account. Vorteile: keine Installation, optional GPU-Zugriff. Nachteile: Ihr müsst die <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>-Dateien manuell hochladen oder von GitHub öffnen, und Copilot ist dort nicht verfügbar — Google bietet mit „Gemini in Colab” ein eigenes LLM an.</p>
 </section>
 </section>
 <section id="schritt-2-github-copilot-aktivieren">
@@ -508,7 +507,7 @@ jupyter<span class="w"> </span>--version
 </section>
 <section id="wenn-es-hakt">
 <h2>Wenn es hakt<a class="headerlink" href="#wenn-es-hakt" title="Link to this heading">#</a></h2>
-<p><strong>Bei Installationsproblemen:</strong> Im <a class="reference external" href="https://moodle.uni-due.de/course/view.php?id=12978">Moodle-Kurs</a> gibt es ein Diskussionsforum zur Installation. Beschreibt Euer Problem möglichst genau (Betriebssystem, Fehlermeldung im Wortlaut, was Ihr bereits probiert habt). Screenshots helfen.</p>
+<p><strong>Bei Installationsproblemen:</strong> Im <a class="reference external" href="https://lehre.moodle.uni-due.de/course/view.php?id=5089">Moodle-Kurs</a> gibt es ein Diskussionsforum zur Installation. Beschreibt Euer Problem möglichst genau (Betriebssystem, Fehlermeldung im Wortlaut, was Ihr bereits probiert habt). Screenshots helfen.</p>
 <p><strong>Bei Fragen zu Code oder Notebook-Bedienung:</strong> Diese Themen behandelt das <a class="reference internal" href="Notebooks/Einleitung/Einfuehrung_Datenimport.html"><span class="std std-doc">Einführungsnotebook</span></a> ausführlich. Dort findet Ihr u.a. wie Ihr Zellen ausführt, was ein Kernel ist, wie Ihr Fehlermeldungen lest und wie Ihr Copilot bzw. ein Chat-LLM einsetzt, um Probleme zu lösen.</p>
 </section>
 <section id="lernressourcen">
@@ -521,7 +520,7 @@ jupyter<span class="w"> </span>--version
 <li><p><a class="reference external" href="https://nbviewer.org/github/jupyter/notebook/blob/main/docs/source/examples/Notebook/Running%20Code.ipynb">Wie führt man Code in einem Notebook aus</a> — Grundlagen der Jupyter-Bedienung.</p></li>
 <li><p><a class="reference external" href="http://nbviewer.ipython.org/github/jrjohansson/scientific-python-lectures/blob/master/Lecture-4-Matplotlib.ipynb">Matplotlib</a> — Einstieg in die meistgenutzte Plot-Bibliothek.</p></li>
 <li><p><a class="reference external" href="https://nbviewer.org/github/ehmatthes/intro_programming/blob/master/notebooks/index.ipynb">Einführung in Python</a> — kompletter Einführungskurs als Notebook.</p></li>
-<li><p><a class="reference internal" href="markdown.html"><span class="std std-doc">Markdown-Grundlagen</span></a> — für die Formatierung der Textzellen in Euren eigenen Notebooks.</p></li>
+<li><p><a class="reference internal" href="#markdown.md"><span class="xref myst">Markdown-Grundlagen</span></a> — für die Formatierung der Textzellen in Euren eigenen Notebooks.</p></li>
 <li><p>Eine umfassende Liste empfehlenswerter Jupyter-Beispiele findet Ihr im <a class="reference external" href="https://github.com/jupyter/jupyter/wiki">Jupyter-Wiki</a>.</p></li>
 </ul>
 </section>
@@ -599,8 +598,8 @@ jupyter<span class="w"> </span>--version
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#was-dieses-vorwort-leistet-und-was-nicht">Was dieses Vorwort leistet – und was nicht</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#schritt-1-eure-arbeitsumgebung">Schritt 1: Eure Arbeitsumgebung</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-a-lokale-installation-mit-anaconda-vs-code-empfohlen">Option A: Lokale Installation mit Anaconda + VS Code (empfohlen)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-b-binder-ohne-lokale-installation">Option B: Binder (ohne lokale Installation)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-c-google-colab">Option C: Google Colab</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-b-google-colab">Option B: Google Colab</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-c-binder-ohne-lokale-installation">Option C: Binder (ohne lokale Installation)</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#schritt-2-github-copilot-aktivieren">Schritt 2: GitHub Copilot aktivieren</a></li>
