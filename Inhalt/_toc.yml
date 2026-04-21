@@ -4,7 +4,6 @@ parts:
 - caption: EINLEITUNG
   chapters:
   - file: Notebooks/Einleitung/Einfuehrung_Datenimport
-  - file: markdown
 - caption: UEBUNG 01
   chapters:
   - file: Notebooks/Uebung_1/Uebung_1
