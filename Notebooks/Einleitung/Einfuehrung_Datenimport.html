@@ -448,6 +448,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Jupyter Notebooks, Python und KI-unterstütztes Programmieren</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#google-colab-vorbereiten">Google Colab vorbereiten</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lernziele">Lernziele</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zeitplan-richtwert">Zeitplan (Richtwert)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#umgebung-einrichten">Umgebung einrichten</a></li>
@@ -519,6 +520,44 @@ document.write(`
 <h1>Jupyter Notebooks, Python und KI-unterstütztes Programmieren<a class="headerlink" href="#jupyter-notebooks-python-und-ki-unterstutztes-programmieren" title="Link to this heading">#</a></h1>
 <p><em>Einführungsnotebook zum Kurs „Wassermengenwirtschaft und Klimawandel”</em></p>
 <p>Willkommen zum ersten Notebook. Dieses Notebook ist auf einen <strong>Tagesblock (2 × 1,5 h)</strong> angelegt und legt die Grundlage für alle folgenden Übungen.</p>
+<section id="google-colab-vorbereiten">
+<h2>Google Colab vorbereiten<a class="headerlink" href="#google-colab-vorbereiten" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p><strong>Nur in Google Colab ausführen.</strong> Diese Zelle klont das Kurs-Repository und wechselt in das Notebook-Verzeichnis — erst <em>danach</em> funktionieren die relativen Pfade (<code class="docutils literal notranslate"><span class="pre">../../Projekt_Daten</span></code>) korrekt. In einer lokalen Conda-Umgebung wird die Zelle automatisch übersprungen.</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Colab-Setup — lokal wird diese Zelle übersprungen.</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="k">if</span> <span class="s1">&#39;google.colab&#39;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">:</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+    <span class="n">REPO_DIR</span> <span class="o">=</span> <span class="s1">&#39;/content/Wassermengenwirtschaft_und_Klimawandel&#39;</span>
+    <span class="n">NB_DIR</span>   <span class="o">=</span> <span class="n">REPO_DIR</span> <span class="o">+</span> <span class="s1">&#39;/Inhalt/Notebooks/Einleitung&#39;</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">REPO_DIR</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Colab-Setup: Repository wird geklont ...&#39;</span><span class="p">)</span>
+        <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;git clone https://github.com/gjohnen1/Wassermengenwirtschaft_und_Klimawandel.git &#39;</span> <span class="o">+</span> <span class="n">REPO_DIR</span><span class="p">)</span>
+    <span class="c1"># Ins Notebook-Verzeichnis wechseln, damit &quot;../../Projekt_Daten&quot;</span>
+    <span class="c1"># aufgeht (das ist im Folgenden Teil der Lehrerzählung).</span>
+    <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;cd&#39;</span><span class="p">,</span> <span class="n">NB_DIR</span><span class="p">)</span>
+
+    <span class="c1"># Die Einführung braucht nur pandas/numpy/matplotlib — beide schon in</span>
+    <span class="c1"># Colab installiert. Kein pip-Install nötig.</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Colab-Setup fertig. cwd:&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Nicht in Colab erkannt — lokaler Modus wird genutzt.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nicht in Colab erkannt — lokaler Modus wird genutzt.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 <section id="lernziele">
 <h2>Lernziele<a class="headerlink" href="#lernziele" title="Link to this heading">#</a></h2>
 <p>Nach Bearbeitung dieses Notebooks könnt Ihr:</p>
@@ -2197,6 +2236,7 @@ Verhältnis: 87.1% der Originaldaten bleiben übrig.
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Jupyter Notebooks, Python und KI-unterstütztes Programmieren</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#google-colab-vorbereiten">Google Colab vorbereiten</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lernziele">Lernziele</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zeitplan-richtwert">Zeitplan (Richtwert)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#umgebung-einrichten">Umgebung einrichten</a></li>
