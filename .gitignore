@@ -37,3 +37,6 @@ Update_Fundus/*
 
 # Ignore Claude specific files
 .claude/*
+
+# Ignore PyMoca cache directories
+*.pymoca_cache/
