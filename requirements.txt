@@ -1,6 +1,6 @@
 # recommended python version: 3.10
 bokeh
-numpy==1.26.0
+numpy>=1.26.4,<2  # <2 wg. pysheds; >=1.26.4 satisfies music21/Colab
 pandas
 scipy
 matplotlib
